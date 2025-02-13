@@ -40,8 +40,8 @@ b.) -0.5
 c.) 1.23456789
 ---------------------------------------------- historico
 Versao Data Modificacao
-0.1 __/__ esboco
-0.2 __/__ mudanca de versao
+0.1 12/02 esboco
+0.2 12/02 mudanca de versao
 ---------------------------------------------- testes
 Versao Teste
 0.0 01. ( OK ) identificacao de programa

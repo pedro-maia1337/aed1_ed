@@ -49,7 +49,7 @@ printf ( "\n" );
  getchar( ); // para limpar a entrada de dados
 // para mostrar a opcao lida
  printf ( "\n%s%d", "Opcao = ", opcao );
-.// escolher acao dependente da opcao
+// escolher acao dependente da opcao
  switch ( opcao )
  {
  case 0: // nao fazer nada
@@ -80,5 +80,11 @@ Versao Data Modificacao
 ---------------------------------------------- testes
 Versao Teste
 0.0 00. ( OK ) identificacao de programa
-0.1 01. ( ___ ) identificacao de programa
+0.1 01. ( OK ) identificacao de programa
+0.2 02. ( OK ) identificacao de programa
+leitura e exibicao de inteiro
+0.3 03. ( OK ) identificacao de programa
+leitura e exibicao mediante escolha
+0.4 04. ( OK ) identificacao de programa
+leitura e exibicao mediante escolha
 */

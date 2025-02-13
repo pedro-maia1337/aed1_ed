@@ -39,7 +39,7 @@ b.) -5
 c.) 123456789
 ---------------------------------------------- historico
 Versao  Data Modificacao
- 0.1    12/02 esboco
+ 0.1    15/02 esboco
 ---------------------------------------------- testes
 Versao Teste
 0.0 01. ( OK ) identificacao de programa

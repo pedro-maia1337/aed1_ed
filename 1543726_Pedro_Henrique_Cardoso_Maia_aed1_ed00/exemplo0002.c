@@ -52,6 +52,6 @@ Versao Data Modificacao
 ---------------------------------------------- testes
 Versao Teste
 0.0 00. ( OK ) identificacao de programa
-leitura e exibicao de inteiro
-0.1 01. ( ___ ) identificacao de programa
+0.1 01. ( OK ) identificacao de programa
+0.2 02. ( OK ) identificacao de programa
 */
