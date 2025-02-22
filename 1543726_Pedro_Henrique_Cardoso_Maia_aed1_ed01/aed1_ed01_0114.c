@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main (void) {
     int ladoR = 0;
     int ladoL = 0;
 
@@ -11,13 +11,18 @@ int main(void) {
     printf("Insira outro lado do quadrado: ");
     scanf("%d", &ladoL);
 
-    int quartLadoR = ladoR / 4;
-    int quartLadoL = ladoL / 4;
+    int novo_ladoR = ladoR / 4;
+    int novo_ladoL = ladoL / 4;
 
-    int areaQuadrado = quartLadoL * quartLadoL;
-    int perimetroQuadrado = 2 * (quartLadoL + quartLadoR);
+    int area = novo_ladoR * novo_ladoL;
+    int perimetro = 2 * (novo_ladoL + novo_ladoR);
 
-    printf("%s %d", "Area do quadrado:", areaQuadrado);
+    printf("%s %d %s %d", "Area:", area, "Perimetro:", perimetro);
 
     return 0;
 }
+
+/*
+Entrada = 3 e 5
+Resultado = 0 e 2
+*/

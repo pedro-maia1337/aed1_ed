@@ -16,14 +16,18 @@ int main(void) {
   printf("Digite a largura do paralelepipedo: ");
   scanf("%f", &largura);
 
-  float altMaior = altura * 5;
-  float comprMaior = comprimento * 5;
-  float largMaior = largura * 5;
+  float nova_altura = altura * 5.0;
+  float novo_comprimento = comprimento * 5.0;
+  float nova_largura = largura * 5.0;
 
-  float volume = altMaior * comprMaior * largMaior;
+  float volume = nova_altura * novo_comprimento * nova_largura;
 
-  printf("O volume do paralelepipedo é: %.2f\n", volume);
+  printf("%s %.2f\n", "Volume: ", volume);
   
-
   return 0;
 }
+
+/*
+Entrada = 3, 4, 5
+Resultado = 7.500
+*/

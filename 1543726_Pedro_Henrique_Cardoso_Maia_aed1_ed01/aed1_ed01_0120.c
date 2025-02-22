@@ -8,12 +8,16 @@ int main(void) {
   printf("Digite o raio da esfera: ");
   scanf("%f", &raio);
 
-  float drecRaio = raio * 5 / 8;
+  float novo_raio = raio * 5.0 / 8.0;
 
+  float volume = (4 * 3.14 * pow(novo_raio, 3)) / 3.0;
 
-  float volume = (4 * 3.14 * pow(drecRaio, 3)) / 3;
-
-  printf("O volume da esfera é: %2.f", volume);
+  printf("%s %2.f", "Volume:", volume);
 
   return 0;
 }
+
+/*
+Entrada = 5
+Resultado = 128
+*/

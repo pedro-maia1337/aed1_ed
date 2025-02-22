@@ -8,12 +8,16 @@ int main(void) {
   printf("Digite o lado do cubo: ");
   scanf("%f", &lado);
 
-  float ladoMaior = lado * 4;
+  float novo_lado = lado * 4.0;
 
-  float volume = pow(ladoMaior, 3);
+  float volume = pow(novo_lado, 3);
 
-  printf("O volume do cubo é: %.2f\n", volume);
+  printf("%s %.2f", "Volume:" , volume);
   
-
   return 0;
 }
+
+/*
+Entrada = 5
+Resultado = 8.000
+*/

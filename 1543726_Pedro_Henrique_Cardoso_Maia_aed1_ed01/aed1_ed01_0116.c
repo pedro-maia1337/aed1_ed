@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-
 int main(void) {
 
   float lado = 0.0;
@@ -9,14 +8,18 @@ int main(void) {
   printf("Digite o lado do quadrado: ");
   scanf("%f", &lado);
 
-  float tercoLado = lado / 3;
+  float novo_lado = lado / 3.0;
 
-  float altura = (sqrt(3) * tercoLado) / 2;
-  float area = (pow(tercoLado, 2) * sqrt(3) / 4);
+  float perimetro = (sqrt(3) * novo_lado) / 2.0;
+  float area = (pow(novo_lado, 2) * sqrt(3) / 4.0);
 
-  
-  printf("A altura do triangulo é: %f\n", altura);
-  printf("A area do triangulo é: %f\n", area);
+  printf("%s %2.f\n", "Perimetro:", perimetro);
+  printf("%s %2.f\n", "Area:", area);
 
   return 0;
 }
+
+/*
+Entrada = 5
+Resultado = 1
+*/

@@ -8,11 +8,16 @@ int main(void) {
   printf("Digite o raio do circulo: ");
   scanf("%f", &raio);
 
-  float raioAumentado = raio * 4;
+  float novo_raio = raio * 4.0;
 
-  float area = M_PI * pow(raioAumentado, 2) / 2;
+  float area = 3.14 * pow(novo_raio, 2) / 2.0;
 
-  printf("A area do circulo é: %.2f", area);
+  printf("%s %.2f", "Area:", area);
 
   return 0;
 }
+
+/*
+Entrada = 5
+Resultado = 628
+*/

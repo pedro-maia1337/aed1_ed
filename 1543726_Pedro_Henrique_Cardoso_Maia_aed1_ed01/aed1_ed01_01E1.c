@@ -8,9 +8,16 @@ int main(void) {
   printf("Digite a area de circuferencia: ");
   scanf("%f", &area);
 
-  float aumArea = area * 7;
+  float nova_area = area * 7.0;
 
-  float raio = sqrt(aumArea / 3.14);
+  float raio = sqrt(nova_area / 3.14);
+
+  printf("%s %2.f", "Raio:", raio);
 
   return 0;
 }
+
+/*
+Entrada = 5
+Resultado = 3
+*/

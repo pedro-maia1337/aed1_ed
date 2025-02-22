@@ -1,17 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main (void) {
+
     int lado = 0;
 
     printf("Insira o lado do quadrado: ");
     scanf("%d", &lado);
 
-    int area = lado * lado;
-    int ladoFinal = lado * 3;
-    int areaFinal = ladoFinal * ladoFinal;
+    int novo_lado = lado * 3;
+    int area = novo_lado * novo_lado;
 
-    printf("%s %d", "Area quadrado final:", areaFinal);
+    printf("%s %d", "Area:", area);
 
     return 0;
 }
+
+/*
+Entrada = 5
+Resultado = 225
+*/
