@@ -25,9 +25,7 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "🧹 Limpando arquivos compilados..."
-	@if exist $(TARGET) (del /F /Q $(TARGET)) else (rm -f $(TARGET))
-	@if exist $(OBJ) (del /F /Q $(OBJ)) else (rm -f $(OBJ))
+	rm -f $(OBJ) $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)

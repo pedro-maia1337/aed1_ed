@@ -43,16 +43,15 @@ void method_0212() {
 
 void method_0213() {
     int val = 0;
+    char tipoIntervalo = 'a';
 
     printf("%s", "Insira um valor: ");
     scanf("%d", &val);
     getchar();
 
-    if(val > 20 && val < 55){
-        printf("%d %s\n", val, "Pertence ao intervalo aberto (20:55)");
-    } else {
-        printf("%d %s\n", val, "Nao pertence ao intervalo aberto (20:55)");
-    }
+    //fazer o casting pra inteiro
+
+    printf("%s\n", verifica_intervalo(20, 55, val, tipoIntervalo));
 
     printf("Pressione Enter para continuar...\n");
     getchar(); 
@@ -60,16 +59,15 @@ void method_0213() {
 
 void method_0214() {
     int val = 0;
+    char tipoIntervalo = 'f';
 
     printf("%s", "Insira um valor: ");
     scanf("%d", &val);
     getchar();
 
-    if(val >= 20 && val <= 55){
-        printf("%d %s\n", val, "Pertence ao intervalo fechado (20:55)");
-    } else {
-        printf("%d %s\n", val, "Nao pertence ao intervalo fechad0 (20:55)");
-    }
+    //fazer o casting pra inteiro 
+
+    printf("%s\n", intervalo_fechado(20, 55, val, tipoIntervalo));
 
     printf("Pressione Enter para continuar...\n");
     getchar(); 
@@ -140,6 +138,7 @@ void method_0219(){
     double val1 = 0.0;
     double val2 = 0.0;
     double val3 = 0.0;
+    char tipoIntervalo = 'f';
 
     printf("%s", "Insira o primeiro valor: ");
     scanf("%lf", &val1);
@@ -153,9 +152,44 @@ void method_0219(){
     scanf("%lf", &val3);
     getchar();
 
-    //estabelecer lógica
+    //val1, val3, val2
 
+    //validar a outra condição
+
+    printf("%s\n", verifica_intervalo(val1, val3, val2, tipoIntervalo));
+
+    printf("Pressione Enter para continuar...\n");
+    getchar(); 
 }
+
+void method_0220(){
+    double val1 = 0.0;
+    double val2 = 0.0;
+    double val3 = 0.0;
+    char tipoIntervalo = 'f';
+
+    printf("%s", "Insira o primeiro valor: ");
+    scanf("%lf", &val1);
+    getchar();
+
+    printf("%s", "Insira o segundo valor: ");
+    scanf("%lf", &val2);
+    getchar();
+
+    printf("%s", "Insira o terceiro valor: ");
+    scanf("%lf", &val3);
+    getchar();
+
+    //val1, val3, val2
+
+    //validar a outra condição
+
+    printf("%s\n", intervalo_aberto(val1, val3, val2, tipoIntervalo));
+
+    printf("Pressione Enter para continuar...\n");
+    getchar(); 
+}
+
 
 int main(void) {
 
@@ -163,18 +197,18 @@ int main(void) {
 
     do {
         cabecalho();
-        printf("1 - Procedimento 0211\n");
-        printf("2 - Procedimento 0212\n");
-        printf("3 - Procedimento 0213\n");
-        printf("4 - Procedimento 0214\n");
+        printf("1  - Procedimento 0211\n");
+        printf("2  - Procedimento 0212\n");
+        printf("3  - Procedimento 0213\n");
+        printf("4  - Procedimento 0214\n");
 
-        printf("5 - .....\n");
-        printf("6 - Procedimento 0216\n");
-        printf("7 - Procedimento 0217\n");
+        printf("5  - .....\n");
+        printf("6  - Procedimento 0216\n");
+        printf("7  - Procedimento 0217\n");
 
-        printf("8 - Procedimento 0218\n");
-        printf("9 - Procedimento 0219\n");
-        printf("10 - .....\n");
+        printf("8  - Procedimento 0218\n");
+        printf("9  - Procedimento 0219\n");
+        printf("10 - Procedimento 0220\n");
 
         printf("0 - Sair\n");
 
@@ -219,6 +253,14 @@ int main(void) {
                 method_0219();
                 break;
 
+            case 10:
+                method_0220();
+                break;
+
+            case 0:
+                printf("Pressione Enter para continuar...\n");
+                getchar();
+                break; 
 
             default:
                 printf("%s", "Opcao invalida");
