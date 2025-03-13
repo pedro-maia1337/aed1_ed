@@ -78,7 +78,9 @@ void method_0313() {
     //encontrar as letras maiores que K
     //subtistuir pelas letras maisculas ???? 
 
-    for(int i = 0; i < strlen(s); i++) {
+    //tirar a inversão da palavra
+
+    for(int i = strlen(s); i >= 0; i--) {
         if(s[i] > 'k') {
             printf("%c", convmaiuscula(s[i]));
             count++;
@@ -91,6 +93,8 @@ void method_0313() {
     printf("\n");
 
     printf("Numero de letras maiores que K: %d", count);
+
+    printf("\n");
 
     printf("Pressione Enter para continuar...\n");
     getchar();
@@ -106,16 +110,117 @@ void method_0316() {
 }
 
 void method_0317() {
+    int limiteA = 0;
+    int limeteB = 0;
+    int n = 0;
+    int count = 0;
+    int val = 0;
+
+    printf("Insira o primeiro termo: \n");
+    scanf("%d", &limiteA);
+    getchar();
     
+    printf("Insira o segundo termo: \n");
+    scanf("%d", &limeteB);
+    getchar();
+
+    printf("Defina n: \n");
+    scanf("%d", &n);
+    getchar();
+
+    for(int i = 0; i < n; i++){
+        printf("Valor %d: ", i + 1);
+        scanf("%d", &val);
+        getchar();
+
+        if(val % 3 == 0 && val > limiteA && val < limeteB) {
+            count++;
+        }
+    }
+
+    printf("%d", count);
+
+    printf("\n");
+
+    printf("Pressione Enter para continuar...\n");
+    getchar();
+
 }
 
 void method_0318(){
+    int limiteA = 0;
+    int limeteB = 0;
+    int n = 0;
+    int count = 0;
+    int val = 0;
+
+    printf("Insira o primeiro termo: \n");
+    scanf("%d", &limiteA);
+    getchar();
     
+    printf("Insira o segundo termo: \n");
+    scanf("%d", &limeteB);
+    getchar();
+
+    printf("Defina n: \n");
+    scanf("%d", &n);
+    getchar();
+
+    for(int i = 0; i < n; i++){
+        printf("Valor %d: ", i + 1);
+        scanf("%d", &val);
+        getchar();
+
+        if(val % 3 != 0 && val % 4 == 0 && val > limiteA && val < limeteB) {
+            count++;
+        }
+    }
+
+    printf("%d", count);
+
+    printf("\n");
+
+    printf("Pressione Enter para continuar...\n");
+    getchar();
 
 }
 
 void method_0319(){
+    double limiteA = 0;
+    double limeteB = 0;
+    int n = 0;
+    int count = 0;
+    double val = 0;
+
+    printf("Insira o primeiro termo: \n");
+    scanf("%lf", &limiteA);
+    getchar();
     
+    printf("Insira o segundo termo: \n");
+    scanf("%lf", &limeteB);
+    getchar();
+
+    printf("Defina n: \n");
+    scanf("%d", &n);
+    getchar();
+
+    for(int i = 0; i < n; i++){
+        printf("Valor %d: ", i + 1);
+        scanf("%lf", &val);
+        getchar();
+
+        if((int)val % 2 == 0 && (int)val < 5 && val > limiteA && val < limeteB) {
+            count++;
+        }
+        
+    }
+
+    printf("%d", count);
+
+    printf("\n");
+
+    printf("Pressione Enter para continuar...\n");
+    getchar();
 }
 
 void method_0320(){
