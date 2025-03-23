@@ -44,15 +44,16 @@ void method_0411() {
         if(valor > a && valor < b) count++;
     }
 
-    printf("dentro do intervalo: %d\n fora do intervalo: %d\n", count, n - count);
+    printf("dentro do intervalo: %d\nfora do intervalo: %d\n", count, n - count);
 
     printf("Pressione enter para sair!!!!\n");
     getchar();
+
+    //Exemplo: n = 10 e [ 10.4 : 23.4 ] com { 5.1, 10.5, 12.4, 14.2, 15.3, 18.3, 20.4, 21.7, 23.1, 24.2 }
+    //Resultado esperado = 8 e 2
 }
 
-void method_0412() {
-    //sequência = AaKkLmM0*Nx = 2
-                      
+void method_0412() {                
     char str[MAX] = "";
     int count = 0;
 
@@ -61,19 +62,20 @@ void method_0412() {
     str[strcspn(str, "\n")] = '\0';
 
     for(int i = 0; i < strlen(str); i++) {
-        if(str[i] > 'a' && str[i] < 'z' && str[i] > 'c' && str[i] < 'p') {
+        if(verificar_maiuscula(str[i]) == 0 && str[i] > 'c' && str[i] < 'p') {
             count ++;
         }
     }
 
-    printf("%d\n", count);
+    printf("Resultado: %d\n\n", count);
     printf("Pressione enter para sair!!!!\n");
     getchar();
+
+    //sequência = AaKkLmM0*Nx 
+    //resultado esperado = 2
 }
 
 void method_0413() {
-    //sequência = AaKkLmM0*Nx = 2
-
     char str[MAX] = "";
     int count = 0;
 
@@ -81,11 +83,14 @@ void method_0413() {
     fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    count = countString(str);
+    count = contar_string(str);
 
-    printf("%d\n", count);
+    printf("Resultado: %d\n\n", count);
     printf("Pressione enter para sair!!!!\n");
     getchar();
+
+    //sequência = AaKkLmM0*Nx 
+    //resultado esperado = 2
 }
 
 void method_0414() {
@@ -95,13 +100,15 @@ void method_0414() {
     fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    printf("%s\n", concatString(str));
+    printf("Resultado: %s\n\n", concatenar_string(str));
     printf("Pressione enter para sair!!!!\n");
     getchar();
+
+    //sequência = AaKkLmM0*Nx 
+    //resultado esperado = km
 }
 
 void method_0415() {
-    //sequência = AaKkLmM0*Nx = 6
     char str[MAX] = "";
     int count = 0;
 
@@ -109,13 +116,15 @@ void method_0415() {
     fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    count = countStringM(str);
+    count = contar_string_maiuscula_minuscula(str);
 
-    printf("%d\n", count);
+    printf("Resultado: %d\n\n", count);
     printf("Pressione enter para sair!!!!\n");
     getchar();
-}
 
+    //sequência = AaKkLmM0*Nx 
+    //resultado esperado = 6
+}
 
 void method_0416() {
     char str[MAX] = "";
@@ -124,13 +133,15 @@ void method_0416() {
     fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    printf("%s\n", concatStringM(str));
+    printf("Resultado: %s\n\n", concatenar_string_maiuscula_minuscula(str));
     printf("Pressione enter para sair!!!!\n");
     getchar();
+
+    //sequência = AaKkLmM0*Nx 
+    //resultado esperado = KkLmMN
 }
 
 void method_0417() {
-    //sequência = A1b2C3d4E5f6 = 3
     char str[MAX] = "";
     int count = 0;
 
@@ -138,41 +149,72 @@ void method_0417() {
     fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    count = countPar(str);
+    count = contar_par(str);
 
-    printf("%d\n", count);
+    printf("Resultado: %d\n\n", count);
     printf("Pressione enter para sair!!!!\n");
     getchar();
-    
+
+    //sequência = A1b2C3d4E5f6
+    //resultado esperado = 3
 }
 
-void method_0418(){
+void method_0418() {
     char str[MAX] = "";
 
     printf("Digite a sequencia de caracteres: ");
     fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    printf("%s\n", concatStringNotAlfa(str));
+    printf("Resultado: %s\n\n", concatenar_string_nao_alfanumerica(str));
     printf("Pressione enter para sair!!!!\n");
     getchar();
+
+    //sequência = (A1b2+C3d4)*E5f6
+    //resultado esperado = (+)*
 }
 
 void method_0419(){
-    //sequência = (A1b2+C3d4)*E5f6
     char str[MAX] = "";
 
     printf("Digite a sequencia de caracteres: ");
     fgets(str, MAX, stdin);
     str[strcspn(str, "\n")] = '\0';
 
-    printf("%s\n", concatStringAlfa(str));
+    printf("Resultado: %s\n\n", concatenar_string_alfanumerica(str));
     printf("Pressione enter para sair!!!!\n");
     getchar();
+
+    //sequência = A1b2C3d4E5f6
+    //resultado esperado = A1b2C3d4E5f6
 }
 
 void method_0420(){
-     
+    int n = 0;
+    int total = 0;
+
+    printf("Digite a quantidade de str a serem lidas: ");
+    scanf("%d", &n); getchar();
+
+    char str[n][MAX];
+
+    for (int i = 0; i < n; i++) {
+        printf("Palavra %d: ", i + 1);
+        fgets(str[i], MAX, stdin);
+        str[i][strcspn(str[i], "\n")] = '\0'; 
+    }
+
+    for (int i = 0; i < n; i++) {
+        int qtd_alfanumericos = contar_string_alfanumerica(str[i]);
+        total += qtd_alfanumericos;
+    }
+
+    printf("Resultado: %d\n\n", total);
+    printf("Pressione enter para sair!!!!\n");
+    getchar();
+
+    //sequências = { (A1b2+C3d4)*E5f6, [P&&Q]||[R&&!S], (a<b&&b<c) }
+    //Resultado esperado = 20;
 }
 
 
@@ -229,7 +271,7 @@ int main(int argc, char *argv[]) {
                 printf("Pressione Enter para continuar...\n"); getchar();
                 break;
             default:
-                printf("%s", "Opcao invalida");
+                printf("%s", "Opcao invalida"); getchar();
                 break;
         }
 

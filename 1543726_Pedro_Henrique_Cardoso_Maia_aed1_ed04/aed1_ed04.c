@@ -5,11 +5,19 @@
 
 #define MAX 100
 
-int countString(char *str){
+int verificar_maiuscula(char c) {
+    if(c >= 'A' && c <= 'Z') {
+        return 1;
+    } else {
+        return 0;
+    }  
+}
+
+int contar_string(char *str){
     int count = 0;
 
     for(int i = 0; i < strlen(str); i++) {
-        if(str[i] >= 'a' && str[i] <= 'z' && str[i] >= 'c' && str[i] <= 'p') {
+        if(verificar_maiuscula(str[i]) == 0 && str[i] >= 'c' && str[i] <= 'p') {
             count ++;
         }
     }
@@ -17,11 +25,12 @@ int countString(char *str){
     return count;
 }
 
-char* concatString(char *str) {
+char* concatenar_string(char *str) {
     static char str2[MAX] = "";
+    str2[0] = '\0';  // Reseta a string para uma string vazia
 
     for(int i = 0; i < strlen(str); i++) {
-        if(str[i] >= 'a' && str[i] <= 'z' && str[i] >= 'c' && str[i] <= 'p') {
+        if(verificar_maiuscula(str[i]) == 0 && str[i] >= 'c' && str[i] <= 'p') {
             char temp[2] = {str[i], '\0'};
             strcat(str2, temp);
         }
@@ -30,11 +39,11 @@ char* concatString(char *str) {
     return str2;
 }
 
-int countStringM(char *str){
+int contar_string_maiuscula_minuscula(char *str){ 
     int count = 0;
 
     for(int i = 0; i < strlen(str); i++) {
-        if(((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) && ((str[i] >= 'c' && str[i] <= 'p') || (str[i] >= 'C' && str[i] <= 'P'))) {
+        if(((verificar_maiuscula(str[i]) == 1) || (verificar_maiuscula(str[i]) == 0)) && ((str[i] >= 'c' && str[i] <= 'p') || (str[i] >= 'C' && str[i] <= 'P'))) {
             count ++;
         }
     }
@@ -42,11 +51,12 @@ int countStringM(char *str){
     return count;
 }
 
-char* concatStringM(char *str) {
+char* concatenar_string_maiuscula_minuscula(char *str) {
     static char str2[MAX] = "";
+    str2[0] = '\0';  // Reseta a string para uma string vazia
 
     for(int i = 0; i < strlen(str); i++) {
-        if(((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) && ((str[i] >= 'c' && str[i] <= 'p') || (str[i] >= 'C' && str[i] <= 'P'))) {
+        if(((verificar_maiuscula(str[i]) == 1) || (verificar_maiuscula(str[i]) == 0)) && ((str[i] >= 'c' && str[i] <= 'p') || (str[i] >= 'C' && str[i] <= 'P'))) {
             char temp[2] = {str[i], '\0'};
             strcat(str2, temp);
         }
@@ -55,7 +65,7 @@ char* concatStringM(char *str) {
     return str2;
 }
 
-int countPar(char *str){
+int contar_par(char *str){
     int count = 0;
 
     for(int i = 0; i < strlen(str); i++) {
@@ -68,8 +78,9 @@ int countPar(char *str){
 }
 
 
-char* concatStringNotAlfa(char *str) {
+char* concatenar_string_nao_alfanumerica(char *str) {
     static char str2[MAX] = "";
+    str2[0] = '\0';  // Reseta a string para uma string vazia
 
     for(int i = 0; i < strlen(str); i++) {
         if(!((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) && !((str[i] >= '0' && str[i] <= '9'))) {
@@ -81,8 +92,9 @@ char* concatStringNotAlfa(char *str) {
     return str2;
 }
 
-char* concatStringAlfa(char *str) {
+char* concatenar_string_alfanumerica(char *str) {
     static char str2[MAX] = "";
+    str2[0] = '\0';  // Reseta a string para uma string vazia
 
     for(int i = 0; i < strlen(str); i++) {
         if(((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) || ((str[i] >= '0' && str[i] <= '9'))) {
@@ -92,4 +104,16 @@ char* concatStringAlfa(char *str) {
     }
 
     return str2;
+}
+
+int contar_string_alfanumerica(char *str) {
+    int count = 0;
+
+    for(int i = 0; i < strlen(str); i++) {
+        if(((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) || ((str[i] >= '0' && str[i] <= '9'))) {
+            count++;
+        }
+    }
+
+    return count;
 }
