@@ -26,6 +26,8 @@ void method_0511() {
         printf("%d ", valor);
     }
 
+    printf("\n");
+
     printf("Pressione enter para sair!!!!\n"); 
     getchar();
 }
@@ -44,6 +46,8 @@ void method_0512() {
         printf("%d ", valor);
     }
 
+    printf("\n");
+
     printf("Pressione enter para sair!!!!\n"); 
     getchar();        
    
@@ -52,36 +56,143 @@ void method_0512() {
 void method_0513() {
     //n = 5 => { 1024, 256, 64, 16, 4 }
     int n = 0;
-    int valor = 2;
-    int resultado = 0;
     int pot = 0;
 
     printf("Insira o valor: ");
     scanf("%d", &n);
     getchar();
 
-    printf("%d ", potencia(2, 2));
-    printf("%d ", potencia(2, 4));
-    printf("%d ", potencia(2, 6));
-    printf("%d ", potencia(2, 8));
+    pot = (n * 2);
+
+    for(int i = 0; i < n; i++){ 
+        printf("%d ", potencia(2, pot));
+        pot = pot - 2;
+    }
+
+    printf("\n");
 
     printf("Pressione enter para sair!!!!\n"); 
     getchar();  
 }
 
 void method_0514() {
-    
+    // n = 5 => { 3, 6, 9, 12, 15 }
+    int n = 0;
+    double valor = 0;
+
+    printf("Insira o valor: ");
+    scanf("%d", &n);
+    getchar();
+
+    for(int i = 0; i < n; i++) {
+        valor = (1 / (valor + (3 * 1)));
+        printf("%0.5lf ", valor);
+    }
+
+    printf("\n");
+
+    printf("Pressione enter para sair!!!!\n"); 
+    getchar();
 }
 
 void method_0515() {
-    
+    //n = 5 => { 1, 1/x2, 1/x4, 1/x6, 1/x8}
+
+    // 1 / 4 = 0.25
+    // 1 / 16 = 0.625
+    // 1 / 64 = 0.015625
+    // 1 / 256 = 0.003906
+    // 1 / 1024 = 0,0009765
+
+    int n = 0;
+    double valor = 0;
+    double denominador = 0;
+    double x = 0;
+    int pot = 2;
+
+    printf("Insira o numero de repeticoes: ");
+    scanf("%d", &n);
+    getchar();
+
+    printf("Insira o valor: ");
+    scanf("%lf", &x);
+    getchar();
+
+    for(int i = 0; i < n; i++) {
+        denominador = pow(x, pot);
+        pot = pot + 2;
+
+        valor = 1 / denominador;
+        printf("%lf ", valor);
+    }
+
+    printf("\n");
+
+    printf("Pressione enter para sair!!!!\n"); 
+    getchar();    
 }
 
 void method_0516() {
+    // n = 5 => { 3, 6, 9, 12, 15 } = 45
+    // n = 5 => { 3, 6, 9, 15, 18 } = 51
+    int n = 0;
+    int valor = 0;
+    int soma = 0;
+
+    printf("Insira o valor: ");
+    scanf("%d", &n);
+    getchar();
+
+    for(int i = 0; i < n; i++) {
+        valor = valor + (3 * 1);
+
+        if(valor % 3 == 0 && valor % 4 != 0) soma = soma + valor;
+
+        if(valor % 4 == 0)  i--;  
+        
+    }
+
+    printf("%d ", soma);
+
+    printf("\n");
+
+    printf("Pressione enter para sair!!!!\n"); 
+    getchar();
 }
 
 void method_0517() {
-    
+    // n = 5 => { 1/4, 1/8, 1/12, 1/16, 1/24 }
+    // 1 / 4 = 0.25
+    // 1 / 8 = 0.125
+    // 1 / 12 = 0.083
+    // 1 / 16 = 0.625
+    // 1 / 24 = 0.0416
+
+    //voltar
+
+    int n = 0;
+    int valor = 4;
+    double resultado = 0;
+
+    printf("Insira o valor: ");
+    scanf("%d", &n);
+    getchar();
+
+    for(int i = 0; i < n; i++) {
+        if(valor % 4 == 0 && valor % 5 != 0) { 
+            resultado = 1 / (double)valor;
+            printf("%lf ", resultado);
+            valor = valor + (4 * 1);
+        }
+
+        if(valor % 5 == 0)  i--;  
+        
+    }
+
+    printf("\n");
+
+    printf("Pressione enter para sair!!!!\n"); 
+    getchar();
 }
 
 void method_0518() {
