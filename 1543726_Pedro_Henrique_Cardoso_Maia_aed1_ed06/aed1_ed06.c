@@ -18,7 +18,6 @@ void multiplos_de_tres_decrescente(int n, int x, int count) {
 }
 
 void inverso_multiplos_de_tres(int n, double x, int count) {
-    
     if(n == count) return;
     printf("%lf ", 1.0 / x);
     x = x + (3.0 * 1.0);
@@ -30,4 +29,20 @@ void inverso_multiplos_de_tres_decrescente(int n, double x, int count) {
     printf("%lf ", 1.0 / x);
     x = x - (3.0 * 1.0);
     inverso_multiplos_de_tres_decrescente(n, x, count + 1);
+}
+
+int gerar_impar(int x) {
+    if(x == 3) return 5;
+    if(x % 2 == 0) return (x * 2) - 1;
+    return x;
+}
+
+int gerar_adicao_de_valores_impares(int n, int x, int count) {
+    if(count <= n){
+        x = x + gerar_impar(n); 
+        gerar_adicao_de_valores_impares(n, x, count + 1);
+        return x;
+    } 
+
+    return 0;
 }

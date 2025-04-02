@@ -76,6 +76,14 @@ void method_0614() {
 }
 
 void method_0615() {
+    //3 + 4 + 7 + 12 + 19
+
+    int x = 3;
+
+    for(int n = 1; n <= 5; n++) {
+        x = gerar_adicao_de_valores_impares(n, x, 0);
+        printf("%d ", x);
+    }
     
 
     printf("\n");
