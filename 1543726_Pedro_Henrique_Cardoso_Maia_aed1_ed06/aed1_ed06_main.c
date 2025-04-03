@@ -4,6 +4,8 @@
 #include <string.h>
 #include "aed1_ed06.h"
 
+#define MAX 100
+
 void cabecalho() {
     system("cls");
     printf("----------------------------------------\n");
@@ -76,24 +78,20 @@ void method_0614() {
 }
 
 void method_0615() {
-    //3 + 4 + 7 + 12 + 19
+    //3 + 4 + 7 + 12 + 19 = 45
 
-    int x = 3;
-
-    for(int n = 1; n <= 5; n++) {
-        x = gerar_adicao_de_valores_impares(n, x, 0);
-        printf("%d ", x);
-    }
-    
+    printf("%d", gerar_soma_adicao_de_valores_impares(3, 0));
 
     printf("\n");
-
+    
     printf("Pressione enter para sair!!!!\n"); 
     getchar();    
 }
 
 void method_0616() {
-    
+    //1/3 + 1/4 + 1/7 + 1/12 + 1/19 = 0.8621
+
+    printf("%lf", gerar_inversos_adicao_de_valores_impares(3, 0.0));
 
     printf("\n");
 
@@ -102,8 +100,17 @@ void method_0616() {
 }
 
 void method_0617() {
-   
+    char str[MAX];
+    int tam = 0;
 
+    printf("%s", "Digite a frase: ");
+    fgets(str, MAX, stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    tam = strlen(str);
+
+    inverte_string(str, tam);
+   
     printf("\n");
 
     printf("Pressione enter para sair!!!!\n"); 
