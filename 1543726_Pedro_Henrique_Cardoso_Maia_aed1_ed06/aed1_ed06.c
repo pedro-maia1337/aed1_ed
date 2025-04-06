@@ -17,18 +17,20 @@ void multiplos_de_tres_decrescente(int n, int x) {
     multiplos_de_tres_decrescente(n - 1, x);
 }
 
-void inverso_multiplos_de_tres(int n, double x, int count) { 
-    if(n == count) return;
-    printf("%lf ", 1.0 / x);
-    x = x + (3.0 * 1.0);
-    inverso_multiplos_de_tres(n, x, count + 1);
+void inverso_multiplos_de_tres(int n, int count) { 
+    if(count > n) return;
+    double denominador = 3.0 * count;
+    printf("%lf ", 1.0 / denominador);
+    inverso_multiplos_de_tres(n, count + 1);
 }
 
-void inverso_multiplos_de_tres_decrescente(int n, double x, int count) { // voltar
-    if(n == count) return;
-    printf("%lf ", 1.0 / x);
-    x = x - 3.0;
-    inverso_multiplos_de_tres_decrescente(n, x, count + 1);
+void inverso_multiplos_de_tres_decrescente(int n, int count) { // voltar
+    if (n < 1) return;
+
+    double denominador = n * 3.0;
+    printf("%lf ", 1.0 / denominador);
+
+    inverso_multiplos_de_tres_decrescente(n - 1, count);
 }
 
 int gerar_valor_somado(int x) { 
@@ -69,6 +71,19 @@ void inverte_string(char *str, int tam) {
 
     printf("%c\n", str[tam]);
     inverte_string(str, tam - 1);
+}
+
+int contar_digito_par(char *str, int tam) {
+    if(tam < 0) return 0;
+
+    if (str[tam] >= '0' && str[tam] <= '9') {
+        int resultado = str[tam] - '0';
+        if (resultado % 2 == 0) {
+            return 1 + contar_digito_par(str, tam - 1);
+        }
+    }
+
+    return contar_digito_par(str, tam - 1);
 }
 
 int verifica_string(char *str, int tam, int qtd) {

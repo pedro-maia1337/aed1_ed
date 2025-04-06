@@ -54,7 +54,9 @@ void method_0613() {
     printf("%s", "Insira a quantidade de numeros inversos dos multiplos de tres que deseja gerar: ");
     scanf("%d", &n); getchar();
 
-    inverso_multiplos_de_tres(n, 1.0, 0);
+    printf("%lf ", 1.0); // 1/1
+
+    inverso_multiplos_de_tres(n - 1, 1);
     
     printf("\n");
 
@@ -63,16 +65,15 @@ void method_0613() {
 }
 
 void method_0614() {
-    //valor = 5 => { 1/12, 1/9, 1/6, 1/3, 1/1 } = 0.0833, 0.111, 0.166, 0.333, 1
+    //valor = 5 => { 1/12, 1/9, 1/6, 1/3, 1/1 } = 0.0833, 0.111, 0.166, 0.333, 1.000
     int n = 0;
-    double x = 1.0;
 
     printf("Insira o numero de repeticoes: "); // verificar por que está dando infinito
     scanf("%d", &n); getchar();
 
-    x = ((double)n * 3.0) - 3.0;
+    inverso_multiplos_de_tres_decrescente(n - 1, n);
 
-    inverso_multiplos_de_tres_decrescente(n, x, 0);
+    printf("%lf ", 1.0); // 1/1
 
     printf("\n");
 
@@ -136,6 +137,20 @@ void method_0617() {
 }
 
 void method_0618() {
+
+    //Sequência = "P4LaVr@1"  = 1
+    //Sequência: "1234567890" = 5
+
+    char str[MAX];
+    int tam = 0;
+
+    printf("%s", "Digite a frase: ");
+    fgets(str, MAX, stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    tam = strlen(str);
+
+    printf("%d", contar_digito_par(str, tam));
     
     //num entendi 
     printf("\n");
