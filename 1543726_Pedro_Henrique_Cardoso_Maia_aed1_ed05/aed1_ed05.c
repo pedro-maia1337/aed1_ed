@@ -121,6 +121,14 @@ void resultado_soma_dos_inversos(int n){
     printf("n = %d => %lf", n, soma_dos_inversos(n, 13, 0));
 }
 
+int fatorial(int n){
+    if(n == 0) {
+        return 1;
+    } 
+    n = n * fatorial(n - 1);
+    return n;
+}
+
 
 
 

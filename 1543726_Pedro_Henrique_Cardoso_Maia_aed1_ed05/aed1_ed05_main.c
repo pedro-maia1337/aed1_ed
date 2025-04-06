@@ -184,6 +184,24 @@ void method_0520(){
 
     printf("Pressione enter para sair!!!!\n"); 
     getchar();
+}
+
+void method_05E1(){
+
+    int n = 0;
+
+    printf("Insira o numero: ");
+    scanf("%d", &n); getchar();
+
+    printf("Resultado = %d", fatorial(n));
+
+    printf("\n");
+
+    printf("Pressione enter para sair!!!!\n"); 
+    getchar();
+}
+
+void method_05E2(){
 
 }
 
@@ -205,6 +223,9 @@ int main(int argc, char *argv[]) {
         printf("8  - Procedimento 0518\n");
         printf("9  - Procedimento 0519\n");
         printf("10 - Procedimento 0520\n");
+
+        printf("11 - Procedimento 05E1\n");
+        printf("12 - Procedimento 05E2\n");
 
         printf("0 - Sair\n");
 
@@ -237,6 +258,10 @@ int main(int argc, char *argv[]) {
                 method_0519(); break;
             case 10:
                 method_0520(); break;
+            case 11:
+                method_05E1(); break;
+            case 12:
+                method_05E2(); break;
             case 0:
                 printf("Pressione Enter para continuar...\n"); getchar();
                 break;

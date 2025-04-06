@@ -13,6 +13,7 @@ double calcular_soma_inversos_multiplos_de_quatro(int n, int x, int count);
 int adicao_naturais(int n, int x, int i, int count);
 int soma_dos_quadrados(int n, int x, int count);
 double soma_dos_inversos(int n, double x, int count);
+int fatorial(int n);
 
 
 //Funções para exibir resultados

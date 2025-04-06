@@ -15,44 +15,46 @@ void cabecalho() {
 }
 
 void method_0611() {
+    //n = 5 => { 3, 6, 9, 12, 15 }
     int n = 0;
 
-    printf("Insira o numero de repeticoes: ");
+    printf("%s", "Insira a quantidade de numeros multiplos de tres que deseja gerar: ");
     scanf("%d", &n); getchar();
 
-    multiplos_de_tres(n, 0, 0);
+    multiplos_de_tres(n, 0);
 
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
-    getchar();
+    printf("%s\n", "Pressione enter para sair!!!!"); 
+    getchar();    
 }
 
 void method_0612() {   
+    // n = 5 => { 15, 12, 9, 6, 3 }
     int n = 0;
     int x = 0;
 
-    printf("Insira o numero de repeticoes: ");
+    printf("%s", "Insira a quantidade de numeros multiplos de tres em ordem decrescente que deseja gerar: ");
     scanf("%d", &n); getchar();
 
     x = n * 3;
 
-    multiplos_de_tres_decrescente(n, x, 0);
+    multiplos_de_tres_decrescente(n, x);
 
     printf("\n");
 
     printf("Pressione enter para sair!!!!\n"); 
     getchar();        
-   
 }
 
 void method_0613() {
+    //valor = 5 => { 1/1, 1/3, 1/6, 1/9, 1/12 } = 1, 0.33, 0.16, 0.1, 0.0833
     int n = 0;
 
-    printf("Insira o numero de repeticoes: ");
+    printf("%s", "Insira a quantidade de numeros inversos dos multiplos de tres que deseja gerar: ");
     scanf("%d", &n); getchar();
 
-    inverso_multiplos_de_tres(n, 0.0, 0);
+    inverso_multiplos_de_tres(n, 1.0, 0);
     
     printf("\n");
 
@@ -61,13 +63,14 @@ void method_0613() {
 }
 
 void method_0614() {
+    //valor = 5 => { 1/12, 1/9, 1/6, 1/3, 1/1 } = 0.0833, 0.111, 0.166, 0.333, 1
     int n = 0;
-    double x = 0;
+    double x = 1.0;
 
-    printf("Insira o numero de repeticoes: ");
+    printf("Insira o numero de repeticoes: "); // verificar por que está dando infinito
     scanf("%d", &n); getchar();
 
-    x = ((double) n * 3.0) - 3.0;
+    x = ((double)n * 3.0) - 3.0;
 
     inverso_multiplos_de_tres_decrescente(n, x, 0);
 
@@ -78,9 +81,15 @@ void method_0614() {
 }
 
 void method_0615() {
-    //3 + 4 + 7 + 12 + 19 = 45
+    //valor = 4  =>  3 + 4 + 7 + 12      = 26
+    //valor = 5  =>  3 + 4 + 7 + 12 + 19 = 45
 
-    printf("%d", gerar_soma_adicao_de_valores_impares(3, 0));
+    int t = 0;
+
+    printf("Insira o numero de repeticoes: ");
+    scanf("%d", &t); getchar();
+
+    printf("%d", gerar_soma_adicao_de_valores_impares(t, 3, 0));
 
     printf("\n");
     
@@ -89,9 +98,15 @@ void method_0615() {
 }
 
 void method_0616() {
-    //1/3 + 1/4 + 1/7 + 1/12 + 1/19 = 0.8621
+    //n = 5 => 1/3 + 1/4 + 1/7 + 1/12               = 0.8095
+    //n = 6 => 1/3 + 1/4 + 1/7 + 1/12 + 1/15        = 0.8978
 
-    printf("%lf", gerar_inversos_adicao_de_valores_impares(3, 0.0));
+    int t = 0;
+
+    printf("Insira o numero de repeticoes: ");
+    scanf("%d", &t); getchar();
+
+    printf("%lf", gerar_inversos_adicao_de_valores_impares(t, 3, 0.0));
 
     printf("\n");
 
@@ -100,6 +115,9 @@ void method_0616() {
 }
 
 void method_0617() {
+    //sequência = "abcde" = e d c b a
+    //sequência = "teste" = e t s e t
+
     char str[MAX];
     int tam = 0;
 
@@ -119,7 +137,7 @@ void method_0617() {
 
 void method_0618() {
     
-
+    //num entendi 
     printf("\n");
 
     printf("Pressione enter para sair!!!!\n"); 
@@ -127,7 +145,22 @@ void method_0618() {
 }
 
 void method_0619(){
-    
+
+    //sequência = "P4LaVr@1" = 1
+    //sequência = "EFGHI" = 5
+    //sequência = "efghi" = 0
+
+    char str[MAX];
+    int tam = 0;
+    int qtd = 0;
+
+    printf("%s", "Digite a frase: ");
+    fgets(str, MAX, stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    tam = strlen(str);
+
+    printf("%d", verifica_string(str, tam, qtd));
 
     printf("\n");
     
@@ -136,8 +169,64 @@ void method_0619(){
 }
 
 void method_0620(){
-    
 
+    //valor = 3 => 2+8+34 = 44
+    //valor = 4 => 2+8+34+144 = 188
+    //valor = 5 => 2+8+34+144+610 = 798
+
+    int n = 0;
+
+    printf("%s", "Digite o termo da sequencia: ");
+    scanf("%d", &n); getchar();
+
+    printf("%d", soma_termo_par_fib(n, 0, 1));
+    
+    printf("\n");
+
+    printf("Pressione enter para sair!!!!\n"); 
+    getchar();
+
+}
+
+
+void method_06E1(){
+    int x = 0;
+    int n = 0;
+    int soma = 0;
+    int pot = 3;
+    
+    //f ( 2, 5 ) = 1 + 2^3 + 2^5 + 2^7 + 2^9         = 681
+    //f ( 2, 6 ) = 1 + 2^3 + 2^5 + 2^7 + 2^9 + 2^11  = 2.729         
+
+    printf("%s", "Digite a base: ");
+    scanf("%d", &x); getchar();
+
+    printf("%s", "Digite o numero de repeticoes: ");
+    scanf("%d", &n); getchar();
+
+    printf("%d", 1 + soma_potencia(x, n, soma, pot));
+
+    printf("\n");
+
+    printf("Pressione enter para sair!!!!\n"); 
+    getchar();
+}
+
+
+void method_06E2() {
+    //  e = 1 + 3/2! + 5/4! + 7/8!      + 9/16!
+    //  5 = 1 + 3/2  + 5/24 + 7/40320   + 9/2004189184 = 1,70850
+
+    double x = 3.0;
+    int n = 0;
+    int denominador = 2;
+    double soma = 0.0;
+
+    printf("%s", "Digite o numero de repeticoes: ");
+    scanf("%d", &n); getchar();
+
+    printf("%lf", soma_divisao_fatorial(x, n, denominador, soma));
+    
     printf("\n");
 
     printf("Pressione enter para sair!!!!\n"); 
@@ -163,6 +252,9 @@ int main(int argc, char *argv[]) {
         printf("8  - Procedimento 0618\n");
         printf("9  - Procedimento 0619\n");
         printf("10 - Procedimento 0620\n");
+
+        printf("11 - Procedimento 06E1\n");
+        printf("12 - Procedimento 06E2\n");
 
         printf("0 - Sair\n");
 
@@ -195,6 +287,10 @@ int main(int argc, char *argv[]) {
                 method_0619(); break;
             case 10:
                 method_0620(); break;
+            case 11:
+                method_06E1(); break;
+            case 12:
+                method_06E2(); break;
             case 0:
                 printf("Pressione Enter para continuar...\n"); getchar();
                 break;
