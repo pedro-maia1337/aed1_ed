@@ -21,7 +21,7 @@ void method_0611() {
     printf("%s", "Insira a quantidade de numeros multiplos de tres que deseja gerar: ");
     scanf("%d", &n); getchar();
 
-    multiplos_de_tres(n, 0);
+    gerar_multiplos_de_tres(n, 0);
 
     printf("\n");
 
@@ -39,11 +39,11 @@ void method_0612() {
 
     x = n * 3;
 
-    multiplos_de_tres_decrescente(n, x);
+    gerar_multiplos_de_tres_decrescente(n, x);
 
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();        
 }
 
@@ -56,11 +56,11 @@ void method_0613() {
 
     printf("%lf ", 1.0); // 1/1
 
-    inverso_multiplos_de_tres(n - 1, 1);
+    gerar_inversos_multiplos_de_tres(n - 1, 1);
     
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();  
 }
 
@@ -68,16 +68,16 @@ void method_0614() {
     //valor = 5 => { 1/12, 1/9, 1/6, 1/3, 1/1 } = 0.0833, 0.111, 0.166, 0.333, 1.000
     int n = 0;
 
-    printf("Insira o numero de repeticoes: "); // verificar por que está dando infinito
+    printf("%s", "Digite o numero de repeticoes: ");
     scanf("%d", &n); getchar();
 
-    inverso_multiplos_de_tres_decrescente(n - 1, n);
+    gerar_inversos_multiplos_de_tres_decrescente(n - 1, n);
 
     printf("%lf ", 1.0); // 1/1
 
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 }
 
@@ -87,14 +87,14 @@ void method_0615() {
 
     int t = 0;
 
-    printf("Insira o numero de repeticoes: ");
+    printf("%s", "Digite o numero de repeticoes: ");
     scanf("%d", &t); getchar();
 
     printf("%d", gerar_soma_adicao_de_valores_impares(t, 3, 0));
 
     printf("\n");
     
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();    
 }
 
@@ -104,14 +104,14 @@ void method_0616() {
 
     int t = 0;
 
-    printf("Insira o numero de repeticoes: ");
+    printf("%s", "Digite o numero de repeticoes: ");
     scanf("%d", &t); getchar();
 
     printf("%lf", gerar_inversos_adicao_de_valores_impares(t, 3, 0.0));
 
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 }
 
@@ -128,11 +128,11 @@ void method_0617() {
 
     tam = strlen(str);
 
-    inverte_string(str, tam);
+    inverter_string(str, tam);
    
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 }
 
@@ -152,10 +152,9 @@ void method_0618() {
 
     printf("%d", contar_digito_par(str, tam));
     
-    //num entendi 
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 }
 
@@ -175,11 +174,11 @@ void method_0619(){
 
     tam = strlen(str);
 
-    printf("%d", verifica_string(str, tam, qtd));
+    printf("%d", verificar_string(str, tam, qtd));
 
     printf("\n");
     
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 }
 
@@ -194,11 +193,11 @@ void method_0620(){
     printf("%s", "Digite o termo da sequencia: ");
     scanf("%d", &n); getchar();
 
-    printf("%d", soma_termo_par_fib(n, 0, 1));
+    printf("%d", somar_termo_par_fib(n, 0, 1));
     
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 
 }
@@ -219,11 +218,11 @@ void method_06E1(){
     printf("%s", "Digite o numero de repeticoes: ");
     scanf("%d", &n); getchar();
 
-    printf("%d", 1 + soma_potencia(x, n, soma, pot));
+    printf("%d", 1 + somar_potencia(x, n, soma, pot));
 
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 }
 
@@ -240,11 +239,11 @@ void method_06E2() {
     printf("%s", "Digite o numero de repeticoes: ");
     scanf("%d", &n); getchar();
 
-    printf("%lf", soma_divisao_fatorial(x, n, denominador, soma));
+    printf("%lf", somar_divisao_fatorial(x, n, denominador, soma));
     
     printf("\n");
 
-    printf("Pressione enter para sair!!!!\n"); 
+    printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 
 }
