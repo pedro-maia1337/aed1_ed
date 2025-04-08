@@ -133,17 +133,67 @@ void method_0613() {
     getchar();  
 }
 
-void method_0614() {
-    
+int contar_digitos_alfanumericos(char *str, int tam){
+    int count = 0;
 
+    for(int i = 0; i < tam; i++){
+        if((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'A' && str[i] <= 'Z') || 
+        (str[i] == ' ') || (str[i] >= 'a' && str[i] <= 'z')) {
+            count++;
+            printf("%c\n", str[i]);
+        }
+    }
+
+    return count;
+}
+
+void method_0614() {
+
+    char str[80];
+    int tam = 0;
+
+    printf("Insira a string: ");
+    fgets(str, 80, stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    tam = strlen(str);
+
+    printf("\n");
+
+    printf("%d", contar_digitos_alfanumericos(str, tam));
+    
     printf("\n");
 
     printf("%s\n", "Pressione enter para sair!!!!"); 
     getchar();
 }
 
+int contar_digitos_alfanumericos_recursivo(char *str, int tam, int count){
+    if(tam < 0) return count;
+
+    if((str[tam] >= '0' && str[tam] <= '9') || (str[tam] >= 'A' && str[tam] <= 'Z') || 
+    (str[tam] == ' ') || (str[tam] >= 'a' && str[tam] <= 'z')) {
+        count++;
+        printf("%c\n", str[tam]);
+    }
+
+    return contar_digitos_alfanumericos_recursivo(str, tam - 1, count);
+}
+
 void method_0615() {
-    
+    char str[80];
+    int tam = 0;
+    int count = 0;
+
+    printf("Insira a string: ");
+    fgets(str, 80, stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    tam = strlen(str);
+
+    printf("\n");
+
+    printf("%d", contar_digitos_alfanumericos_recursivo(str, tam, count));
 
     printf("\n");
     
