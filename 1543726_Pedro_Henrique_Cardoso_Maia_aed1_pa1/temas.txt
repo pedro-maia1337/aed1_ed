@@ -1,0 +1,7 @@
+//intervalos
+//soma recursiva
+//múltiplos
+//inversos 
+//string
+//testes lógicos 
+//conversão implícita 
