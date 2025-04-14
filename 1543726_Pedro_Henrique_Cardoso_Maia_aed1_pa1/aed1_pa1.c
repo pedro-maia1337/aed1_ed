@@ -137,7 +137,12 @@ int contar_digitos_alfanumericos(char *str, int tam){
     int count = 0;
 
     for(int i = 0; i < tam; i++){
+<<<<<<< HEAD
         if((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'A' && str[i] <= 'Z') || (str[i] == ' ') || (str[i] >= 'a' && str[i] <= 'z')){
+=======
+        if((str[i] >= '0' && str[i] <= '9') || (str[i] >= 'A' && str[i] <= 'Z') || 
+        (str[i] == ' ') || (str[i] >= 'a' && str[i] <= 'z')) {
+>>>>>>> a4f30a5d824766a9757025f7cf7fb6abcf68dda4
             count++;
             printf("%c\n", str[i]);
         }
@@ -148,8 +153,11 @@ int contar_digitos_alfanumericos(char *str, int tam){
 
 void method_0614() {
 
+<<<<<<< HEAD
     //(A1b2 + C3d4) * E5f6 = 12
 
+=======
+>>>>>>> a4f30a5d824766a9757025f7cf7fb6abcf68dda4
     char str[80];
     int tam = 0;
 
@@ -159,8 +167,14 @@ void method_0614() {
 
     tam = strlen(str);
 
+<<<<<<< HEAD
 
     printf("\n%d", contar_digitos_alfanumericos(str, tam));
+=======
+    printf("\n");
+
+    printf("%d", contar_digitos_alfanumericos(str, tam));
+>>>>>>> a4f30a5d824766a9757025f7cf7fb6abcf68dda4
     
     printf("\n");
 
@@ -168,19 +182,32 @@ void method_0614() {
     getchar();
 }
 
+<<<<<<< HEAD
 int contar_digitos_alfanumericos_recursivo(char *str, int tam, int count) {
     if (tam < 0) return count;
 
     if((str[tam] >= '0' && str[tam] <= '9') || (str[tam] >= 'A' && str[tam] <= 'Z') || (str[tam] == ' ') || (str[tam] >= 'a' && str[tam] <= 'z')){
         printf("%c\n", str[tam]);
         count++;
+=======
+int contar_digitos_alfanumericos_recursivo(char *str, int tam, int count){
+    if(tam < 0) return count;
+
+    if((str[tam] >= '0' && str[tam] <= '9') || (str[tam] >= 'A' && str[tam] <= 'Z') || 
+    (str[tam] == ' ') || (str[tam] >= 'a' && str[tam] <= 'z')) {
+        count++;
+        printf("%c\n", str[tam]);
+>>>>>>> a4f30a5d824766a9757025f7cf7fb6abcf68dda4
     }
 
     return contar_digitos_alfanumericos_recursivo(str, tam - 1, count);
 }
 
 void method_0615() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> a4f30a5d824766a9757025f7cf7fb6abcf68dda4
     char str[80];
     int tam = 0;
     int count = 0;
@@ -193,8 +220,12 @@ void method_0615() {
 
     printf("\n");
 
+<<<<<<< HEAD
     printf("\n%d", contar_digitos_alfanumericos_recursivo(str, tam, count));
     
+=======
+    printf("%d", contar_digitos_alfanumericos_recursivo(str, tam, count));
+>>>>>>> a4f30a5d824766a9757025f7cf7fb6abcf68dda4
 
     printf("\n");
     
