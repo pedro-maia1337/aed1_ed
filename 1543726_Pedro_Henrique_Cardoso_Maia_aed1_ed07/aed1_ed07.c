@@ -20,6 +20,8 @@ void gravar_numeros_multiplos_de_quatro(int n) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
 }
 
 void gravar_numeros_multiplos_de_quinze(int n) {
@@ -38,6 +40,8 @@ void gravar_numeros_multiplos_de_quinze(int n) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
 }
 
 
@@ -58,6 +62,8 @@ void gravar_potencia_de_tres(int n) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
 }
 
 void gravar_inverso_potencia_de_tres(int n) {
@@ -77,6 +83,8 @@ void gravar_inverso_potencia_de_tres(int n) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
 }
 
 void gravar_inverso_potencia(int n, int x) {
@@ -99,4 +107,83 @@ void gravar_inverso_potencia(int n, int x) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
+}
+
+void gravar_soma(int n) {
+    double resultado_soma = 0.0;
+    double valor = 0.0;
+
+    FILE *arquivo_leitura = fopen("resultado05.txt", "rt");
+    FILE *arquivo = fopen("resultado06.txt", "a+");
+
+    if(arquivo_leitura == NULL ){
+        printf("Erro ao abrir o arquivo01.txt.\n");
+        return;
+    }
+
+    if(arquivo == NULL ){
+        printf("Erro ao abrir o arquivo06.txt.\n");
+        return;
+    }
+    
+    for(int i = 0; i < n; i++) {
+        fscanf(arquivo_leitura, "%lf", &valor);
+        printf("%lf ", valor);
+        resultado_soma = resultado_soma + valor;
+    }
+
+    fprintf(arquivo, "%lf", resultado_soma);
+    fprintf(arquivo, "\n");
+
+    fclose(arquivo);
+    fclose(arquivo_leitura);
+}
+
+void gravar_inversos_0714(int n) { // mudar esse nome né 
+    double soma = 0.0;
+    double valor = 0;
+
+    FILE *arquivo_leitura = fopen("resultado04.txt", "rt");
+    FILE *arquivo = fopen("resultado07.txt", "a+");
+
+    if(arquivo_leitura == NULL ){
+        printf("Erro ao abrir o arquivo01.txt.\n");
+        return;
+    }
+
+    if(arquivo == NULL ){
+        printf("Erro ao abrir o arquivo06.txt.\n");
+        return;
+    }
+    
+    for(int i = 0; i < n; i++) {
+        fscanf(arquivo_leitura, "%lf", &valor);
+        printf("%lf ", valor);
+        soma = soma + valor;
+        
+    }
+    
+    fprintf(arquivo, "%lf", soma);
+    fprintf(arquivo, "\n");
+
+    fclose(arquivo);
+    fclose(arquivo_leitura);
+}
+
+int fib(int n) {
+    if(n == 0) return 1;
+    if(n == 1) return 1;
+
+    return fib(n - 1) + fib(n - 2);
+}
+
+int gravar_numeros_pares_fib(int n) {
+    int aux = 3;
+
+    for(int i = 0; i < n; i++) {
+        printf("%d ", fib(aux));
+        aux = aux + 3;
+    }
 }

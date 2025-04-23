@@ -3,6 +3,7 @@
 #include <math.h>
 #include <string.h>
 #include "aed1_ed07.h"
+#include "io.h"
 
 #define MAX 100
 
@@ -17,122 +18,117 @@ void cabecalho() {
 void method_0711() {
     int n = 0;
 
-    printf("Insira a quantidade de numeros multiplos de 4 a serem gravados: ");
-    scanf("%d", &n); getchar();
+    n = readint("Insira a quantidade de numeros multiplos de 4 a serem gravados: ");
 
     gravar_numeros_multiplos_de_quatro(n);
 
     printf("\n");
 
-    printf("%s\n", "Dados gravados com sucesso"); 
-
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();    
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0712() {   
     int n = 0;
 
-    printf("Insira a quantidade de numeros multiplos de quinze, pares, em ordem decrescente a serem gravados: ");
-    scanf("%d", &n); getchar();
+    n = readint("Insira a quantidade de numeros multiplos de quinze, pares, em ordem decrescente a serem gravados: ");
 
     gravar_numeros_multiplos_de_quinze(n);
     
     printf("\n");
 
-    printf("%s\n", "Dados gravados com sucesso"); 
-
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();        
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!");   
 }
 
 void method_0713() {
     int n = 0;
 
-    printf("Insira a quantidade de repeticoes: ");
-    scanf("%d", &n); getchar();
+    n = readint("Insira a quantidade de repeticoes: ");
 
     gravar_potencia_de_tres(n);
     
     printf("\n");
 
-    printf("%s\n", "Dados gravados com sucesso"); 
-
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();  
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0714() {
     int n = 0;
 
-    printf("Insira a quantidade de repeticoes: ");
-    scanf("%d", &n); getchar();
+    n = readint("Insira a quantidade de repeticoes: ");
     
     gravar_inverso_potencia_de_tres(n);
 
     printf("\n");
 
-    printf("%s\n", "Dados gravados com sucesso"); 
-
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0715() {
     int n = 0;
     int x = 0;
 
-    printf("Insira a quantidade de repeticoes: ");
-    scanf("%d", &n); getchar();
-
-    printf("Insira da base: ");
-    scanf("%d", &x); getchar();
+    n = readint("Insira a quantidade de repeticoes:");
+    x = readint("Insira da base:");
     
     gravar_inverso_potencia(n, x);
 
     printf("\n");
 
-    printf("%s\n", "Dados gravados com sucesso"); 
-    
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();    
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0716() {
-    
+    int n = 0;
 
+    n = readint("Insira a quantidade de termos a serem somados: ");
+
+    gravar_soma(n);
+    
     printf("\n");
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0717() {
-    
+    int n = 0;
+
+    n = readint("Insira a quantidade de termos a serem somados: ");
+
+    gravar_inversos_0714(n);
    
     printf("\n");
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    print("Dados gravados com sucesso");
+
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0718() {
+    int n = 0;
 
-    
+    n = readint("Insira um numero ");
+
+    printf("%d", fib(n));
     
     printf("\n");
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0719(){
 
 
     printf("\n");
-    
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0720(){
@@ -141,9 +137,8 @@ void method_0720(){
     
     printf("\n");
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
-
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 
@@ -152,8 +147,8 @@ void method_07E1(){
 
     printf("\n");
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 
@@ -162,9 +157,8 @@ void method_07E2() {
     
     printf("\n");
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
-
+    print("Dados gravados com sucesso"); 
+    pause("Pressione enter para sair!!!!"); 
 }
 
 
