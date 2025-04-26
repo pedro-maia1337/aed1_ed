@@ -3,6 +3,7 @@
 #include <math.h>
 #include <string.h>
 #include "aed1_ed07.h"
+#include "io.h"
 
 #define MAX 100
 
@@ -14,27 +15,25 @@ void cabecalho() {
     printf("\n");
 }
 
+
 void method_0711() {
     int n = 0;
-
-    printf("Insira a quantidade de numeros multiplos de 4 a serem gravados: ");
-    scanf("%d", &n); getchar();
+    
+    n = readint("Insira a quantidade de numeros multiplos de 4 a serem gravados: ");
 
     gravar_numeros_multiplos_de_quatro(n);
 
     printf("\n");
 
-    printf("%s\n", "Dados gravados com sucesso"); 
+    printf("%s\n", "Dados gravados com sucesso");   
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();    
+    pause("Pressione enter para sair!!!!");
 }
 
 void method_0712() {   
     int n = 0;
 
-    printf("Insira a quantidade de numeros multiplos de quinze, pares, em ordem decrescente a serem gravados: ");
-    scanf("%d", &n); getchar();
+    n = readint("Insira a quantidade de numeros multiplos de quinze, pares, em ordem decrescente a serem gravados: ");
 
     gravar_numeros_multiplos_de_quinze(n);
     
@@ -42,15 +41,13 @@ void method_0712() {
 
     printf("%s\n", "Dados gravados com sucesso"); 
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();        
+    pause("Pressione enter para sair!!!!");      
 }
 
 void method_0713() {
     int n = 0;
 
-    printf("Insira a quantidade de repeticoes: ");
-    scanf("%d", &n); getchar();
+    n = readint("Insira a quantidade de repeticoes: ");
 
     gravar_potencia_de_tres(n);
     
@@ -58,15 +55,13 @@ void method_0713() {
 
     printf("%s\n", "Dados gravados com sucesso"); 
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();  
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0714() {
     int n = 0;
 
-    printf("Insira a quantidade de repeticoes: ");
-    scanf("%d", &n); getchar();
+    n = readint("Insira a quantidade de repeticoes: ");
     
     gravar_inverso_potencia_de_tres(n);
 
@@ -74,19 +69,16 @@ void method_0714() {
 
     printf("%s\n", "Dados gravados com sucesso"); 
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    pause("Pressione enter para sair!!!!");
 }
 
 void method_0715() {
     int n = 0;
     int x = 0;
 
-    printf("Insira a quantidade de repeticoes: ");
-    scanf("%d", &n); getchar();
+    n = readint("Insira a quantidade de repeticoes: ");
 
-    printf("Insira da base: ");
-    scanf("%d", &x); getchar();
+    x = readint("Insira a base ");
     
     gravar_inverso_potencia(n, x);
 
@@ -94,17 +86,23 @@ void method_0715() {
 
     printf("%s\n", "Dados gravados com sucesso"); 
     
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();    
+    pause("Pressione enter para sair!!!!");    
 }
 
 void method_0716() {
+    int n = 0;
+
+    n = readint("Insira a quantidade de numeros a serem somados: ");
     
+    somar_numeros_multiplos_de_quatro(n);
 
     printf("\n");
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    
+
+    printf("%s\n", "Dados gravados com sucesso"); 
+
+    pause("Pressione enter para sair!!!!"); 
 }
 
 void method_0717() {

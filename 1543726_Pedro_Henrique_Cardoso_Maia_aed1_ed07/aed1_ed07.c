@@ -20,6 +20,8 @@ void gravar_numeros_multiplos_de_quatro(int n) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
 }
 
 void gravar_numeros_multiplos_de_quinze(int n) {
@@ -38,6 +40,8 @@ void gravar_numeros_multiplos_de_quinze(int n) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
 }
 
 
@@ -58,6 +62,8 @@ void gravar_potencia_de_tres(int n) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
 }
 
 void gravar_inverso_potencia_de_tres(int n) {
@@ -77,6 +83,8 @@ void gravar_inverso_potencia_de_tres(int n) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
 }
 
 void gravar_inverso_potencia(int n, int x) {
@@ -99,4 +107,41 @@ void gravar_inverso_potencia(int n, int x) {
     }
 
     fprintf(arquivo, "\n");
+
+    fclose(arquivo);
+}
+
+void somar_numeros_multiplos_de_quatro(int n){
+    int soma = 0;
+    int multiplos = 0;
+
+    FILE *arquivoR = fopen("resultado01.txt", "rt");
+    FILE *arquivoW = fopen("resultado06.txt", "a+");
+
+    if(arquivoR == NULL || arquivoW == NULL){
+        printf("Erro ao abrir o arquivo resultado01.txt.\n");
+        return;
+    }
+
+    gravar_numeros_multiplos_de_quatro(n);
+
+    fscanf(arquivoR, "%d", &multiplos);
+
+    while (! feof(arquivoR)) {
+        printf("%d ", multiplos);
+        fscanf(arquivoR, "%d", &multiplos);
+        soma = multiplos + soma;
+    }
+
+    fprintf(arquivoW, "%d ", soma);
+
+    fclose(arquivoR);
+    fclose(arquivoW);
+}
+
+int fib(int n){
+    if(n == 0) return 1;
+    if(n == 1) return 1;
+
+    return fib(n - 1) + fib(n - 2);
 }
