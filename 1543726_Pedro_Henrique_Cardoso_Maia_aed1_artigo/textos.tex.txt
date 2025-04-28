@@ -8,115 +8,59 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{\esp OBJETIVO}
 
-Objetivo aqui
+O objetivo central deste trabalho é realizar uma sistematização teórica e crítica dos três tipos lógicos de investigação — exploratória, descritiva e explicativa — enfatizando suas definições, metas específicas, métodos frequentemente empregados, áreas de aplicação e restrições. Com isso, busca-se proporcionar ao pesquisador iniciante e ao acadêmico mais experiente um referencial conceitual claro e prático para a escolha fundamentada do tipo de pesquisa que melhor se adapte às exigências de seus projetos. Além disso, pretende-se examinar como cada tipo lógico de investigação contribui para o processo de formulação de hipóteses, organização de dados empíricos e explicação científica, ressaltando sua relevância no rigor metodológico e na validação dos resultados obtidos na pesquisa.
 
 \section{\esp DISCUSSÃO}
 
-Discussão aqui   
+Os três tipos lógicos de pesquisa possuem propósitos e estratégias metodológicas distintas, embora possam ser utilizados de maneira complementar em investigações mais complexas.
+
+A pesquisa exploratória destina-se ao reconhecimento de fenômenos ainda pouco conhecidos, sendo empregada principalmente quando não há hipóteses definidas ou modelos consolidados. Ela se caracteriza pela flexibilidade de métodos, como revisão bibliográfica ampla, entrevistas com especialistas e observação informal, permitindo ao pesquisador formular perguntas de pesquisa mais específicas e hipóteses testáveis​
+
+Por exemplo, um estudo preliminar sobre o impacto de novas tecnologias de inteligência artificial no mercado de trabalho utilizaria uma abordagem exploratória para identificar tendências iniciais e levantar variáveis relevantes.
+
+A pesquisa descritiva, por sua vez, foca no detalhamento das características de um fenômeno ou grupo, estruturando os dados de forma sistemática sem intervenção sobre o objeto estudado​
+
+Utiliza instrumentos como questionários estruturados, surveys e análises estatísticas descritivas, sendo comum em estudos de perfil socioeconômico, comportamental ou epidemiológico. An example clássico seria a realizaço de um censo populacional, em que se descrevem caractersticas como idade, escolaridade, e renda da populaço.
+
+Por fim, a pesquisa explicativa busca compreender os mecanismos de causalidade que governam os fenômenos observados. Mais complexa, ela testa hipóteses específicas e estabelece relações de causa e efeito entre variáveis​
+
+Métodos experimentais e análises estatísticas inferenciais são frequentemente empregados. Um exemplo de pesquisa explicativa seria um estudo que avalia o impacto de um programa de intervenção educacional sobre o desempenho acadêmico de alunos, controlando variáveis como idade, gênero e renda familiar.
+
+Entender as distinções e interações entre esses tipos de pesquisa é essencial, pois uma mesma investigação pode transitar entre etapas exploratórias, descritivas e explicativas, conforme evolui em profundidade e precisão.
+
+
+\begin{figure}[ht]
+	\centering	
+	\caption[\hspace{0.1cm}Grade Computacional.]{Exemplificando o método de pesquisa}
+	\vspace{-0.4cm}
+	\includegraphics[width=0.6\textwidth]{figuras/metodo_cientifico.png}
+	% Caption centralizada
+% 	\captionsetup{justification=centering}
+	% Caption e fonte 
+	 \vspace{-0.2cm}
+	\\\textbf{\footnotesize Fonte: \citeonline{cap-livro} }
+	\label{fig:figura1}
+\end{figure}
+\vspace{-0.5cm}
+
+
    
 \section{\esp CONCLUSÃO}
 
-Conclusão aqui
+A classificação lógica da pesquisa em exploratória, descritiva e explicativa representa não apenas uma organização didática do conhecimento metodológico, mas também uma estratégia prática fundamental para a condução científica eficaz. A pesquisa exploratória permite ao pesquisador identificar caminhos e construir bases iniciais sólidas; a pesquisa descritiva oferece um retrato fiel da realidade observada, permitindo comparações e formulações iniciais de padrões; e a pesquisa explicativa propicia o aprofundamento na compreensão dos fenômenos, estabelecendo relações causais que contribuem para o avanço da ciência.
 
-\subsection{\esp Citação livre ou indireta}
+A escolha adequada do tipo de pesquisa a ser realizado deve considerar a maturidade do tema estudado, os objetivos científicos do estudo e as possibilidades metodológicas disponíveis. Mais do que uma escolha técnica, trata-se de uma decisão estratégica que impacta diretamente na qualidade dos dados obtidos e na robustez das conclusões. Assim, conhecer profundamente as características, potencialidades e limitações de cada tipo lógico de pesquisa é condição sine qua non para o desenvolvimento de estudos científicos relevantes, inovadores e socialmente úteis.
 
-Quando se reproduzir ideias, sem transcrever as palavras do autor, a indicação da página é opcional. Exemplos desse tipo de citação:
 \begin{enumerate} 
- \item [a)] Citação com um autor \cite{knuth}. 
- \item [b)] Citação de artigos em revistas com dois autores \cite{artigo01}.
-  \item [c)] Trabalho em congresso com três autores \cite{dovzan:01}.
- \item [d)] Trabalhos com mais de três autores \cite{cap-livro}.
- \item [e)] Dois autores em duas obras distintas \cite{knuth,groupp}.
- \item [d)] Trabalhos distintos com vários autores \cite{congresso,cap-livro}.
+ \item [a)] \cite{knuth}. 
+ \item [b)] \cite{artigo01}.
+  \item [c)] \cite{dovzan:01}.
+ \item [d)]\cite{cap-livro}.
+ \item [e)]  \cite{knuth,groupp}.
+ \item [d)]  \cite{congresso,cap-livro}.
  
 \end{enumerate}
 
-\subsection{\esp Citação direta ou textual}
-
-Transcrição literal de textos de outros autores. Nesse caso, deverão ser especificadas as páginas consultadas. 
-Se desejar, poderão ser grafadas em itálico para melhor visualização.
-
-\subsubsection{\esp Textual Curtas}
-
-Quando curtas (até 3 linhas) serão inseridas na sequência normal do texto, entre aspas com as mesma formatação.
-
-\subsubsection{\esp Textual Longas}
-
-Citações longas (mais de 3 linhas) deverão constituir um parágrafo independente, recuado a 4 cm da margem esquerda, 
-com letra tamanho 10 e digitado em espaço simples, sem aspas.
-\begin{citacaodireta}
-Hegel chama trabalho à forma específica da satisfação das necessidades, que
-distingue da natureza o espírito existente. Assim como a linguagem infringe
-a imposição da intuição e ordena o caos das múltiplas sensações em coisas
-identificáveis, assim o trabalho infringe a imposição do \hspace{0.1cm}desejo \hspace{0.1cm}imediato \hspace{0.1cm}e
-suspende, por assim dizer, o processo de satisfação das necessidades.
-\cite[25]{habermas}.
-\end{citacaodireta}
-
-
-% Artigo \cite{whatershed:01}
-
-\subsubsection{\esp Textual de outros idiomas (Tradução)}
-
-\begin{citacaodireta} 
-Um \textit{cluster} é um computador paralelo construído de componentes e processos de \textit{software} (tal como sistema de \textit{software}). 
-Um \textit{cluster} é formado de nós, cada um contendo um ou mais processadores, memória que é compartilhada por todos os processadores do nodo 
-(somente eles), e dispositivos periféricos adicionais (tais como discos), conectados pela rede e que permitem tráfego de dados entre os nós...
-\cite[p. 10, tradução nossa]{groupp}\footnote {  … a cluster is a parallel computer that is constructed of commodity  componets and runs 
-(as its system software) commodity software. A cluster is made of nodes, each conteining one or more processors, memory that is  shared 
-by all of the processors in (and only on) the node, and addtional peripheral devices (surch as disks),
- connected by network that allows data to move between the nodes}.
-\end{citacaodireta}
- 
-subsection{\esp Exemplos de citações} 
-
-Alguns exemplos de citações mais utilizadas e/ou que geram algumas dúvidas. É válido observar que não citaremos
-todas as possibilidades de citações da norma da PUC Minas, sendo assim é de extrema relevância que se consulte 
-o documento no site da Biblioteca da PUC Minas para maiores esclarecimentos acerca de citações \cite{manualpuc}.
-
-\subsubsection{\esp Citação de monografia, dissertação e tese}
-
-Exemplo de citação de monografia de curso de graduação ou especialização pode ser vista em \citeonline{monog-fabio}.
-Exemplo de dissertação de mestrado é referida como \citeonline{mestrado}.
-
-Para o caso de doutorado é citado da seguinte forma, Góes (\citeyear{tese}). Nesse exemplo é válido observar a forma
-como está escrito no documento \LaTeX, pois citações que compreendem no texto o nome do autor como sua parte, necessitam 
-do parâmetro \verb$\citeonline{}$. 
-
-\subsubsection{\esp Livros e partes de livros}
-
-Exemplo de capítulo de livro fica conforme este exemplo \cite{cap-livro}.
-
-Para livros citados no corpo do texto e com duas citações juntas, ver os exemplos \citeonline{knuth,groupp}.
-Caso essa citação não fizesse parte do texto será referencia dessa forma \cite{knuth,groupp}.
-
-Citações institucionais ou documentos técnicos de alguma entidade devem ser citados desta forma \cite{pmbok}.
-
-\subsubsection{\esp Tela de software}
-
-Para  citar a tela de um \textit{software} faça da seguinte forma, \citeonline{tela1}.
-
-\subsubsection{\esp Citações da Biblia Sagrada}
-
-A Bíblia está dividida em duas grandes partes: O Antigo Testamento e o Novo Testamento, divididos em livros, capítulos e versículos. 
-Portanto, a citação de partes da Bíblia deve apresentar o título do livro de forma abreviada ou por extenso, o número do capítulo e o número do versículo.
-
-
-\begin{citacaodireta}
-Moisés estendeu a mão sobre o mar. Com um forte \hspace{-0.1cm} vento \hspace{0.1cm} leste a \hspace{0.1cm}sobrar a
-noite toda, o Senhor repeliu o mar e o pôs a seco. As águas se fenderam e
-os filhos de Israel entraram no meio do mar a pé enxuto, enquanto as águas
-formavam uma muralha à direita e à esquerda deles (\citeauthor{biblia} 14,21).
-\end{citacaodireta}
-
-\subsection{\esp Conclusão}
-
-Discussão dos resultados obtidos na pesquisa. É onde se colocam as observações do autor. 
-Poderá também apresentar sugestões de novas linhas de estudo.
-
-A conclusão deve estar de acordo com os objetivos do trabalho.
-
-A conclusão não deve apresentar citações ou interpretações de outros autores.
 
 % \subsection{\esp Trabalhos futuros}
 % 
