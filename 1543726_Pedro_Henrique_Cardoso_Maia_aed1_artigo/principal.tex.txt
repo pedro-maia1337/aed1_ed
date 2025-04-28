@@ -16,7 +16,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\setcounter{page}{80} %iniciar contador de pagina de valor especificado
-\newcommand{\monog}{Modelo de artigo do Instituto de Ciências Exatas e de Informática}
+\newcommand{\monog}{A Lógica da Investigação Científica: Um Percurso pelos Três Tipos de Pesquisa}
 \newcommand{\monogES}{Article template Institute of Mathematical Sciences and Informatics}
 \newcommand{\tipo}{Artigo }  % Especificar a seção tipo do trabalho: Artigo, Resumo, Tese, Dociê etc
 \newcommand{\origem}{Brasil }
@@ -59,7 +59,10 @@ Instituto de Ciências Exatas e de Informática
 \begin{flushright}
 \singlespacing 
 \normalsize{\AutorA \footnote{\funcaoA \cursA, \origem -- \emailA . }} \\
-\normalsize{\AutorB \footnote{\funcaoB \cursB, \origem -- \emailB . }} \\
+
+\documentclass{article}
+\newcommand{\AutorB}{Author Name}
+
 %\normalsize{\AutorC \footnote{\funcaoC \cursC, \origem -- \emailC . }} \\
 %\normalsize{\AutorD \footnote{\funcaD \cursD, \origem -- \emailD . }} \\
 %deixar com o valor `0` e usar o '*' no inicio da frase
@@ -71,14 +74,8 @@ Instituto de Ciências Exatas e de Informática
 
 \begin{abstract}
 \noindent
-O resumo deverá conter pelo menos cento e cinquenta palavras de acordo com o padrão de normalização da ABNT.
-Este artigo irá abordar as principais linguagens de programação voltadas a ambiente WEB usadas atualmente, 
-comparando suas características de maneira a indicar o melhor uso para determinada linguagem. 
-As linguagens serão divididas de acordo com 4 principais características: Interpretadas, compiladas, server-side e client-side.
-O resumo deverá conter pelo menos cento e cinquenta palavras de acordo com o padrão de normalização da ABNT.
-as linguagens serão divididas de acordo com 4 principais características: Interpretadas, compiladas, server-side e client-side.
-O resumo deverá conter pelo menos cento e cinquenta palavras de acordo com o padrão de normalização da ABNT.
-\\\textbf{\keyword{Palavras-chave: }} Template. \LaTeX. Abakos. Periódicos.
+Este artigo discute os três tipos lógicos principais de pesquisa científica: exploratória, descritiva e explicativa. A pesquisa exploratória tem como objetivo oferecer uma compreensão mais profunda sobre um problema pouco estudado, servindo como fundamento para a construção de teorias e hipóteses. Por outro lado, a pesquisa descritiva se concentra na observação, registro, análise e interpretação de fenômenos sem intervenção direta, buscando retratar as características de um grupo ou contexto específico. A pesquisa explicativa, por sua vez, busca identificar as causas dos fenômenos, estabelecendo relações de causa e efeito entre diferentes variáveis. Entender as particularidades desses tipos de pesquisa é crucial para o desenvolvimento de um delineamento metodológico apropriado, assegurando a validade científica e a aplicabilidade prática dos estudos. Este trabalho, portanto, tem como objetivo contribuir para uma melhor compreensão dos processos de investigação científica, fundamentais para a produção acadêmica de qualidade.
+\\\textbf{\keyword{Palavras-chave: }} Template. \LaTeX. Pesquisa, Exploratória, Descritiva.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,16 +83,8 @@ O resumo deverá conter pelo menos cento e cinquenta palavras de acordo com o pa
 \selectlanguage{english}
 \begin{abstract}
 \noindent
-The abstract should contain at least one hundred and fifty words in accordance with the standards of ABNT standard.
-This present article will address the main features of the web programming languages, that are used currently, 
-comparing its features as to indicate to indicate the better use of determined language. 
-The linguage will be divided according with four major caracteristics: Interpreted, compiled, server-side and client-side.
-This present article will address the main features of the web programming languages.
-The abstract should contain at least one hundred and fifty words in accordance with the standards of ABNT standard.
-The linguage will be divided according with four major caracteristics: Interpreted, compiled, server-side and client-side.
-This present article will address the main features of the web programming languages.
-The abstract should contain at least one hundred and fifty words in accordance with the standards of ABNT standard.
-\\\textbf{\keyword{Keywords: }} Template. \LaTeX. Abakos. Periodics.
+This article discusses the three main logical types of scientific research: exploratory, descriptive and explanatory. Exploratory research aims to provide a deeper understanding of a little-studied problem, serving as a basis for the construction of theories and hypotheses. On the other hand, descriptive research focuses on the observation, recording, analysis and interpretation of phenomena without direct intervention, seeking to portray the characteristics of a specific group or context. Explanatory research, in turn, seeks to identify the causes of phenomena, establishing cause and effect relationships between different variables. Understanding the particularities of these types of research is crucial for the development of an appropriate methodological design, ensuring the scientific validity and practical applicability of studies. This work, therefore, aims to contribute to a better understanding of the processes of scientific investigation, fundamental for quality academic production.
+\\\textbf{\keyword{Keywords: }} Template. \LaTeX. Research, exploratory, descriptive.
 \end{abstract}
 
 \selectlanguage{brazilian}
