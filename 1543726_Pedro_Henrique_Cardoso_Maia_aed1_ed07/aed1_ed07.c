@@ -20,7 +20,6 @@ void gravar_numeros_multiplos_de_quatro(int n) {
     }
 
     fprintf(arquivo, "\n");
-
     fclose(arquivo);
 }
 
@@ -40,7 +39,6 @@ void gravar_numeros_multiplos_de_quinze(int n) {
     }
 
     fprintf(arquivo, "\n");
-
     fclose(arquivo);
 }
 
@@ -62,7 +60,6 @@ void gravar_potencia_de_tres(int n) {
     }
 
     fprintf(arquivo, "\n");
-
     fclose(arquivo);
 }
 
@@ -83,7 +80,6 @@ void gravar_inverso_potencia_de_tres(int n) {
     }
 
     fprintf(arquivo, "\n");
-
     fclose(arquivo);
 }
 
@@ -107,41 +103,151 @@ void gravar_inverso_potencia(int n, int x) {
     }
 
     fprintf(arquivo, "\n");
-
     fclose(arquivo);
 }
 
-void somar_numeros_multiplos_de_quatro(int n){
-    int soma = 0;
-    int multiplos = 0;
+void gravar_soma(int n) {
+    double resultado_soma = 0.0;
+    double valor = 0.0;
 
-    FILE *arquivoR = fopen("resultado01.txt", "rt");
-    FILE *arquivoW = fopen("resultado06.txt", "a+");
+    FILE *arquivo_leitura = fopen("resultado05.txt", "rt");
+    FILE *arquivo = fopen("resultado06.txt", "a+");
 
-    if(arquivoR == NULL || arquivoW == NULL){
-        printf("Erro ao abrir o arquivo resultado01.txt.\n");
+    if(arquivo_leitura == NULL ){
+        printf("Erro ao abrir o arquivo01.txt.\n");
         return;
     }
 
-    gravar_numeros_multiplos_de_quatro(n);
-
-    fscanf(arquivoR, "%d", &multiplos);
-
-    while (! feof(arquivoR)) {
-        printf("%d ", multiplos);
-        fscanf(arquivoR, "%d", &multiplos);
-        soma = multiplos + soma;
+    if(arquivo == NULL ){
+        printf("Erro ao abrir o arquivo06.txt.\n");
+        return;
+    }
+    
+    for(int i = 0; i < n; i++) {
+        fscanf(arquivo_leitura, "%lf", &valor);
+        printf("%lf ", valor);
+        resultado_soma = resultado_soma + valor;
     }
 
-    fprintf(arquivoW, "%d ", soma);
+    fprintf(arquivo, "%lf", resultado_soma);
+    fprintf(arquivo, "\n");
 
-    fclose(arquivoR);
-    fclose(arquivoW);
+    fclose(arquivo);
+    fclose(arquivo_leitura);
 }
 
-int fib(int n){
+void gravar_soma_inversos(int n) { 
+    double soma = 0.0;
+    double valor = 0;
+
+    FILE *arquivo_leitura = fopen("resultado04.txt", "rt");
+    FILE *arquivo = fopen("resultado07.txt", "a+");
+
+    if(arquivo_leitura == NULL ){
+        printf("Erro ao abrir o arquivo01.txt.\n");
+        return;
+    }
+
+    if(arquivo == NULL ){
+        printf("Erro ao abrir o arquivo06.txt.\n");
+        return;
+    }
+    
+    for(int i = 0; i < n; i++) {
+        fscanf(arquivo_leitura, "%lf", &valor);
+        printf("%lf ", valor);
+        soma = soma + valor;
+        
+    }
+    
+    fprintf(arquivo, "%lf", soma);
+    fprintf(arquivo, "\n");
+
+    fclose(arquivo);
+    fclose(arquivo_leitura);
+}
+
+int fib(int n) {
     if(n == 0) return 1;
     if(n == 1) return 1;
 
     return fib(n - 1) + fib(n - 2);
+}
+
+void gravar_numeros_pares_fib(int n) {
+    int dados = 0;
+    int aux = 2;
+
+    FILE *arquivo = fopen("resultado08.txt", "a+");
+
+    if(arquivo == NULL){
+        printf("Erro ao abrir o arquivo resultado08.txt.\n");
+        return;
+    }
+
+    for(int i = 0; i < n; i++){
+        dados = fib(aux);
+        aux = aux + 3;
+        fprintf(arquivo, "%d ", dados);
+    }
+
+    fprintf(arquivo, "\n");
+
+    fclose(arquivo);
+}
+
+void gravar_string_maiusculas(char *str){
+    int tam = 0;
+    int count = 0;
+    
+    FILE *arquivo = fopen("resultado09.txt", "a+");
+    
+    if(arquivo == NULL){
+        printf("Erro ao abrir o arquivo resultado09.txt.\n");
+        return;
+    }
+
+    str[strlen(str) - 1] = '\0';
+
+    tam = strlen(str);
+
+    fprintf(arquivo, "%s", str);
+
+    for(int i = 0; i < tam; i++){
+        if(str[i] >= 'A' && str[i] <= 'Z') {
+            count++;
+        }
+    }
+
+    fprintf(arquivo, " %d", count);
+    fprintf(arquivo, "\n");
+    fclose(arquivo);
+}
+
+void gravar_string_maior_que_tres(char *str){
+    int tam = 0;
+    int count = 0;
+
+    FILE *arquivo = fopen("resultado10.txt", "a+");
+
+    if(arquivo == NULL){
+        printf("Erro ao abrir o arquivo resultado10.txt.\n");
+        return;
+    }
+
+    str[strlen(str) - 1] = '\0';
+
+    tam = strlen(str);
+
+    fprintf(arquivo, "%s", str);
+
+    for(int i = 0; i < tam; i++){
+        if(str[i] >= '0' && str[i] <= '9' && str[i] >= '3') { 
+            count++;
+        }
+    }
+
+    fprintf(arquivo, " %d", count);
+    fprintf(arquivo, "\n");
+    fclose(arquivo);
 }

@@ -5,7 +5,7 @@ CC = gcc
 CFLAGS = -Wall -g
 
 # Arquivos de origem
-SRC = aed1_ed07_main.c aed1_ed06.c
+SRC = aed1_ed07_main.c aed1_ed07.c
 
 # Arquivos de cabeçalho
 HEADERS = aed1_ed07.h

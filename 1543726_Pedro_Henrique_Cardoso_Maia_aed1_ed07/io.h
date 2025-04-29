@@ -68,7 +68,6 @@ char* readstring  ( char *text )
     flush  ( );
     return ( buffer );
 }
-
 char* readln      ( char *text )
 {
     char *buffer = calloc ( STR_SIZE, sizeof(char) );
@@ -81,4 +80,12 @@ char* readln      ( char *text )
     if ( x >= 0 && buffer [x] == '\n' )
     {    buffer [ x ] = '\0';    }
     return ( buffer );
+}
+
+void footer     ( void ) 
+{
+    printf("\n");
+    print("Dados gravados com sucesso"); 
+    printf("\n");
+    pause("Pressione enter para sair!!!!");
 }

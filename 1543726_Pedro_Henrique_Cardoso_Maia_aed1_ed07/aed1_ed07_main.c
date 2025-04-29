@@ -9,162 +9,108 @@
 
 void cabecalho() {
     system("cls");
-    printf("----------------------------------------\n");
-    printf("1543726_Pedro_Henrique_Cardoso_Maia_ed07\n");
-    printf("-----------------------------------------\n");
-    printf("\n");
+    print("----------------------------------------\n");
+    print("1543726_Pedro_Henrique_Cardoso_Maia_ed07\n");
+    print("-----------------------------------------\n");
+    print("\n");
 }
 
-
-void method_0711() {
+void method_0711( void ) {
     int n = 0;
-    
-    n = readint("Insira a quantidade de numeros multiplos de 4 a serem gravados: ");
+    n = readint("Insira a quantidade de numeros multiplos de 4, pares, em ordem crescente a serem gravados: ");
 
     gravar_numeros_multiplos_de_quatro(n);
 
-    printf("\n");
-
-    printf("%s\n", "Dados gravados com sucesso");   
-
-    pause("Pressione enter para sair!!!!");
+    footer(); 
 }
 
-void method_0712() {   
+void method_0712( void ) {   
     int n = 0;
-
     n = readint("Insira a quantidade de numeros multiplos de quinze, pares, em ordem decrescente a serem gravados: ");
 
     gravar_numeros_multiplos_de_quinze(n);
     
-    printf("\n");
-
-    printf("%s\n", "Dados gravados com sucesso"); 
-
-    pause("Pressione enter para sair!!!!");      
+    footer();  
 }
 
-void method_0713() {
+void method_0713( void ) {
     int n = 0;
-
     n = readint("Insira a quantidade de repeticoes: ");
 
     gravar_potencia_de_tres(n);
     
-    printf("\n");
-
-    printf("%s\n", "Dados gravados com sucesso"); 
-
-    pause("Pressione enter para sair!!!!"); 
+    footer();
 }
 
-void method_0714() {
+void method_0714( void ) {
     int n = 0;
-
     n = readint("Insira a quantidade de repeticoes: ");
     
     gravar_inverso_potencia_de_tres(n);
 
-    printf("\n");
-
-    printf("%s\n", "Dados gravados com sucesso"); 
-
-    pause("Pressione enter para sair!!!!");
+    footer();
 }
 
-void method_0715() {
+void method_0715( void ) {
     int n = 0;
     int x = 0;
 
-    n = readint("Insira a quantidade de repeticoes: ");
-
-    x = readint("Insira a base ");
+    n = readint("Insira a quantidade de repeticoes:");
+    x = readint("Insira da base:");
     
     gravar_inverso_potencia(n, x);
 
-    printf("\n");
-
-    printf("%s\n", "Dados gravados com sucesso"); 
-    
-    pause("Pressione enter para sair!!!!");    
+    footer();
 }
 
-void method_0716() {
+void method_0716( void ) {
     int n = 0;
+    n = readint("Insira a quantidade de termos a serem somados: ");
 
-    n = readint("Insira a quantidade de numeros a serem somados: ");
+    gravar_soma(n);
     
-    somar_numeros_multiplos_de_quatro(n);
-
-    printf("\n");
-
-    
-
-    printf("%s\n", "Dados gravados com sucesso"); 
-
-    pause("Pressione enter para sair!!!!"); 
+    footer();
 }
 
-void method_0717() {
-    
+void method_0717( void ) {
+    int n = 0;
+    n = readint("Insira a quantidade de termos a serem somados: ");
+
+    gravar_soma_inversos(n);
    
-    printf("\n");
-
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    footer();
 }
 
-void method_0718() {
+void method_0718( void ) {
+    int n = 0;
+    n = readint("Insira um numero ");
 
+    gravar_numeros_pares_fib(n);
     
-    
-    printf("\n");
-
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    footer(); 
 }
 
-void method_0719(){
-
-
-    printf("\n");
+void method_0719( void ){
+    char str[100];
     
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    print("Insira uma string: ");
+    fgets(str, 100, stdin);
+
+    gravar_string_maiusculas(str);
+    
+    footer();
 }
 
-void method_0720(){
+void method_0720( void ){
+    char str[100];
 
-    
-    
-    printf("\n");
+    print("Insira uma string: ");
+    fgets(str, 100, stdin);
 
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
+    gravar_string_maior_que_tres(str);
 
+    footer();
 }
-
-
-void method_07E1(){
-    
-
-    printf("\n");
-
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
-}
-
-
-void method_07E2() {
-    
-    
-    printf("\n");
-
-    printf("%s\n", "Pressione enter para sair!!!!"); 
-    getchar();
-
-}
-
 
 int main(int argc, char *argv[]) {
     int op;
@@ -183,9 +129,6 @@ int main(int argc, char *argv[]) {
         printf("8  - Procedimento 0718\n");
         printf("9  - Procedimento 0719\n");
         printf("10 - Procedimento 0720\n");
-
-        printf("11 - Procedimento 07E1\n");
-        printf("12 - Procedimento 07E2\n");
 
         printf("0 - Sair\n");
 
@@ -218,10 +161,6 @@ int main(int argc, char *argv[]) {
                 method_0719(); break;
             case 10:
                 method_0720(); break;
-            case 11:
-                method_07E1(); break;
-            case 12:
-                method_07E2(); break;
             case 0:
                 printf("Pressione Enter para continuar...\n"); getchar();
                 break;
