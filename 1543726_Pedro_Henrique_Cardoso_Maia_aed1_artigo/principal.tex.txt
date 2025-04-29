@@ -1,0 +1,118 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Template de Artigo Adaptado para Trabalho de Diplomação do ICEI %%%%%%%%%%%%%%%%%%%%%%%%
+%% codificação UTF-8 - Abntex - Latex -  							     %%
+%% Autor:    Fábio Leandro Rodrigues Cordeiro  (fabioleandro@pucminas.br)                            %% 
+%% Co-autor: Prof. João Paulo Domingos Silva, Harison da Silva e Anderson Carvalho                   %%
+%% Revisores normas NBR (Padrão PUC Minas): Helenice Rego Cunha e Prof. Theldo Cruz                  %%
+%% Versão: 1.1     18 de dezembro 2015                     	                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[a4paper,12pt,Times]{article}
+\usepackage{abakos}  %pacote com padrão da Abakos baseado no padrão da PUC
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Capa da revista
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setcounter{page}{80} %iniciar contador de pagina de valor especificado
+\newcommand{\monog}{A Lógica da Investigação Científica: Um Percurso pelos Três Tipos de Pesquisa}
+\newcommand{\monogES}{Article template Institute of Mathematical Sciences and Informatics}
+\newcommand{\tipo}{Artigo }  % Especificar a seção tipo do trabalho: Artigo, Resumo, Tese, Dociê etc
+\newcommand{\origem}{Brasil }
+\newcommand{\editorial}{Belo Horizonte, p. 01-11, nov. 2015}  % p. xx-xx – páginas inicial-final do artigo
+\newcommand{\lcc}{\scriptsize{Licença Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported}}
+
+%%%%%%%%%%%%%%%%%INFORMAÇÕES SOBRE AUTOR PRINCIPAL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\AutorA}{1543726 - Pedro Henrique Cardoso Maia}
+\newcommand{\funcaoA}{}
+\newcommand{\emailA}{pedro.maia.1543726@sga.pucminas.br}
+\newcommand{\cursA}{Aluno do Programa de Graduação em Ciência da Computação}
+
+% 
+% Definir macros para o nome da Instituição, da Faculdade, etc.
+\newcommand{\univ}{Pontifícia Universidade Católica de Minas Gerais}
+
+\newcommand{\keyword}[1]{\textsf{#1}}
+
+\begin{document}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% Pagina de titulo
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+\includegraphics[scale=0.2]{figuras/brasao.jpg} \\
+PONTIFÍCIA UNIVERSIDADE CATÓLICA DE MINAS GERAIS \\
+Instituto de Ciências Exatas e de Informática
+
+% \vspace{1.0cm}
+
+\end{center}
+
+ \vspace{0cm} {
+ \singlespacing \Large{\monog \symbolfootnote[1]{Artigo apresentado ao Instituto de Ciências Exatas e Informática da Pontifícia Universidade Católica de Minas Gerais como pré-requisito para obtenção do título de Bacharel em Ciência da Computação.} \\ }
+  \normalsize{\monogES}
+ }
+
+\vspace{1.0cm}
+
+\begin{flushright}
+\singlespacing 
+\normalsize{\AutorA \footnote{\funcaoA \cursA, \origem -- \emailA . }} \\
+
+\newcommand{\AutorB}{Author Name}
+
+%\normalsize{\AutorC \footnote{\funcaoC \cursC, \origem -- \emailC . }} \\
+%\normalsize{\AutorD \footnote{\funcaD \cursD, \origem -- \emailD . }} \\
+%deixar com o valor `0` e usar o '*' no inicio da frase
+% \symbolfootnote[0]{Artigo recebido em 10 de julho de 1983 e aprovado em 29 de maio 2012}
+\end{flushright}
+\thispagestyle{empty}
+
+\vspace{1.0cm}
+
+\begin{abstract}
+\noindent
+Este artigo discute os três tipos lógicos principais de pesquisa científica: exploratória, descritiva e explicativa. A pesquisa exploratória tem como objetivo oferecer uma compreensão mais profunda sobre um problema pouco estudado, servindo como fundamento para a construção de teorias e hipóteses. Por outro lado, a pesquisa descritiva se concentra na observação, registro, análise e interpretação de fenômenos sem intervenção direta, buscando retratar as características de um grupo ou contexto específico. A pesquisa explicativa, por sua vez, busca identificar as causas dos fenômenos, estabelecendo relações de causa e efeito entre diferentes variáveis. Entender as particularidades desses tipos de pesquisa é crucial para o desenvolvimento de um delineamento metodológico apropriado, assegurando a validade científica e a aplicabilidade prática dos estudos. Este trabalho, portanto, tem como objetivo contribuir para uma melhor compreensão dos processos de investigação científica, fundamentais para a produção acadêmica de qualidade.
+\\\textbf{\keyword{Palavras-chave: }} Template. \LaTeX. Pesquisa, Exploratória, Descritiva.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \newpage    %%%% CASO QUEIRA QUE O RESUMO FIQUE EM UMA PAGINA E O ABSTRACT EM OUTRA
+\selectlanguage{english}
+\begin{abstract}
+\noindent
+This article discusses the three main logical types of scientific research: exploratory, descriptive and explanatory. Exploratory research aims to provide a deeper understanding of a little-studied problem, serving as a basis for the construction of theories and hypotheses. On the other hand, descriptive research focuses on the observation, recording, analysis and interpretation of phenomena without direct intervention, seeking to portray the characteristics of a specific group or context. Explanatory research, in turn, seeks to identify the causes of phenomena, establishing cause and effect relationships between different variables. Understanding the particularities of these types of research is crucial for the development of an appropriate methodological design, ensuring the scientific validity and practical applicability of studies. This work, therefore, aims to contribute to a better understanding of the processes of scientific investigation, fundamental for quality academic production.
+\\\textbf{\keyword{Keywords: }} Template. \LaTeX. Research, exploratory, descriptive.
+\end{abstract}
+
+\selectlanguage{brazilian}
+ \onehalfspace  % espaçamento 1.5 entre linhas
+ \setlength{\parindent}{1.25cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INICIO DO TEXTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{textos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FIM DO TEXTO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \selectlanguage{brazil}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Inicio bibliografia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \newpage
+\singlespace{
+\renewcommand\refname{REFERÊNCIAS}
+\bibliographystyle{abntex2-alf}
+\bibliography{bibliografia}
+
+}
+
+\end{document}
+
+
