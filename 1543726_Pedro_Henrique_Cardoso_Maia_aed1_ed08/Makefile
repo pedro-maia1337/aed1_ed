@@ -5,24 +5,24 @@ CC = gcc
 CFLAGS = -Wall -g
 
 # Arquivos de origem
-SRC = aed1_pa1.c
+SRC = aed1_ed08_main.c aed1_ed08.c
 
 # Arquivos de cabeçalho
-#HEADERS = aed1_ed06.h
+HEADERS = aed1_ed08.h
 
 # Arquivos objeto gerados
-OBJ = aed1_pa1.o
+OBJ = aed1_ed08_main.o aed1_ed08.o
 
 # Nome do executável final
-TARGET = aed1_pa1.exe
+TARGET = aed1_ed08_main.exe
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
 
-#%.o: %.c $(HEADERS)
-#	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ) $(TARGET)
