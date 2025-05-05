@@ -78,4 +78,29 @@ int testar_simbolo_separador(char str){
     return 0;
 }
 
+float maior_entre_tres(float a, float b, float c) {
+    float maior = a;
+    if (b > maior) maior = b;
+    if (c > maior) maior = c;
+    return maior;
+}
+
+int ordem_crescente_num(float x, float y, float z) { // ex7
+    return (x < y) && (y < z);
+}
+
+// Função para verificar se está em ordem decrescente
+int ordem_decrescente_num(float x, float y, float z) { // ex7
+    return (x > y) && (y > z);
+}
+
+int ordem_crescente(char x[], char y[], char z[]) {
+    return (strcmp(x, y) < 0) && (strcmp(y, z) < 0);
+}
+
+// Função para verificar ordem alfabética decrescente
+int ordem_decrescente(char x[], char y[], char z[]) {
+    return (strcmp(x, y) > 0) && (strcmp(y, z) > 0);
+}
+
 
