@@ -253,13 +253,62 @@ void method_ex17( void ) {
 }
 
 void method_ex18( void ) {
-     
+     char x, y, z;
+
+    // Leitura dos três caracteres
+    printf("Digite o caractere x: ");
+    scanf(" %c", &x);
+    printf("Digite o caractere y: ");
+    scanf(" %c", &y);
+    printf("Digite o caractere z: ");
+    scanf(" %c", &z);
+
+    // Verificação das ordens
+    if (ordem_crescente(x, y, z)) {
+        printf("Os caracteres estao em ordem alfabetica crescente.\n");
+    } else if (ordem_decrescente(x, y, z)) {
+        printf("Os caracteres estao em ordem alfabetica decrescente.\n");
+    } else {
+        printf("Os caracteres nao estao em ordem alfabetica crescente nem decrescente.\n");
+    }
 
      footer();
 }
 
 void method_ex19( void ){
-    
+    char x[100], y[100], z[100];
+    char *menor, *maior;
+
+    // Leitura das três cadeias de caracteres
+    printf("Digite a string x: ");
+    scanf("%s", x);
+    printf("Digite a string y: ");
+    scanf("%s", y);
+    printf("Digite a string z: ");
+    scanf("%s", z);
+
+    // Verificação das ordens
+    if (ordem_crescente(x, y, z)) {
+        printf("As cadeias estao em ordem alfabetica crescente.\n");
+    } else if (ordem_decrescente(x, y, z)) {
+        printf("As cadeias estao em ordem alfabetica decrescente.\n");
+    } else {
+        printf("As cadeias nao estao em ordem alfabetica crescente nem decrescente.\n");
+
+        // Inicializar menor e maior com x
+        menor = x;
+        maior = x;
+
+        // Verificar qual é a menor
+        if (strcmp(y, menor) < 0) menor = y;
+        if (strcmp(z, menor) < 0) menor = z;
+
+        // Verificar qual é a maior
+        if (strcmp(y, maior) > 0) maior = y;
+        if (strcmp(z, maior) > 0) maior = z;
+
+        printf("Menor string: %s\n", menor);
+        printf("Maior string: %s\n", maior);
 
 
 
@@ -267,7 +316,39 @@ void method_ex19( void ){
 }
 
 void method_ex20( void ){
-    
+    char x[100], y[100], z[100];
+    char *menor, *maior;
+
+    // Leitura das três cadeias de caracteres
+    printf("Digite a string x: ");
+    scanf("%s", x);
+    printf("Digite a string y: ");
+    scanf("%s", y);
+    printf("Digite a string z: ");
+    scanf("%s", z);
+
+    // Verificação das ordens
+    if (ordem_crescente(x, y, z)) {
+        printf("As cadeias estao em ordem alfabetica crescente.\n");
+    } else if (ordem_decrescente(x, y, z)) {
+        printf("As cadeias estao em ordem alfabetica decrescente.\n");
+    } else {
+        printf("As cadeias nao estao em ordem alfabetica crescente nem decrescente.\n");
+
+        // Inicializar menor e maior com x
+        menor = x;
+        maior = x;
+
+        // Verificar qual é a menor
+        if (strcmp(y, menor) < 0) menor = y;
+        if (strcmp(z, menor) < 0) menor = z;
+
+        // Verificar qual é a maior
+        if (strcmp(y, maior) > 0) maior = y;
+        if (strcmp(z, maior) > 0) maior = z;
+
+        printf("Menor string: %s\n", menor);
+        printf("Maior string: %s\n", maior);
 
 
 
