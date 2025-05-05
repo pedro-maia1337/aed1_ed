@@ -121,60 +121,132 @@ void method_ex14( void ) {
 }
 
 void method_ex15( void ) {
-    /*
+    int n, i;
+    float x;
 
-    ler um valor inteiro (n) do teclado;
-    - ler outros (n) valores reais (x) do teclado, um por vez;
-    - calcular e mostrar a média dos valores menores que -21.75;
-    a média dos que estão entre -21.75 e 71.25, inclusive esses;
-    e a média dos maiores que 71.25. Dizer qual a maior média de todas
-    
-    x = { -15.25, -12.50, 0.0, 6.75, 20.50, 50.0, 70.25, 85.25, 92.50, 98.75 }
+    // Acumuladores e contadores para cada grupo
+    float soma_menores = 0, soma_medios = 0, soma_maiores = 0;
+    int cont_menores = 0, cont_medios = 0, cont_maiores = 0;
 
-    menores que -21.75 = 0;
+    printf("Digite a quantidade de valores: ");
+    scanf("%d", &n);
 
-    entre 21.75 e 71.25 = -15.25, -12.50, 0.0, 6.75, 20.50, 50.0, 70.25 = 17,10 *7
+    for (i = 0; i < n; i++) {
+        printf("Digite um valor real: ");
+        scanf("%f", &x);
 
-    maiores  que 71.25 = 85.25, 92.50, 98.75 = 92,16. maior média *4
-    
-    
-   
-
-    int n = 0;
-    double x = 0.0;
-
-    int resposta1 = 0;
-    int resposta2 = 0;
-    int resposta3 = 0;
-
-
-    n = readint("Insira a quantidade desejada: ");
-
-    for(int i = 0; i < n; i++) 
-    {
-        x = readdouble("Insira o numero: ");
-        resposta1 = no_intervalo(-21.75, 0, x);
-        resposta2 = no_intervalo(-21.75, 71.25, x);
-        resposta3 = no_intervalo(71.25, 0, x);
+        if (x < -21.75) {
+            soma_menores += x;
+            cont_menores++;
+        } else if (x <= 71.25) {
+            soma_medios += x;
+            cont_medios++;
+        } else {
+            soma_maiores += x;
+            cont_maiores++;
+        }
     }
 
-    printf("%d ", resposta1);
-    printf("%d ", resposta2);
-    printf("%d ", resposta3);
-    
-    footer();
-     */
+    // Cálculo das médias com verificação de divisão por zero
+    float media_menores = (cont_menores > 0) ? soma_menores / cont_menores : 0;
+    float media_medios = (cont_medios > 0) ? soma_medios / cont_medios : 0;
+    float media_maiores = (cont_maiores > 0) ? soma_maiores / cont_maiores : 0;
+
+    // Exibição dos resultados
+    printf("Media dos valores menores que -21.75: %.2f\n", media_menores);
+    printf("Media dos valores entre -21.75 e 71.25: %.2f\n", media_medios);
+    printf("Media dos valores maiores que 71.25: %.2f\n", media_maiores);
+
+    // Determinação da maior média
+    float maior_media = maior_entre_tres(media_menores, media_medios, media_maiores);
+    printf("A maior media e: %.2f\n", maior_media);
 
 }
 
 void method_ex16( void ) {
-    
+    float a, b, x;
+    int dentro = 0, fora = 0;
+    int acima = 0, abaixo = 0;
+
+    // Leitura dos valores que definem o intervalo
+    printf("Digite o valor de a: ");
+    scanf("%f", &a);
+    printf("Digite o valor de b: ");
+    scanf("%f", &b);
+
+    // Garantir que a < b
+    if (a > b) {
+        float temp = a;
+        a = b;
+        b = temp;
+    }
+
+    // Leitura dos valores até que x == 0
+    printf("Digite os valores reais (0 para encerrar):\n");
+    while (1) {
+        scanf("%f", &x);
+        if (x == 0) break;
+
+        if (x > a && x < b) {
+            dentro++;
+        } else {
+            fora++;
+            if (x < a) {
+                abaixo++;
+            } else if (x > b) {
+                acima++;
+            }
+        }
+    }
+
+    // Exibição dos resultados
+    printf("\nQuantidade de valores dentro do intervalo aberto (%.2f, %.2f): %d\n", a, b, dentro);
+    printf("Quantidade de valores fora do intervalo: %d\n", fora);
+
+    // Cálculo e exibição das porcentagens dos valores fora do intervalo
+    if (fora > 0) {
+        float perc_acima = (acima * 100.0) / fora;
+        float perc_abaixo = (abaixo * 100.0) / fora;
+        printf("Porcentagem de valores acima do intervalo: %.2f%%\n", perc_acima);
+        printf("Porcentagem de valores abaixo do intervalo: %.2f%%\n", perc_abaixo);
+    } else {
+        printf("Nenhum valor fora do intervalo para calcular porcentagens.\n");
+    }
 
     footer();
 }
 
 void method_ex17( void ) {
-    
+    float x, y, z;
+
+    // Leitura dos três valores
+    printf("Digite o valor de x: ");
+    scanf("%f", &x);
+    printf("Digite o valor de y: ");
+    scanf("%f", &y);
+    printf("Digite o valor de z: ");
+    scanf("%f", &z);
+
+    // Verificações
+    if (ordem_crescente(x, y, z)) {
+        printf("Os valores estao em ordem crescente.\n");
+    } else if (ordem_decrescente(x, y, z)) {
+        printf("Os valores estao em ordem decrescente.\n");
+    } else {
+        printf("Os valores nao estao em ordem crescente nem decrescente.\n");
+
+        // Encontrar menor e maior valor
+        float menor = x;
+        if (y < menor) menor = y;
+        if (z < menor) menor = z;
+
+        float maior = x;
+        if (y > maior) maior = y;
+        if (z > maior) maior = z;
+
+        printf("Menor valor: %.2f\n", menor);
+        printf("Maior valor: %.2f\n", maior);
+    }
 
 
     footer();
