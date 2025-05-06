@@ -27,12 +27,12 @@ void method_ex11( void ) {
     for(int i = 0; i < n; i++) 
     {
         x = readint("Insira o numero: ");
-        soma_pares      = soma_pares         +   soma_divisores_pares(x);
-        soma_impares    = soma_impares       +   soma_divisores_impares(x);
+        soma_pares        =   soma_pares         +   soma_divisores_pares(x);
+        soma_impares      =   soma_impares       +   soma_divisores_impares(x);
 
-        if(  soma_pares ==  soma_impares  )    print(  "iguais\n"   );
-        if(  soma_pares >   soma_impares  )    print(  "pares\n"    );
-        if(  soma_impares > soma_pares    )    print(  "impares\n"  );
+        if(  soma_pares   ==  soma_impares  )    print(     "iguais\n"     );
+        if(  soma_pares   >   soma_impares  )    print(     "pares\n"      );
+        if(  soma_impares >   soma_pares    )    print(    "impares\n"     );
        
     }
 
@@ -120,20 +120,20 @@ void method_ex14( void ) {
     footer();
 }
 
-void method_ex15( void ) {
+void method_ex15( void ) { //check, modularizar 
+    //x = { -15.25, -12.50, 0.0, 6.75, 20.50, 50.0, 70.25, 85.25, 92.50, 98.75 }
     int n, i;
-    float x;
+    double x;
 
-    // Acumuladores e contadores para cada grupo
-    float soma_menores = 0, soma_medios = 0, soma_maiores = 0;
+    
+    double soma_menores = 0, soma_medios = 0, soma_maiores = 0;
     int cont_menores = 0, cont_medios = 0, cont_maiores = 0;
 
-    printf("Digite a quantidade de valores: ");
-    scanf("%d", &n);
+    n = readint("Digite a quantidade de valores:");
 
     for (i = 0; i < n; i++) {
-        printf("Digite um valor real: ");
-        scanf("%f", &x);
+
+        x = readdouble("Digite um valor real: ");
 
         if (x < -21.75) {
             soma_menores += x;
@@ -148,45 +148,50 @@ void method_ex15( void ) {
     }
 
     // Cálculo das médias com verificação de divisão por zero
-    float media_menores = (cont_menores > 0) ? soma_menores / cont_menores : 0;
-    float media_medios = (cont_medios > 0) ? soma_medios / cont_medios : 0;
-    float media_maiores = (cont_maiores > 0) ? soma_maiores / cont_maiores : 0;
+    double media_menores = (cont_menores > 0) ? soma_menores / cont_menores : 0;
+    double media_medios = (cont_medios > 0) ? soma_medios / cont_medios : 0;
+    double media_maiores = (cont_maiores > 0) ? soma_maiores / cont_maiores : 0;
 
-    // Exibição dos resultados
-    printf("Media dos valores menores que -21.75: %.2f\n", media_menores);
-    printf("Media dos valores entre -21.75 e 71.25: %.2f\n", media_medios);
-    printf("Media dos valores maiores que 71.25: %.2f\n", media_maiores);
+    
+    printf("Media dos valores menores que -21.75: %.2lf\n", media_menores);
+    printf("Media dos valores entre -21.75 e 71.25: %.2lf\n", media_medios);
+    printf("Media dos valores maiores que 71.25: %.2lf\n", media_maiores);
 
-    // Determinação da maior média
-    float maior_media = maior_entre_tres(media_menores, media_medios, media_maiores);
+    double maior_media = maior_entre_tres(media_menores, media_medios, media_maiores);
     printf("A maior media e: %.2f\n", maior_media);
 
     footer();
-
 }
 
-void method_ex16( void ) {
-    float a, b, x;
+void method_ex16( void ) { //modularizar, refazer
+
+    
+}
+
+void method_ex17( void ) {
+    /*
+    a = 15
+    b = 45
+    x = { -20, -11, 0, 1, 10, 21, 36, 51, 70, 80, -1 }
+    */
+
+    double a, b, x;
     int dentro = 0, fora = 0;
     int acima = 0, abaixo = 0;
 
-    // Leitura dos valores que definem o intervalo
-    printf("Digite o valor de a: ");
-    scanf("%f", &a);
-    printf("Digite o valor de b: ");
-    scanf("%f", &b);
+    a = readdouble("Digite o valor de a: ");
 
-    // Garantir que a < b
+    b = readdouble("Digite o valor de b: ");
+     
     if (a > b) {
-        float temp = a;
+        double temp = a;
         a = b;
         b = temp;
     }
 
-    // Leitura dos valores até que x == 0
-    printf("Digite os valores reais (0 para encerrar):\n");
+    printf("Digite os valores reais (-1 para encerrar):\n");
     while (1) {
-        scanf("%f", &x);
+        x = readdouble("Digite o valor: ");
         if (x == -1) break;
 
         if (x > a && x < b) {
@@ -201,15 +206,13 @@ void method_ex16( void ) {
         }
     }
 
-
-    // Exibição dos resultados
     printf("\nQuantidade de valores dentro do intervalo aberto (%.2f, %.2f): %d\n", a, b, dentro);
     printf("Quantidade de valores fora do intervalo: %d\n", fora);
 
-    // Cálculo e exibição das porcentagens dos valores fora do intervalo
+    
     if (fora > 0) {
-        float perc_acima = (acima * 100.0) / fora;
-        float perc_abaixo = (abaixo * 100.0) / fora;
+        double perc_acima = (acima * 100.0) / fora;
+        double perc_abaixo = (abaixo * 100.0) / fora;
         printf("Porcentagem de valores acima do intervalo: %.2f%%\n", perc_acima);
         printf("Porcentagem de valores abaixo do intervalo: %.2f%%\n", perc_abaixo);
     } else {
@@ -219,18 +222,26 @@ void method_ex16( void ) {
     footer();
 }
 
-void method_ex17( void ) {
-    float x, y, z;
+void method_ex18( void ) {
 
-    // Leitura dos três valores
-    printf("Digite o valor de x: ");
-    scanf("%f", &x);
-    printf("Digite o valor de y: ");
-    scanf("%f", &y);
-    printf("Digite o valor de z: ");
-    scanf("%f", &z);
+    /*
+    
+    x = 10, y = 20, z = 30 = Saída: Os valores estao em ordem crescente.
+    x = 30, y = 20, z = 10 = Saida  Os valores estao em ordem decrescente.
+    x = 10, y = 10, z = 10 = Saida: Os valores nao estao em ordem crescente nem decrescente. valores iguais
 
-    // Verificações
+    x = 10, y = 20, z = 30 = Saída: Os valores estao em ordem crescente.
+    x = 30, y = 20, z = 10 = Saída: Os valores estao em ordem decrescente.
+    x = 10, y = 20, z = 10 = Saída: Os valores nao estao em ordem crescente nem decrescente. maior valor: 20. menor valor: 10
+
+    */
+
+    double x, y, z;
+
+    x = readdouble("Digite o valor de x: ");
+    y = readdouble("Digite o valor de y: ");
+    z = readdouble("Digite o valor de z: ");
+
     if (ordem_crescente_num(x, y, z)) {
         printf("Os valores estao em ordem crescente.\n");
     } else if (ordem_decrescente_num(x, y, z)) {
@@ -238,37 +249,55 @@ void method_ex17( void ) {
     } else {
         printf("Os valores nao estao em ordem crescente nem decrescente.\n");
 
-        // Encontrar menor e maior valor
-        float menor = x;
+        double menor = x;
         if (y < menor) menor = y;
         if (z < menor) menor = z;
 
-        float maior = x;
+        double maior = x;
         if (y > maior) maior = y;
         if (z > maior) maior = z;
 
-        printf("Menor valor: %.2f\n", menor);
-        printf("Maior valor: %.2f\n", maior);
+        if(maior == menor) {
+            printf("Valores iguais");
+        }
+        
+        if(maior != menor) {
+            printf("Menor valor: %.2f\n", menor);
+            printf("Maior valor: %.2f\n", maior);
+        } 
     }
-
 
     footer();
 }
 
-void method_ex18( void ) {
-     char x, y, z;
+void method_ex19( void ) {
 
-    // Leitura dos três caracteres
+    /*
+    x = '1', y = '2', z = '3'   Saída: Os caracteres estao em ordem alfabetica crescente.
+    x = '3', y = '2', z = '1'   Saída: Os caracteres estao em ordem alfabetica decrescente.
+    x = '1', y = '1', z = '1'   Saída: Os caracteres nao estao em ordem alfabetica crescente nem decrescente.
 
-    x = readchar("Digite o caractere x: ");
+    x = 'a', y = 'b', z = 'c'   Saída: Os caracteres estao em ordem alfabetica crescente.
+    x = 'c', y = 'b', z = 'a'   Saída: Os caracteres estao em ordem alfabetica decrescente.
+    x = 'b', y = 'b', z = 'b'   Saída: Os caracteres nao estao em ordem alfabetica crescente nem decrescente.
+    */
+
+    char x[100], y[100], z[100]; //melhorar isso aqui? 
+
+    printf("Digite a string x: ");
+    scanf("%s", x); getchar();
+    printf("Digite a string y: ");
+    scanf("%s", y); getchar();
+    printf("Digite a string z: ");
+    scanf("%s", z); getchar();
+
+    /*x = readchar("Digite o caractere x: ");
 
     y = readchar("Digite o caractere y: ");
 
-    z = readchar("Digite o caractere z: ");
+    z = readchar("Digite o caractere z: ");*/
 
-
-    // Verificação das ordens
-    if (ordem_crescente(x, y, z)) {
+    if (ordem_crescente(x, y, z)) { 
         printf("Os caracteres estao em ordem alfabetica crescente.\n");
     } else if (ordem_decrescente(x, y, z)) {
         printf("Os caracteres estao em ordem alfabetica decrescente.\n");
@@ -276,67 +305,46 @@ void method_ex18( void ) {
         printf("Os caracteres nao estao em ordem alfabetica crescente nem decrescente.\n");
     }
 
-     footer();
-}
-
-void method_ex19( void ){
-    char x[100], y[100], z[100];
-    char *menor, *maior;
-
-    // Leitura das três cadeias de caracteres
-    printf("Digite a string x: ");
-    scanf("%s", x);
-    printf("Digite a string y: ");
-    scanf("%s", y);
-    printf("Digite a string z: ");
-    scanf("%s", z);
-
-    // Verificação das ordens
-    if (ordem_crescente(x, y, z)) {
-        printf("As cadeias estao em ordem alfabetica crescente.\n");
-    } else if (ordem_decrescente(x, y, z)) {
-        printf("As cadeias estao em ordem alfabetica decrescente.\n");
-    } else {
-        printf("As cadeias nao estao em ordem alfabetica crescente nem decrescente.\n");
-
-        // Inicializar menor e maior com x
-        menor = x;
-        maior = x;
-
-        // Verificar qual é a menor
-        if (strcmp(y, menor) < 0) menor = y;
-        if (strcmp(z, menor) < 0) menor = z;
-
-        // Verificar qual é a maior
-        if (strcmp(y, maior) > 0) maior = y;
-        if (strcmp(z, maior) > 0) maior = z;
-
-        printf("Menor string: %s\n", menor);
-        printf("Maior string: %s\n", maior);
-    }
-
-
     footer();
 }
 
 void method_ex20( void ){
+    /*
+    x = 'abc'                   Saída: Os caracteres estao em ordem alfabetica crescente.
+    y = 'cde'                   
+    z = 'fgh'
+
+    x = 'fgh'                   Saída: Os caracteres estao em ordem alfabetica decrescente.
+    y = 'cde'                   
+    z = 'abc'  
+
+    z = 'abc'                   Saída: As cadeias nao estao em ordem alfabetica crescente nem decrescente.
+    x = 'ab'                    Menor String: ab                         
+    y = 'abczh'                 Maior String: abczh
+                       
+                      
+
+    
+    */
+
+
     char x[100], y[100], z[100];
     char *menor, *maior;
+    
 
     // Leitura das três cadeias de caracteres
     printf("Digite a string x: ");
-    scanf("%s", x);
+    scanf("%s", x); getchar();
     printf("Digite a string y: ");
-    scanf("%s", y);
+    scanf("%s", y); getchar();
     printf("Digite a string z: ");
-    scanf("%s", z);
+    scanf("%s", z); getchar();
 
-    // Verificação das ordens
     if (ordem_crescente(x, y, z)) {
         printf("As cadeias estao em ordem alfabetica crescente.\n");
     } else if (ordem_decrescente(x, y, z)) {
         printf("As cadeias estao em ordem alfabetica decrescente.\n");
-    } else {
+    } else { // modularizar isso 
         printf("As cadeias nao estao em ordem alfabetica crescente nem decrescente.\n");
 
         // Inicializar menor e maior com x
