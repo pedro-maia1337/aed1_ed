@@ -25,7 +25,7 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	del $(OBJ) $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)

@@ -58,22 +58,22 @@ bool primo(int x) {
 }
 
 int testar_simbolo_logico(char str) {
-    if(str == '!' || str == "|" || str == '&') return 1;
+    if(str == '!' || str == '|' || str == '&') return 1;
     return 0;
 }
 
 int testar_simbolo_aritmetico(char str){
-    if(str == '+' || str == "-" || str == '*' || str == '/' || str == '%') return 2;
+    if(str == '+' || str == '-' || str == '*' || str == '/' || str == '%') return 2;
     return 0;
 }
 
 int testar_simbolo_relacional(char str) {
-    if(str == '>' || str =="<" || str =='=') return 3;
+    if(str == '>' || str == '<' || str == '=') return 3;
     return 0;
 }
 
 int testar_simbolo_separador(char str){
-    if(str == ' ' || str == "." || str == ',' || str == ';' || str == ':' || str == '_') return 4;
+    if(str == ' ' || str == '.' || str == ',' || str == ';' || str == ':' || str == '_') return 4;
     
     return 0;
 }

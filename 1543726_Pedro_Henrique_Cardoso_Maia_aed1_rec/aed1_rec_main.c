@@ -161,6 +161,8 @@ void method_ex15( void ) {
     float maior_media = maior_entre_tres(media_menores, media_medios, media_maiores);
     printf("A maior media e: %.2f\n", maior_media);
 
+    footer();
+
 }
 
 void method_ex16( void ) {
@@ -185,7 +187,7 @@ void method_ex16( void ) {
     printf("Digite os valores reais (0 para encerrar):\n");
     while (1) {
         scanf("%f", &x);
-        if (x == 0) break;
+        if (x == -1) break;
 
         if (x > a && x < b) {
             dentro++;
@@ -198,6 +200,7 @@ void method_ex16( void ) {
             }
         }
     }
+
 
     // Exibição dos resultados
     printf("\nQuantidade de valores dentro do intervalo aberto (%.2f, %.2f): %d\n", a, b, dentro);
@@ -228,9 +231,9 @@ void method_ex17( void ) {
     scanf("%f", &z);
 
     // Verificações
-    if (ordem_crescente(x, y, z)) {
+    if (ordem_crescente_num(x, y, z)) {
         printf("Os valores estao em ordem crescente.\n");
-    } else if (ordem_decrescente(x, y, z)) {
+    } else if (ordem_decrescente_num(x, y, z)) {
         printf("Os valores estao em ordem decrescente.\n");
     } else {
         printf("Os valores nao estao em ordem crescente nem decrescente.\n");
@@ -256,12 +259,13 @@ void method_ex18( void ) {
      char x, y, z;
 
     // Leitura dos três caracteres
-    printf("Digite o caractere x: ");
-    scanf(" %c", &x);
-    printf("Digite o caractere y: ");
-    scanf(" %c", &y);
-    printf("Digite o caractere z: ");
-    scanf(" %c", &z);
+
+    x = readchar("Digite o caractere x: ");
+
+    y = readchar("Digite o caractere y: ");
+
+    z = readchar("Digite o caractere z: ");
+
 
     // Verificação das ordens
     if (ordem_crescente(x, y, z)) {
@@ -309,7 +313,7 @@ void method_ex19( void ){
 
         printf("Menor string: %s\n", menor);
         printf("Maior string: %s\n", maior);
-
+    }
 
 
     footer();
@@ -350,8 +354,7 @@ void method_ex20( void ){
         printf("Menor string: %s\n", menor);
         printf("Maior string: %s\n", maior);
 
-
-
+    } 
     footer();
 }
 

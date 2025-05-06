@@ -18,8 +18,8 @@ float maior_entre_tres(float a, float b, float c);
 int ordem_crescente_num(float x, float y, float z);
 
 // Função para verificar se está em ordem decrescente
-int ordem_decrescente_num(float x, float y, float z) (x > y) && (y > z);
-}
+int ordem_decrescente_num(float x, float y, float z);
+
 
 int ordem_crescente(char x[], char y[], char z[]);
 
