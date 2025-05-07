@@ -15,6 +15,14 @@ int testar_simbolo_separador   (  char str );
 
 double maior_entre_tres(double a, double b, double c);
 
+bool verificar_intervalo(int a, int b, double x);
+
+double calcular_soma_inversos(int a, int b);
+
+int testar_simbolo(char c);
+
+void processar_valores(double a, double b, int *dentro, int *fora, int *abaixo, int *acima);
+
 int ordem_crescente_num(double x, double y, double z);
 
 // Função para verificar se está em ordem decrescente

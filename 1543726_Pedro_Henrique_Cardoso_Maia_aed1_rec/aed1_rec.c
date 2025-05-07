@@ -85,6 +85,53 @@ double maior_entre_tres(double a, double b, double c) {
     return maior;
 }
 
+int verificar_intervalo(int a, int b, double x) {
+    return (x > a && x < b);
+}
+
+double calcular_soma_inversos(int a, int b) {
+    double soma = 0.0;
+    int x = 0.0;
+
+    do {
+        printf("Digite um número inteiro (-1 para sair): ");
+        scanf("%d", &x); getchar();
+
+        if (x == -1) {
+            break;
+        }
+
+        if (verificar_intervalo(x, a, b) && x % 2 != 0 && x % 3 != 0) {
+            soma += 1.0 / (double) (x * x * x); 
+        }
+    } while (1);
+
+    return soma;
+}
+
+void processar_valores(double a, double b, int *dentro, int *fora, int *abaixo, int *acima) {
+    double x;
+    *dentro = *fora = *abaixo = *acima = 0;
+
+    printf("Digite os valores reais (-1 para encerrar):\n");
+    
+    while (1) {
+        scanf("%lf", &x); getchar();
+        if (x == -1) break;
+
+        if (verificar_intervalo(a, b, x)) {
+            (*dentro)++;
+        } else {
+            (*fora)++;
+            if (x < a) {
+                (*abaixo)++;
+            } else if (x > b) {
+                (*acima)++;
+            }
+        }
+    }
+}
+
 int ordem_crescente_num(double x, double y, double z) { // ex7
     return (x < y) && (y < z);
 }
@@ -103,4 +150,16 @@ int ordem_decrescente(char *x, char *y, char *z) {
     return (strcmp(x, y) > 0) && (strcmp(y, z) > 0);
 }
 
+int testar_simbolo(char c) {
+   
+    return testar_simbolo_logico(c);
+
+    return testar_simbolo_aritmetico(c);
+
+    return testar_simbolo_relacional(c);
+
+    return testar_simbolo_separador(c);
+    
+    return 0;  // Outro símbolo
+}
 

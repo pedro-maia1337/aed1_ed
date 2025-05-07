@@ -37,8 +37,6 @@ void method_ex11( void ) {
     }
 
     //x = { 22, 121, 440, 581, 814 }
-
-
     footer();
 }
 
@@ -77,12 +75,13 @@ void method_ex13( void ) { //voltar
     tam = strlen(str);
 
     for(int i = 0; i < tam; i++) {
-        resposta = testar_simbolo_logico(str[i]);
-        resposta = testar_simbolo_aritmetico(str[i]);
-        resposta = testar_simbolo_relacional(str[i]);
-        resposta = testar_simbolo_separador(str[i]);
-        
-        printf("%d", resposta);
+        if ((resposta = testar_simbolo_logico(str[i])) ||
+            (resposta = testar_simbolo_aritmetico(str[i])) ||
+            (resposta = testar_simbolo_relacional(str[i])) ||
+            (resposta = testar_simbolo_separador(str[i]))) {
+        } else {
+            resposta = 0;
+        }       
 
         switch (resposta) {
             case 0:
@@ -106,16 +105,36 @@ void method_ex13( void ) { //voltar
         }
     }
 
-
     footer();
 }
 
 void method_ex14( void ) {
+    char c;
     
+    c = readchar("Digite o char: ");
 
+    int resposta = testar_simbolo(c);
 
-
-
+    switch (resposta) {
+        case 0:
+            printf("Outro símbolo\n");
+            break;
+        case 1:
+            printf("Símbolo lógico\n");
+            break;
+        case 2:
+            printf("Símbolo aritmético\n");
+            break;
+        case 3:
+            printf("Símbolo relacional\n");
+            break;
+        case 4:
+            printf("Símbolo separador\n");
+            break;
+        default:
+            printf("Caractere inválido\n");
+            break;
+    }
 
     footer();
 }
@@ -125,7 +144,6 @@ void method_ex15( void ) { //check, modularizar
     int n, i;
     double x;
 
-    
     double soma_menores = 0, soma_medios = 0, soma_maiores = 0;
     int cont_menores = 0, cont_medios = 0, cont_maiores = 0;
 
@@ -163,19 +181,45 @@ void method_ex15( void ) { //check, modularizar
     footer();
 }
 
-void method_ex16( void ) { //modularizar, refazer
-
-    
-}
-
-void method_ex17( void ) {
+void method_ex16( void ) { //modularizar, refazer, voltarrrrrr
     /*
     a = 15
     b = 45
     x = { -20, -11, 0, 1, 10, 21, 36, 51, 70, 80, -1 }
     */
 
-    double a, b, x;
+    int a = 0;
+    int b = 0;
+    double soma = 0.0;
+
+    a = readint("Digite o valor inferior de intervalo: ");
+    b = readint("Digite o valor superior do intervalo: ");
+
+    if (a > b) {
+        double temp = a;
+        a = b;
+        b = temp;
+    }
+
+    soma = calcular_soma_inversos(a, b);
+
+    printf("%lf", soma);
+
+    footer();
+}
+
+void method_ex17( void ) { //arumar isso aqui 
+    /*
+    a = 15
+    b = 45
+    x = { -20, -11, 0, 1, 10, 21, 36, 51, 70, 80, -1 }
+
+    Quantidade de valores dentro do intervalo: 2
+    Porcentagem de valores acima do intervalo: 37.50;
+    Porcentagem de valores abaixo do intervalo: 62.50;
+    */
+
+    double a, b;
     int dentro = 0, fora = 0;
     int acima = 0, abaixo = 0;
 
@@ -189,27 +233,11 @@ void method_ex17( void ) {
         b = temp;
     }
 
-    printf("Digite os valores reais (-1 para encerrar):\n");
-    while (1) {
-        x = readdouble("Digite o valor: ");
-        if (x == -1) break;
-
-        if (x > a && x < b) {
-            dentro++;
-        } else {
-            fora++;
-            if (x < a) {
-                abaixo++;
-            } else if (x > b) {
-                acima++;
-            }
-        }
-    }
-
-    printf("\nQuantidade de valores dentro do intervalo aberto (%.2f, %.2f): %d\n", a, b, dentro);
+    processar_valores(a, b, &dentro, &fora, &abaixo, &acima);
+    
+    printf("\nQuantidade de valores dentro do intervalo aberto (%.2f, %.2f): %d\n", a, b, dentro); // modularizar ? 
     printf("Quantidade de valores fora do intervalo: %d\n", fora);
 
-    
     if (fora > 0) {
         double perc_acima = (acima * 100.0) / fora;
         double perc_abaixo = (abaixo * 100.0) / fora;
@@ -218,6 +246,7 @@ void method_ex17( void ) {
     } else {
         printf("Nenhum valor fora do intervalo para calcular porcentagens.\n");
     }
+
 
     footer();
 }
@@ -236,7 +265,9 @@ void method_ex18( void ) {
 
     */
 
-    double x, y, z;
+    double x = 0.0;
+    double y = 0.0;
+    double z = 0.0;
 
     x = readdouble("Digite o valor de x: ");
     y = readdouble("Digite o valor de y: ");
@@ -322,13 +353,10 @@ void method_ex20( void ){
     x = 'ab'                    Menor String: ab                         
     y = 'abczh'                 Maior String: abczh
                        
-                      
-
-    
     */
 
 
-    char x[100], y[100], z[100];
+    char x[MAX], y[MAX], z[MAX];
     char *menor, *maior;
     
 
