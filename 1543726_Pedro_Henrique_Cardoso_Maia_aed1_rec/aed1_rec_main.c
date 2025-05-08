@@ -41,6 +41,14 @@ void method_ex11( void ) {
 }
 
 void method_ex12( void ) { 
+
+    //x = { -293, -107, 153, 199, 811 }
+    //293 nao e primo!
+    //107 nao e primo!
+    //153 nao e primo!
+    //199 e primo
+    //811 e primo
+
     int n = 0;
     int x = 0;
     bool resposta = false;
@@ -63,7 +71,7 @@ void method_ex12( void ) {
     footer();
 }
 
-void method_ex13( void ) { //voltar
+void method_ex13( void ) { 
     char str[MAX];
     int tam = 0;
     int resposta = 0;
@@ -165,7 +173,6 @@ void method_ex15( void ) { //check, modularizar
         }
     }
 
-    // Cálculo das médias com verificação de divisão por zero
     double media_menores = (cont_menores > 0) ? soma_menores / cont_menores : 0;
     double media_medios = (cont_medios > 0) ? soma_medios / cont_medios : 0;
     double media_maiores = (cont_maiores > 0) ? soma_maiores / cont_maiores : 0;
@@ -181,7 +188,7 @@ void method_ex15( void ) { //check, modularizar
     footer();
 }
 
-void method_ex16( void ) { //modularizar, refazer, voltarrrrrr
+void method_ex16( void ) { //modularizar, refazer
     /*
     a = 15
     b = 45
@@ -244,7 +251,7 @@ void method_ex17( void ) { //arumar isso aqui
         printf("Porcentagem de valores acima do intervalo: %.2f%%\n", perc_acima);
         printf("Porcentagem de valores abaixo do intervalo: %.2f%%\n", perc_abaixo);
     } else {
-        printf("Nenhum valor fora do intervalo para calcular porcentagens.\n");
+        print("Nenhum valor fora do intervalo para calcular porcentagens.\n");
     }
 
 
@@ -289,7 +296,7 @@ void method_ex18( void ) {
         if (z > maior) maior = z;
 
         if(maior == menor) {
-            printf("Valores iguais");
+            print("Valores iguais");
         }
         
         if(maior != menor) {
@@ -315,25 +322,21 @@ void method_ex19( void ) {
 
     char x[100], y[100], z[100]; //melhorar isso aqui? 
 
-    printf("Digite a string x: ");
+    print("Digite o char x: ");
     scanf("%s", x); getchar();
-    printf("Digite a string y: ");
+    print("Digite o char y: ");
     scanf("%s", y); getchar();
-    printf("Digite a string z: ");
+    print("Digite o char z: ");
     scanf("%s", z); getchar();
 
-    /*x = readchar("Digite o caractere x: ");
 
-    y = readchar("Digite o caractere y: ");
-
-    z = readchar("Digite o caractere z: ");*/
 
     if (ordem_crescente(x, y, z)) { 
-        printf("Os caracteres estao em ordem alfabetica crescente.\n");
+        print("Os caracteres estao em ordem alfabetica crescente.\n");
     } else if (ordem_decrescente(x, y, z)) {
-        printf("Os caracteres estao em ordem alfabetica decrescente.\n");
+        print("Os caracteres estao em ordem alfabetica decrescente.\n");
     } else {
-        printf("Os caracteres nao estao em ordem alfabetica crescente nem decrescente.\n");
+        print("Os caracteres nao estao em ordem alfabetica crescente nem decrescente.\n");
     }
 
     footer();
@@ -359,31 +362,29 @@ void method_ex20( void ){
     char x[MAX], y[MAX], z[MAX];
     char *menor, *maior;
     
-
-    // Leitura das três cadeias de caracteres
-    printf("Digite a string x: ");
+    print("Digite a string x: ");
     scanf("%s", x); getchar();
-    printf("Digite a string y: ");
+    print("Digite a string y: ");
     scanf("%s", y); getchar();
-    printf("Digite a string z: ");
+    print("Digite a string z: ");
     scanf("%s", z); getchar();
 
     if (ordem_crescente(x, y, z)) {
-        printf("As cadeias estao em ordem alfabetica crescente.\n");
+        print("As cadeias estao em ordem alfabetica crescente.\n");
     } else if (ordem_decrescente(x, y, z)) {
-        printf("As cadeias estao em ordem alfabetica decrescente.\n");
+        print("As cadeias estao em ordem alfabetica decrescente.\n");
     } else { // modularizar isso 
-        printf("As cadeias nao estao em ordem alfabetica crescente nem decrescente.\n");
+        print("As cadeias nao estao em ordem alfabetica crescente nem decrescente.\n");
 
-        // Inicializar menor e maior com x
+        
         menor = x;
         maior = x;
 
-        // Verificar qual é a menor
+        
         if (strcmp(y, menor) < 0) menor = y;
         if (strcmp(z, menor) < 0) menor = z;
 
-        // Verificar qual é a maior
+        
         if (strcmp(y, maior) > 0) maior = y;
         if (strcmp(z, maior) > 0) maior = z;
 
@@ -399,18 +400,18 @@ int main(int argc, char *argv[]) {
 
     do {
         cabecalho();
-        printf("1  - Procedimento ex11\n");
-        printf("2  - Procedimento ex12\n");
-        printf("3  - Procedimento ex13\n");
-        printf("4  - Procedimento ex14\n");
+        print("1  - Procedimento ex11\n");
+        print("2  - Procedimento ex12\n");
+        print("3  - Procedimento ex13\n");
+        print("4  - Procedimento ex14\n");
 
-        printf("5  - Procedimento ex15\n");
-        printf("6  - Procedimento ex16\n");
-        printf("7  - Procedimento ex17\n");
+        print("5  - Procedimento ex15\n");
+        print("6  - Procedimento ex16\n");
+        print("7  - Procedimento ex17\n");
 
-        printf("8  - Procedimento ex18\n");
-        printf("9  - Procedimento ex19\n");
-        printf("10 - Procedimento ex20\n");
+        print("8  - Procedimento ex18\n");
+        print("9  - Procedimento ex19\n");
+        print("10 - Procedimento ex20\n");
 
         printf("0 - Sair\n");
 
