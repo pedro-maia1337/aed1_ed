@@ -4,9 +4,11 @@
 #include <string.h>
 #include <time.h>
 
-srand(time(NULL));
+
 
 int RandomIntGenerate ( int inferior, int superior ) { 
+
+    srand(time(NULL));
 
     int random = 0;
 

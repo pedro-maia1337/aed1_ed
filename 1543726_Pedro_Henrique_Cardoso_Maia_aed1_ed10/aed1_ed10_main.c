@@ -21,6 +21,8 @@ void method_0811( void ) {
     int inferior = 0;
     int random = 0;
 
+    FILE *arquivo = fopen("DADOS.TXT", "wt");
+
     n = readint("Digite a quantidade de valores a serem gerados: ");
     inferior = readint("Digite o valor inferior do intervalo: ");
     superior = readint("Digite o valor superior do intervalo: ");
@@ -28,9 +30,15 @@ void method_0811( void ) {
     int arr[n];
 
     for(int i = 0; i < n; i++) {
-        arr[n] = RandomIntGenerate ( inferior, superior );
+        random = RandomIntGenerate ( inferior, superior );
+        arr[i] = random;
     }
 
+    fprintf(arquivo, "%d\n", n);
+
+    for(int i = 0; i < n; i++) {
+        fprintf(arquivo, "%d\n", arr[i]);
+    }
 
     footer();
 }
