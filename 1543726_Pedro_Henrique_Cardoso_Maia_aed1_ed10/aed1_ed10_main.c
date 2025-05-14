@@ -4,6 +4,8 @@
 #include <string.h>
 #include "aed1_ed10.h"
 #include "io.h"
+#include <stdbool.h>
+#include <time.h>
 
 #define MAX 100
 
@@ -15,36 +17,103 @@ void cabecalho() {
     print("\n");
 }
 
+typedef int* ints;
+
+typedef struct s_int_Array {
+    int length;
+    ints data;
+    int ix ;
+} int_Array;
+
+typedef int_Array* ref_int_Array; //referencia
+
+ref_int_Array new_int_Array ( int n ) {
+    ref_int_Array tmpArray = (ref_int_Array) malloc (sizeof(int_Array));
+
+    if ( tmpArray == NULL ) {
+        print ( "\nERRO: Falta espaco.\n" );
+    } 
+
+    else {
+        tmpArray->length = 0;
+        tmpArray->data = NULL;
+        tmpArray->ix = -1;
+
+        if( n > 0 ) {  
+            tmpArray->length = n;
+            tmpArray->data = (ints) malloc (n * sizeof(int));
+            tmpArray->ix = 0;
+        } 
+    } 
+
+    return ( tmpArray );
+}
+
+void free_int_Array ( ref_int_Array tmpArray ) {
+    if ( tmpArray != NULL ) {
+        if ( tmpArray->data != NULL ) {
+            free ( tmpArray->data );
+        } 
+
+        free ( tmpArray );
+    } 
+} 
+
+void printIntArray ( int_Array array ) {
+    if ( array.data ) {
+        for ( array.ix=0; array.ix<array.length; array.ix=array.ix+1 ) {
+            printf ( "%2d: %d\n", array.ix, array.data [ array.ix ] );
+        } 
+    } 
+} 
+
+
+
 void method_0811( void ) {
+/*
+    gerar um valor inteiro aleatoriamente dentro de um intervalo,
+    cujos limites de início e de fim serão recebidos como parâmetros.
+    Para para testar, ler os limites do intervalo do teclado;
+    ler a quantidade de elementos ( N ) a serem gerados;
+    gerar essa quantidade ( N ) de valores aleatórios
+    dentro do intervalo e armazená-los em arranjo;
+    gravá-los, um por linha, em um arquivo ("DADOS.TXT").
+    A primeira linha do arquivo deverá informar a quantidade
+    de números aleatórios ( N ) que serão gravados em seguida.
+    DICA: Usar a função rand( ), mas tentar limitar valores maiores ou iguais a 106
+    Exemplo: valor = RandomIntGenerate ( inferior, superior );
+*/
+
+    static int_Array array; //definindo dado
+
+    int inicio = 0;
+    int fim = 0;
     int n = 0;
-    int superior = 0;
-    int inferior = 0;
-    int random = 0;
 
-    FILE *arquivo = fopen("DADOS.TXT", "wt");
+    n = readint("Insira a quantidade de elementos a serem gerados: ");
+    inicio = readint("Insira o inicio do intervalo: ");
+    fim = readint("Insira o final do intervalo: ");
 
-    n = readint("Digite a quantidade de valores a serem gerados: ");
-    inferior = readint("Digite o valor inferior do intervalo: ");
-    superior = readint("Digite o valor superior do intervalo: ");
+    array.length = n;
 
-    int arr[n];
+    array.data = ints ( array.length );
 
-    for(int i = 0; i < n; i++) {
-        random = RandomIntGenerate ( inferior, superior );
-        arr[i] = random;
+    for(int i = 0; i < array.length; i++){
+        array.data[i] = RandomIntGenerate(inicio, fim);
     }
 
-    fprintf(arquivo, "%d\n", n);
-
-    for(int i = 0; i < n; i++) {
-        fprintf(arquivo, "%d\n", arr[i]);
-    }
-
-    footer();
 }
 
 void method_0812( void ) {   
-    
+/*  procurar certo valor inteiro em um arranjo.
+    Para testar, receber um nome de arquivo como parâmetro e
+    aplicar a função sobre o arranjo com os valores lidos.
+    DICA: Usar o modelo de arranjo proposto nos exemplos.
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" );
+    resposta = arraySearch ( valor, arranjo );
+*/
+
+
 }
 
 void method_0813( void ) {
