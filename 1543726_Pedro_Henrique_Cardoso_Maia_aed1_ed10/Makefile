@@ -5,13 +5,13 @@ CC = gcc
 CFLAGS = -Wall -g
 
 # Arquivos de origem
-SRC = aed1_ed10_main.c aed1_ed10.c
+SRC = aed1_ed10_main.c 
 
 # Arquivos de cabeçalho
 HEADERS = aed1_ed10.h
 
 # Arquivos objeto gerados
-OBJ = aed1_ed10_main.o aed1_ed10.o
+OBJ = aed1_ed10_main.o 
 
 # Nome do executável final
 TARGET = aed1_ed10_main.exe
@@ -25,7 +25,7 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	del $(OBJ) $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)
