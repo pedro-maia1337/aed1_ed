@@ -38,31 +38,52 @@ void method_1101 () {
 
    int random = 0;
 
-   cout << "Digite a quantidade de numeros aleatorios: " << endl;
+   cout << "Digite a quantidade de numeros aleatorios: ";
    cin >> n;
 
-   cout << "Insira o inicio do intervalo: " << endl;
+   cout << "Insira o inicio do intervalo: ";
    cin >> inferior;
 
-   cout << "Insira o final do intervalo: " << endl;
+   cout << "Insira o final do intervalo: ";
    cin >> superior;
 
    Array <int> int_array ( n , 0 );
 
-   for(int i = 0; i < n; i++) {
+   for(int i = 0; i < n; i=i+1) {
         random = int_array.randomIntGenerate(inferior, superior);
-        int_array.set(random, i);
+        int_array.set(i, random);
     }
 
-    int_array.print();
+    int_array.fprint("DADOS.txt");
+
+    int_array.free(); 
 
     pause ( "Apertar ENTER para continuar" );
-
-
 }
 
 void method_1102 () {
+    /*
+    Incluir uma função (1112) para
+    procurar o maior valor ímpar em um arranjo.
+    Para testar, receber um nome de arquivo como parâmetro e
+    aplicar a função sobre o arranjo com os valores lidos;
+    DICA: Usar o primeiro valor ímpar, se houver, como referência inicial.
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" );
+    maior = arranjo.searchFirstOdd ( );
+    */
 
+    int maior = 0;
+    Array <int> int_array ( 0 , 0 );
+    
+    int_array.fread( "DADOS.txt" );
+
+    maior = int_array.searchFirstOdd( );
+
+    cout << "Maior impar: " << maior <<endl;
+
+    int_array.free(); 
+
+    pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1103 () {
@@ -70,6 +91,32 @@ void method_1103 () {
 }
 
 void method_1104 () {
+    /*
+    somar todos os valores em um arranjo entre duas posições dadas.
+    Para testar, receber um nome de arquivo como parâmetro e
+    aplicar a função sobre o arranjo com os valores lidos;
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" );
+    soma = arranjo.addInterval ( inicio, fim );
+    */
+
+    int inferior = 0;
+    int superior = 0;
+
+    Array <int> int_array ( 0 , 0 );
+
+    cout << "Insira o inicio do intervalo: ";
+    cin >> inferior;
+
+    cout << "Insira o final do intervalo: ";
+    cin >> superior;
+        
+    int_array.fread( "DADOS.txt" );
+
+    cout << "Soma entre o intervalo " << inferior  << " " << superior  << ": " 
+         << int_array.addInterval(inferior, superior)   <<endl;
+
+
+    pause ( "Apertar ENTER para continuar" );
 
 }
 

@@ -69,12 +69,67 @@ class Array {
 
         int randomIntGenerate ( int inferior, int superior ) {
             std::random_device rd;
-            std::mt19937 gen(rd());
-            std::uniform_real_distribution<> distrib(0.0, 1.0);
+            std::mt19937 gen(rd()); 
+            std::uniform_int_distribution<> distrib(inferior, superior);
             int random = distrib(gen);
-            cout << random << " ";
             return random;
         }
+
+        void fprint ( string fileName ) {
+            ofstream afile; // output file
+            afile.open ( fileName );
+            afile << length << endl;
+            for ( int x = 0; x < length; x=x+1 ) {
+                afile << data[ x ] << endl;
+            } // end for
+            afile.close ( );
+        } // end fprint ( )
+
+        void fread ( string fileName ) {
+            ifstream afile; // input file
+            int n = 0;
+            afile.open ( fileName );
+            afile >> n;
+            if ( n <= 0 ) {
+                cout << "\nERROR: Invalid length.\n" << endl;
+            }
+            else {
+                // guardar a quantidade de dados
+                length = n;
+                // reservar area
+                data = new T [ n ];
+                // ler dados
+                for ( int x = 0; x < length; x=x+1 ) {
+                    afile >> data[ x ];
+                } // end for
+            } // end if
+            afile.close ( );
+        } // end fread ( )
+
+        int searchFirstOdd ( ) { //verificar se possui numeros impares, descartar tamanho, corrigir
+            int maiorImpar = 0;
+            for (int x = 0; x < length; x=x+1) {
+                if(data [ x ] % 2 != 0 ) {
+                    maiorImpar = data [ x ];
+                    if(data [ x ] > maiorImpar) {
+                        maiorImpar = data [ x ];
+                    }
+                }
+            }
+
+            return maiorImpar;
+        }
+
+        int addInterval ( int inicio, int fim ) { //validar se tem valores entre os intervalos 
+            int soma = 0;
+            for(int x = 0; x < length; x=x+1) {
+                if(data [ x ] >= inicio && data [ x ] <= fim) {
+                    soma = soma + data [ x ];
+                }
+            }
+            return soma;
+        }
+
 };
 
 #endif
