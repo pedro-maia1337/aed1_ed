@@ -112,7 +112,7 @@ void method_1104 () {
         
     int_array.fread( "DADOS.txt" );
 
-    cout << "Soma entre o intervalo " << inferior  << " " << superior  << ": " 
+    cout << "Soma entre o intervalo " << inferior  << " e " << superior  << ": " 
          << int_array.addInterval(inferior, superior)   <<endl;
 
 
@@ -121,30 +121,81 @@ void method_1104 () {
 }
 
 void method_1105 () {
+    /*
+    achar a média dos valores em um arranjo entre duas posições dadas.
+    Para testar, receber um nome de arquivo como parâmetro e
+    aplicar a função sobre o arranjo com os valores lidos;
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" );
+    media = arranjo.averageInterval ( inicio, fim );
+    */
 
+    int inferior = 0;
+    int superior = 0;
+
+    Array <int> int_array ( 0 , 0 );
+
+    cout << "Insira o inicio do intervalo: ";
+    cin >> inferior;
+
+    cout << "Insira o final do intervalo: ";
+    cin >> superior;
+        
+    int_array.fread( "DADOS.txt" );
+
+    cout << "Media entre o intervalo " << inferior  << " e " << superior  << ": " 
+         << int_array.averageInterval(inferior, superior)   <<endl;
+
+    pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1106 () {
+    /*
+    verificar se todos os valores são positivos e maiores que 100 em um arranjo.
+    Para testar, ler o arquivo ("DADOS.TXT")
+    armazenar os dados em um arranjo.
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" );
+    teste = arranjo.negatives ( );
+    */
 
+    Array <int> int_array1 ( 1, 0 );
+    bool teste = false;
+
+
+    int_array1.fread ( "DADOS.txt" );
+
+    teste = int_array1.negatives();
+
+    if(teste){
+        cout << "Todos os valores sao positivos e maiores que 100";
+    } else {
+        cout << "O arranjo possui valores diferentes de positivos e maiores que 100";
+    }
+
+
+    // reciclar espaco
+    int_array1.free ( );
+
+
+    pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1107 () {
 
-
+    pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1108 () {
-
+    pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1109 () {
-
+    pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1110 () {
-
+    pause ( "Apertar ENTER para continuar" );
 }
 
 

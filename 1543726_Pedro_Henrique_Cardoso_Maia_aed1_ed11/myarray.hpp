@@ -16,6 +16,8 @@ using std::ifstream ; // para ler arquivo
 #include <ctime>
 #include <random>
 
+std::mt19937 gen(std::random_device{}()); // Inicializa apenas uma vez
+
 template < typename T >
 
 class Array {
@@ -68,11 +70,8 @@ class Array {
         } 
 
         int randomIntGenerate ( int inferior, int superior ) {
-            std::random_device rd;
-            std::mt19937 gen(rd()); 
             std::uniform_int_distribution<> distrib(inferior, superior);
-            int random = distrib(gen);
-            return random;
+            return distrib(gen);
         }
 
         void fprint ( string fileName ) {
@@ -121,7 +120,7 @@ class Array {
         }
 
         int addInterval ( int inicio, int fim ) { //validar se tem valores entre os intervalos 
-            int soma = 0;
+            T soma = 0;
             for(int x = 0; x < length; x=x+1) {
                 if(data [ x ] >= inicio && data [ x ] <= fim) {
                     soma = soma + data [ x ];
@@ -129,6 +128,27 @@ class Array {
             }
             return soma;
         }
+
+        double averageInterval ( int inicio, int fim ) {
+            T soma = 0;
+            int ac = 0;
+            for(int x = 0; x < length; x=x+1) {
+                if(data [ x ] >= inicio && data [ x ] <= fim) {
+                    soma = soma + data [ x ];
+                    ac = ac + 1;
+                }
+            }
+            return (double) soma / ac;
+        }
+
+        bool negatives ( ) {
+            for(int x = 0; x < length; x = x + 1) {
+                
+            }
+             
+        } 
+        
+
 
 };
 
