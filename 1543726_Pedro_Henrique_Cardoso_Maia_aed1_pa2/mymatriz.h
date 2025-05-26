@@ -29,9 +29,9 @@ ref_double_matriz new_double_matriz(int rows, int columns) {
             tpm_matriz->data = (double**) malloc(rows * sizeof(double));
 
             if(tpm_matriz->data) {
-                for(tpm_matriz->ix = 0; tpm_matriz->ix < tpm_matriz->rows; tpm_matriz->ix= tpm_matriz->ix + 1 ) {
-                    tpm_matriz->data[tpm_matriz->ix] = (double*) malloc(columns * sizeof(double));
-                }
+                for(tpm_matriz->ix = 0; tpm_matriz->ix <
+ tpm_matriz->rows; tpm_matriz->ix= tpm_matriz->ix + 1 ) {
+                    tpm_matriz->data[tpm_matriz->ix] = (double*) malloc(columns * sizeof(double));                }
             }
         }
         
