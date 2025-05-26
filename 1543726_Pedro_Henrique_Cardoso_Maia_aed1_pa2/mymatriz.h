@@ -42,13 +42,46 @@ ref_double_matriz new_double_matriz(int rows, int columns) {
     return tpm_matriz;
 }
 
-void printIntMatrix ( ref_double_matriz matrix ) {
+void printDoubleMatriz ( ref_double_matriz matrix ) {
     if ( matrix != NULL && matrix->data != NULL ) {
         for ( matrix->ix=0; matrix->ix<matrix->rows; matrix->ix=matrix->ix+1 ) {
             for ( matrix->iy=0; matrix->iy<matrix->columns; matrix->iy=matrix->iy+1 ) {
-                printf ( "%3lf\t", matrix->data [ matrix->ix ][ matrix->iy ] );
+                printf ( "%lf\t", matrix->data [ matrix->ix ][ matrix->iy ] );
             } 
             printf ( "\n" );
         } 
     } 
+}
+
+ref_double_matriz fread_double_matriz(char *filename){
+
+    //definir dados locais
+    FILE *file = fopen(filename, "rt");
+    int rows = 0;
+    int columns = 2;
+    ref_double_matriz matriz = NULL;
+
+    fscanf(file, "%d", &rows);
+
+    if(rows <= 0 || columns <= 0) {
+        printf("Valor invalido");
+    } else {
+        matriz = new_double_matriz(rows, columns);
+
+        if(matriz != NULL) {
+            matriz->ix = 0;
+            while(!feof(file) || matriz->ix < matriz->rows) {
+                matriz->iy = 0;
+                while (!feof(file) || matriz->iy < matriz->columns) {
+                    fscanf(file, "%lf", &(matriz->data[matriz->ix][matriz->iy]));
+                    matriz->iy = matriz->iy + 1;
+                }
+                matriz->ix = matriz->ix + 1;
+            }
+            matriz->ix = 0;
+            matriz->iy = 0;
+        }
+    }
+
+    return matriz;
 }

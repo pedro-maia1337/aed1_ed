@@ -23,7 +23,7 @@ $(OBJ): $(SRC) pair.h myarray.h mymatriz.h
 
 # Limpeza (use 'del' para Windows, 'rm -f' para Linux/Mac)
 clean:
-	del $(OBJ) $(TARGET)
+	rm -f $(OBJ) $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)
