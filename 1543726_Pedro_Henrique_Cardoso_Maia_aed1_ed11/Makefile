@@ -21,11 +21,11 @@ all: $(TARGET)
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
 
-%.o: %.c $(HEADERS)
+%.o: %.cpp myarray.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	del $(OBJ) $(TARGET)
 
 run: $(TARGET)
 	./$(TARGET)

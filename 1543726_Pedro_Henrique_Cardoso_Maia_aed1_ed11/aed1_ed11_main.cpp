@@ -18,9 +18,6 @@ void pause ( std::string text )
 
 
 void method_1101 () {
-    //Array <int> int_array ( 5, 0 ); gerar array
-    //int_array.set ( 0, 1 ); definir dados
-
     /*
     ler a quantidade de elementos ( N ) a serem gerados;
     gerar essa quantidade ( N ) de valores aleatórios
@@ -35,7 +32,6 @@ void method_1101 () {
    int n = 0;
    int inferior = 0;
    int superior = 0;
-
    int random = 0;
 
    cout << "Digite a quantidade de numeros aleatorios: ";
@@ -55,7 +51,8 @@ void method_1101 () {
     }
 
     int_array.fprint("DADOS.txt");
-
+    cout << "Numeros Gerados: " << endl;
+    int_array.print();
     int_array.free(); 
 
     pause ( "Apertar ENTER para continuar" );
@@ -73,13 +70,16 @@ void method_1102 () {
     */
 
     int maior = 0;
-    Array <int> int_array ( 0 , 0 );
-    
-    int_array.fread( "DADOS.txt" );
+    Array <int> int_array ( 1 , 0 );
 
+    int_array.fread("DADOS.txt");
     maior = int_array.searchFirstOdd( );
 
-    cout << "Maior impar: " << maior <<endl;
+    if(maior == 0) {
+        cout << "O arranjo nao possui numeros impares." << endl;
+    } else {
+        cout << "Maior impar: " << maior <<endl;
+    }
 
     int_array.free(); 
 
@@ -87,8 +87,35 @@ void method_1102 () {
 }
 
 void method_1103 () {
+    /*
+    procurar o maior valor ímpar múltiplo de 3 em um arranjo. 
+    Para testar, receber um nome de arquivo como parâmetro e  
+    aplicar a função sobre o arranjo com os valores lidos; 
+    DICA: Usar o primeiro valor ímpar múltiplo de 3, se houver, como referência inicial. 
+    
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" ); 
+    menor  = arranjo.searchFirstOddx3 ( );
+    */
 
+    int maior = 0;
+
+    Array <int> int_array ( 1 , 0 );
+    
+    int_array.fread( "DADOS.txt" );
+
+    maior = int_array.searchFirstOddx3( );
+
+    if(maior == 0) {
+        cout << "O arranjo nao possui numeros impares e multiplos de tres" << endl;
+    } else {
+        cout << "Maior impar multiplo de 3: " << maior <<endl;
+    }
+
+    int_array.free(); 
+
+    pause ( "Apertar ENTER para continuar" );
 }
+
 
 void method_1104 () {
     /*
@@ -101,6 +128,7 @@ void method_1104 () {
 
     int inferior = 0;
     int superior = 0;
+    int soma = 0;
 
     Array <int> int_array ( 0 , 0 );
 
@@ -112,9 +140,14 @@ void method_1104 () {
         
     int_array.fread( "DADOS.txt" );
 
-    cout << "Soma entre o intervalo " << inferior  << " e " << superior  << ": " 
-         << int_array.addInterval(inferior, superior)   <<endl;
+    soma = int_array.addInterval(inferior, superior);
 
+    if(soma == 0) {
+        cout << "O arranjo nao possui valores nesse intervalo" << endl;
+    } else {
+        cout << "Soma entre o intervalo " << inferior  << " e " << superior  << ": " 
+         << soma  <<endl;
+    }
 
     pause ( "Apertar ENTER para continuar" );
 
@@ -131,6 +164,7 @@ void method_1105 () {
 
     int inferior = 0;
     int superior = 0;
+    double media = 0.0;
 
     Array <int> int_array ( 0 , 0 );
 
@@ -142,8 +176,14 @@ void method_1105 () {
         
     int_array.fread( "DADOS.txt" );
 
-    cout << "Media entre o intervalo " << inferior  << " e " << superior  << ": " 
-         << int_array.averageInterval(inferior, superior)   <<endl;
+    media = int_array.averageInterval(inferior, superior) ;
+
+    if(media - 1 == 0.0) {
+        cout << "O arranjo nao possui valores nesse intervalo" << endl;
+    } else {
+        cout << "Media entre o intervalo " << inferior  << " e " << superior  << ": " 
+         <<  media <<endl;
+    }
 
     pause ( "Apertar ENTER para continuar" );
 }
@@ -159,20 +199,16 @@ void method_1106 () {
 
     Array <int> int_array1 ( 1, 0 );
     bool teste = false;
-
-
     int_array1.fread ( "DADOS.txt" );
 
     teste = int_array1.negatives();
 
     if(teste){
-        cout << "Todos os valores sao positivos e maiores que 100";
+        cout << "Todos os valores sao positivos e maiores que 100.";
     } else {
         cout << "O arranjo possui valores diferentes de positivos e maiores que 100";
     }
 
-
-    // reciclar espaco
     int_array1.free ( );
 
 
@@ -180,21 +216,137 @@ void method_1106 () {
 }
 
 void method_1107 () {
+    /*
+    dizer se está ordenado, ou não, em ordem decrescente. 
+    DICA: Testar se não está desordenado, ou seja,  
+    se existe algum valor que seja maior que o seguinte. 
+    Não usar break ! 
+ 
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" ); 
+    teste    = arranjo.isDecrescent ( );
+    */
+
+    Array <int> int_array1 ( 1, 0 );
+    bool teste = false;
+    int_array1.fread ( "DADOS.txt" );
+
+    teste = int_array1.isDecrescent( );
+
+    if(teste){
+        cout << "O arranjo esta ordenado.";
+    } else {
+        cout << "O arranjo nao esta ordenado.";
+    }
+
+    int_array1.free ( );
+
 
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1108 () {
+    /*
+    dizer se determinado valor está presente em arranjo,  
+    entre duas posições indicadas. 
+    Para testar, ler o arquivo ("DADOS.TXT"), 
+    e armazenar os dados em arranjo; 
+    ler do teclado um valor inteiro para ser procurado; 
+    determinar se o valor procurado existe no arranjo. 
+ 
+    Exemplo: arranjo = readArrayFromFile     ( "DADOS.TXT" ); 
+    existe  = arranjo.searchInterval ( procurado, inicio, fim );
+    */
+    int inferior = 0;
+    int superior = 0;
+    int procurado = 0;
+    bool existe = false;
+
+    Array <int> int_array ( 1 , 0 );
+
+    cout << "Insira o numero que deseja procurar: ";
+    cin >> procurado;
+
+    cout << "Insira o inicio do intervalo: ";
+    cin >> inferior;
+
+    cout << "Insira o final do intervalo: ";
+    cin >> superior;
+
+    int_array.fread("DADOS.txt");
+
+    existe = int_array.searchInterval(procurado, inferior, superior);
+
+    if(existe){
+        cout << "O valor: " << procurado << " foi ENCONTRADO no arranjo." << endl;
+    } else {
+        cout << "O valor: " << procurado << " NAO foi encontrado no arranjo." << endl;
+    }
+
     pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1109 () {
+    /*
+    escalar dados em arranjo, entre duas posições dadas,  
+    multiplicando cada valor por uma constante. 
+    Para testar, ler o arquivo ("DADOS.TXT"), 
+    e armazenar os dados em arranjo; 
+    ler do teclado um valor inteiro para indicar a constante. 
+ 
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" ); 
+    novo    = arranjo.scalar( constante, inicio, fim );
+    */
+
+    int constante = 0;
+    int inferior = 0;
+    int superior = 0;
+
+    Array <int> int_array(1, 0);
+
+    int_array.fread("DADOS.txt");
+
+    cout << "Insira a constante que deseja multiplicar: ";
+    cin >> constante;
+
+    cout << "Insira o inicio do intervalo: ";
+    cin >> inferior;
+
+    cout << "Insira o final do intervalo: ";
+    cin >> superior;
+
+    int_array.print();
+
+    int_array.scalar(constante, inferior, superior);
+
+    int_array.print();
+
     pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1110 () {
+    /*
+    incluir um método (1120) para  
+    colocar valores em arranjo em ordem decrescente, 
+    mediante trocas de posições, até ficar totalmente ordenado.  
+    Para testar, ler o arquivo ("DADOS.TXT"), 
+    e armazenar os dados em arranjo. 
+ 
+    Exemplo: arranjo = readArrayFromFile ( "DADOS.TXT" ); 
+    arranjo.sortDown ( );
+    */
+
+    Array <int> int_array (1, 0);
+
+    int_array.fread("DADOS.txt");
+
+    int_array.print();
+
+    int_array.sortDown();
+
+    int_array.print();
+
     pause ( "Apertar ENTER para continuar" );
 }
 

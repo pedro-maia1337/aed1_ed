@@ -16,7 +16,7 @@ using std::ifstream ; // para ler arquivo
 #include <ctime>
 #include <random>
 
-std::mt19937 gen(std::random_device{}()); // Inicializa apenas uma vez
+std::mt19937 gen(std::random_device{}()); 
 
 template < typename T >
 
@@ -105,21 +105,26 @@ class Array {
             afile.close ( );
         } // end fread ( )
 
-        int searchFirstOdd ( ) { //verificar se possui numeros impares, descartar tamanho, corrigir
+        int searchFirstOdd ( ) { 
             int maiorImpar = 0;
             for (int x = 0; x < length; x=x+1) {
-                if(data [ x ] % 2 != 0 ) {
-                    maiorImpar = data [ x ];
-                    if(data [ x ] > maiorImpar) {
-                        maiorImpar = data [ x ];
-                    }
-                }
+                if(data [ x ] % 2 != 0 ) maiorImpar = data [ x ];  
+                if(data [ x ] > maiorImpar) maiorImpar = data [ x ];      
             }
 
             return maiorImpar;
         }
 
-        int addInterval ( int inicio, int fim ) { //validar se tem valores entre os intervalos 
+        int searchFirstOddx3 ( ) {
+            int multiplo = 0;
+            for (int x = 0; x < length; x=x+1){
+                if(data [ x ] % 2 != 0 && data [x] % 3 == 0) multiplo = data [ x ];
+                if(data [ x ] > multiplo) multiplo = data [ x ]; 
+            }
+            return multiplo;
+        }
+
+        int addInterval ( int inicio, int fim ) { 
             T soma = 0;
             for(int x = 0; x < length; x=x+1) {
                 if(data [ x ] >= inicio && data [ x ] <= fim) {
@@ -130,8 +135,8 @@ class Array {
         }
 
         double averageInterval ( int inicio, int fim ) {
-            T soma = 0;
-            int ac = 0;
+            T soma = -1;
+            int ac = -1;
             for(int x = 0; x < length; x=x+1) {
                 if(data [ x ] >= inicio && data [ x ] <= fim) {
                     soma = soma + data [ x ];
@@ -142,14 +147,59 @@ class Array {
         }
 
         bool negatives ( ) {
+            int count = 0;
             for(int x = 0; x < length; x = x + 1) {
-                
+                if(data[ x ] > 0 && data [ x ] > 100){
+                    count = count + 1;
+                }
             }
-             
+            if(count + 1 == length) {
+                return true;
+            } else {
+                return false;  
+            }       
         } 
-        
 
+        bool isDecrescent ( ) { 
+            for (int i = 0; i < length; i=i+1) {
+                if (data[i] < data[i + 1]) {
+                    return false;
+                }
+            }
+            return true;
+        }
 
+        bool searchInterval(int procurado, int inicio, int fim) {
+            for (int x = 0; x < length; x=x+1) {
+                if ( data [x] >= inicio && data [x] <= fim){
+                    if(data [x] == procurado) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        void scalar(int constante, int inferior, int superior) {  
+            for(int x = 0; x < length; x=x+1) {
+                if ( data [x] >= inferior && data [x] <= superior){
+                    data [x] = data[x] * constante;
+                }
+            }
+        }
+
+        void sortDown() {
+            int aux = 0;
+            for(int i = 0; i < length; i++){
+                for(int x = 0; x < length - 1; x=x+1){
+                    if(data[x] < data[x + 1]){
+                        aux = data[x];
+                        data[x] = data [x + 1];
+                        data[x + 1] = aux;
+                    }
+                }
+            }
+        }
 };
 
 #endif

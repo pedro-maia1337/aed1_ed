@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <time.h>
 #include "aed1_ed08.h"
 #include "io.h"
 
@@ -16,19 +17,73 @@ void cabecalho() {
 }
 
 void method_0811( void ) {
-    
+    int n = 0;
+    n = readint("Numero: ");
+
+    if(n < 0 || !n){ //validar isso aqui depois / transformar em função ? 
+        print("Valor invalido");
+        return;
+    }
+
+    int arr[n];
+
+    lerPares(n, arr);
+    lerArranjo(n, arr);
+
+    footer();
 }
 
 void method_0812( void ) {   
     
+
 }
 
 void method_0813( void ) {
-    
+    int a = 0;
+    int b = 0;
+
+    a = readint("Determine o inicio do intervalo: ");
+    b = readint("Determine o final do intervalo: ");
+
+    if(a < 0 || !a) {
+        print("Valor invalido");
+        return;
+    }
+
+    if(b < 0 || !b) {
+        print("Valor invalido");
+        return;
+    }
+
+    gerarInt(a - 1, b - 1);
+
+    footer();
 }
 
 void method_0814( void ) {
-    
+    int n = 0;
+    char str[100];
+    int arr[MAX];
+    int menor_valor = 0;
+
+    n = readint("Insira a quantidade de numeros que deseja ler: ");
+
+    if(n < 0 || !n) {
+        print("Valor invalido");
+        return;
+    }
+
+    printf("%s", "Digite a frase: ");
+    fgets(str, MAX, stdin);
+    str[strcspn(str, "\n")] = '\0';
+
+    lerArquivo(n, str, arr);
+
+    menor_valor = acharMenorPar(n, arr);
+
+    printf("%d", menor_valor);
+
+    footer();
 }
 
 void method_0815( void ) {
