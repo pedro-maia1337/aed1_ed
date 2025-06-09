@@ -95,9 +95,7 @@ void method_pa04( void ) {
     Exemplo: sequência = { (5,2), (2,3), (3,1), (5,1), (1,4), (0,0) }
     */
 
-   ref_double_matriz matriz = fread_double_matriz("DADOS.txt");
-
-   printDoubleMatriz(matriz);
+   
 
    pause("\nAperte Enter para sair. ");
 }
