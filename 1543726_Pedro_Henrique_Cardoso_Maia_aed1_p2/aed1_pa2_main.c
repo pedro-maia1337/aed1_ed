@@ -26,14 +26,36 @@ void method_pa02( void ) {
 }
 
 void method_pa03( void ) {
-   
+    int x = 1;
+    int y = 0;
+    int n = 3;
+
+    while(x < n){
+        print("ola\n");
+        while(y < n){
+            printf("hello\n");
+            y = y + 1;
+        }
+        x = x +1;
+    }
+
+   pause("\nAperte Enter para sair. ");
 }
 
 void method_pa04( void ) {
-     
+     for(int i = 0; i < 9; i++){
+        printf("%d ", i);
+     }
+
+     pause("\nAperte Enter para sair. ");
 }
 
 void method_pa05( void ) {
+    int *m = malloc(2 * sizeof(int)); int n = 129;
+    m[0] = *m - *m; *(m+1)=n;
+
+
+
     pause("\nAperte Enter para sair. ");
 }
 
@@ -71,21 +93,17 @@ void method_pa06( void ) {
     pause("\nAperte Enter para sair. ");
 }
 
-void maiores_matriz(int **matriz, int rows, int colums) {
-    
-    int arranjo[colums];
-    int maior_valor = matriz[0][0];
-
-    for(int i = 0; i < rows; i=i+1){
-        for(int j = 0; j < colums; j=j+1){
-            if(maior_valor < matriz[i][j]){
-                arranjo[i] = maior_valor;
-            }
-        }
+void maiores_matriz(int rows, int colums, int m[][colums]) {
+    int maior = 0;
+    for(int i = 0; i < rows; i++){
+        maior = m[0][i];
+        for(int k = 0; k < colums; k++){
+            if(maior < m[i][k]){
+                maior = m[i][k];   
+            } 
+        } 
+        printf("%d", maior);     
     }
-
-    
-    
 }
 
 void method_pa07( void ){
@@ -94,17 +112,51 @@ void method_pa07( void ){
         e possa devolver a matriz com os maiores elementos de cada linha na respectiva posição da diagonal principal.
     */
 
-   int rows = 3;
-   int colums = 3;
+    int matriz[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
 
-   int matriz[rows][colums] = {{ 1, 2, 3}, 
-                               { 4, 5, 6}, 
-                               { 7, 8, 9}};
+    maiores_matriz(3, 3, matriz);
 
     pause("\nAperte Enter para sair. ");
 }
 
 void method_pa08( void ){
+    int primeiro_dado = 0;
+    int segundo_dado = 0;
+    int terceiro_dado = 0;
+    double quarto_dado = 0;
+    int contador = 0;
+    int aux = 0;
+
+    //int dia = 8;
+    //int mes = 11;
+    //int ano = 2023;
+
+    FILE *fread_arquivo = fopen("DATAS.txt", "rt");
+    //FILE *fwrite_arquivo = fopen("BOLETOS.txt", "wt");
+
+    while(!(feof(fread_arquivo))) {
+        fscanf(fread_arquivo, "%d", &primeiro_dado);
+        fscanf(fread_arquivo, "%d", &segundo_dado);
+        fscanf(fread_arquivo, "%d", &terceiro_dado);
+        fscanf(fread_arquivo, "%lf", &quarto_dado);
+
+        aux = primeiro_dado;
+
+        while (aux > 0) {
+            contador++;       // Incrementa o contador
+            aux /= 10;     // Divide o número por 10
+        }
+
+
+        printf("%d ", primeiro_dado);
+        printf("%d ", segundo_dado);
+        printf("%d ", terceiro_dado);
+        printf("%lf ", quarto_dado);
+    }
+
+    printf("%d", contador);
+
+
     pause("\nAperte Enter para sair. ");
 }
 

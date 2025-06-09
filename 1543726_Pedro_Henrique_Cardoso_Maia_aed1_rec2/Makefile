@@ -1,30 +1,29 @@
 # Nome do compilador
-CC = g++
+CC = gcc
 
 # Opções de compilação
 CFLAGS = -Wall -g
 
 # Arquivos de origem
-SRC = aed1_ed13_main.cpp
+SRC = aed1_rec2_main.c
 
 # Arquivos de cabeçalho
-HEADERS = myarray.hpp mymatriz.hpp
+HEADERS = myarray.hpp mymatriz.h io.h
 
 # Arquivos objeto gerados
-OBJ = aed1_ed13_main.o 
+OBJ = aed1_rec2_main.o 
 
 # Nome do executável final
-TARGET = aed1_ed13_main.exe
+TARGET = aed1_rec_main.exe
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
 
-%.o: %.cpp myarray.hpp mymatriz.hpp Erro.hpp contato.hpp
+%.o: %.c myarray.h mymatriz.h io.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# rm -f para linux, del para windows
 clean:
 	del $(OBJ) $(TARGET)
 

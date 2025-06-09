@@ -49,10 +49,23 @@ void method_1302 () { // padronizar o idioma dessa bomba
     Contato1.readPhone();
 
     cout << Contato1.getFone();
+    
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1303 () {
+    Contato Contato1;
+
+    Contato1.readPhone();
+
+    cout << Contato1.getFone();
+
+    if(Contato1.isValidPhone()) {
+        cout << " Telefone Valido" << endl;
+    } else {
+        cout << " Telefone Invalido" << endl;
+    }
+
     pause ( "Apertar ENTER para continuar" );
 }
 
@@ -93,7 +106,7 @@ int main(int argc, char** argv) {
 
     do {
         // identificar
-        cout << "1543726_Pedro_Henrique_Cardoso_Maia_ed11\n " << endl;
+        cout << "1543726_Pedro_Henrique_Cardoso_Maia_ed13\n " << endl;
         // mostrar opcoes
         cout << "Opcoes "                  << endl;
         cout << "0   -  Sair "             << endl;

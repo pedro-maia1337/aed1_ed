@@ -55,7 +55,7 @@ class Contato : public Erro {
         } 
 
         void setFone ( std::string fone ) {
-            if ( nome.empty ( ) )
+            if ( fone.empty ( ) )
                 setErro ( 2 ); // fone invalido
             else 
                 this->fone = fone;
@@ -74,16 +74,44 @@ class Contato : public Erro {
         } 
 
         void readName(){
+            string newName;
             cout << "Name: ";
             cin.ignore();
-            getline( cin, nome);
+            getline( cin, newName);
+            setNome(newName);
         }
 
         void readPhone(){
+            string newPhone;
             cout << "Phone: ";
             cin.ignore();
-            getline( cin, fone);
+            getline( cin, newPhone);
+            setFone(newPhone);
         }
+
+        bool isValidPhone() { 
+            //validar se tem 9 ou 8 digitos
+            //validar se esta em branco
+            //validar se tem só numeros ou (-) pensar nisso aqui 
+
+            int strlen = fone.length();
+
+            if(strlen != 9 || strlen != 8) return false;
+            
+            for (char c : fone) {
+                if (!isdigit(c)) return false ;
+            }
+
+            return true;
+        }
+
+        void writeToFile(string filename) {
+            ofstream afile; // output file
+            afile.open ( filename );
+            afile << nome << endl;
+            afile << fone << endl;
+            afile.close ( );
+        } // end fprint ( )
 }; 
 
 using ref_Contato = Contato*; 
