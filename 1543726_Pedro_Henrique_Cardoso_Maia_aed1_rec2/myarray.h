@@ -17,7 +17,7 @@ typedef struct s_int_Array {
 }int_Array;
 
 
-typedef int_Array* ref_int_Array; //ref
+typedef int_Array* ref_int_Array;   //ref
 
 ref_int_Array new_int_Array ( int n ) {
     ref_int_Array tmpArray = (ref_int_Array) malloc (sizeof(int_Array));
@@ -57,7 +57,7 @@ void printIntArray ( ref_int_Array array ) {
             printf ( "%2d: %d\n", array->ix, array->data [ array->ix ] );
         } 
     } 
-} 
+}
 
 void fprintIntArray ( chars fileName, ref_int_Array array ) { 
     FILE* arquivo = fopen ( fileName, "wt" ); 
@@ -72,6 +72,7 @@ void fprintIntArray ( chars fileName, ref_int_Array array ) {
      
     fclose ( arquivo ); 
 } 
+
 
 int freadArraySize ( chars fileName ) { 
     int n = 0; 
@@ -254,6 +255,18 @@ ref_int_Array array_filter(ref_int_Array arranjo1, ref_int_Array arranjo2) {
     return array;
 }
 
+/*int convert_binary_to_decimal(char *bin) {
+    int decimal = 0;
+    int len = strlen(bin);
+
+    for(int i = 0; i < len; i++){
+        decimal = decimal + pow(2, len) * (bin[i] - 48);
+        len = len - 1;
+    }
+
+    return decimal;
+}*/
+
 int convert_binary_to_decimal(ref_int_Array arranjo) {
     //1 0 1 1 0 
 
@@ -271,7 +284,7 @@ int convert_binary_to_decimal(ref_int_Array arranjo) {
     int y = arranjo->length - 1;
 
     for(int i = 0; i < arranjo->length; i++){
-        valor = arranjo->data[i] * pow(y, 2);
+        valor = arranjo->data[i] * pow(2, y);
         soma = soma + valor;
         y = y - 1;
     }

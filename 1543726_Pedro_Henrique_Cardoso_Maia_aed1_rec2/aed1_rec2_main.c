@@ -137,7 +137,7 @@ void method_015( void ) {
 
     int decimal = convert_binary_to_decimal(arranjo);
 
-    printf("%d", decimal);
+    printf("%d ", decimal);
 
 
     footer();
