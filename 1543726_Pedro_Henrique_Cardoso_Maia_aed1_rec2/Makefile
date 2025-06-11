@@ -8,7 +8,7 @@ CFLAGS = -Wall -g
 SRC = aed1_rec2_main.c
 
 # Arquivos de cabeçalho
-HEADERS = myarray.hpp mymatriz.h io.h
+HEADERS = myarray.hpp mymatriz.h io.h supermercado.h
 
 # Arquivos objeto gerados
 OBJ = aed1_rec2_main.o 
@@ -21,7 +21,7 @@ all: $(TARGET)
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
 
-%.o: %.c myarray.h mymatriz.h io.h
+%.o: %.c myarray.h mymatriz.h io.h supermercado.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

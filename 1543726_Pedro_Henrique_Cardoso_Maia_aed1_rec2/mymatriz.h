@@ -206,3 +206,18 @@ ref_int_Matrix matrixTranspose(ref_int_Matrix matriz) {
 
     return transposta;
 }
+
+void gerarTridiagonal(int n, ref_int_Matrix matriz){
+    int valor = n * n;
+
+    for(int i = 0; i < n; i=i+1){
+        for(int j = 0; j < n;j=j+1){
+            if(j == i || j == i + 1) {
+                matriz->data[i][j] = valor;
+                valor = valor - 1;
+            } else {
+                matriz->data[i][j] = 0;
+            }
+        }
+    }
+}
