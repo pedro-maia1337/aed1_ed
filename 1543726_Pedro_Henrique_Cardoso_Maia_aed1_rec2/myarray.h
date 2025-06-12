@@ -293,3 +293,4 @@ int convert_binary_to_decimal(ref_int_Array arranjo) {
 
     return (int) decimal;
 }
+

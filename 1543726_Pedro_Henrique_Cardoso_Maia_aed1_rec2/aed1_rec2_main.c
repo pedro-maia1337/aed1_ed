@@ -7,6 +7,7 @@
 #include "io.h"
 #include "myarray.h"
 #include "mymatriz.h"
+#include "supermercado.h"
 
 #define MAX 100
 
@@ -144,7 +145,10 @@ void method_015( void ) {
 }
 
 void method_016( void ) {
+    int n = 0;
+    ref_int_Matrix matriz = freadintMatrix("MATRIZ1.txt");
 
+<<<<<<< HEAD
     ref_int_Matrix original = freadintMatrix("DADOS3.txt");
 
     printf("Matriz original:\n");
@@ -168,6 +172,14 @@ void method_016( void ) {
 
     free_int_Matrix(original);
     free_int_Matrix(nova);
+=======
+    print("Insira n: ");
+    scanf("%d", &n); getchar();
+
+    gerarTridiagonal(n, matriz);
+
+    printIntMatrix(matriz);
+>>>>>>> 3ee2213f4ea685d867f49141da305d0d71141152
 
     footer();
 }
@@ -214,7 +226,11 @@ void method_019( void ){
     footer();
 }
 
-void method_020( void ){
+void method_020( void ) {
+
+    ref_Supermercado sup = freadSupermercado("DADOS3.txt");
+
+    printSup(sup);
     
 
     footer();
