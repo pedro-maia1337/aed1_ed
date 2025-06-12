@@ -211,7 +211,7 @@ void arrayReverse(ref_int_Array arranjo) {
 }
 
 
-double arrayMediana(ref_int_Array arranjo) { // voltar ????
+double calc_mediana(ref_int_Array arranjo) { 
     int metade = 0;
 
     metade = arranjo->length / 2;

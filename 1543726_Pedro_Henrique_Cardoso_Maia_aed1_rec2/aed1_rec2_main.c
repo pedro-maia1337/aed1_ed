@@ -81,10 +81,22 @@ void method_012( void ) {
     footer();
 }
 
-void method_013( void ) { // voltar
+void method_013( void ) { 
 
-    
-        
+    /*
+    - definir uma função para receber um arranjo e um valor inteiro
+    como parâmetros, e achar a mediana (valor mais perto da média);
+    se houver dois próximos e diferentes, usar a média desses dois;
+    - ler arranjo do arquivo DADOS1.TXT
+    */
+
+    ref_int_Array arranjo = freadIntArray("DADOS1.txt");
+    printIntArray(arranjo);
+
+    printf("\nMediana do arranjo = %.2lf", calc_mediana(arranjo));
+
+    //fazer a segunda parte
+ 
     footer();
 }
 
@@ -211,8 +223,6 @@ void method_017( void ) {
     free_int_Matrix(nova);
 
     footer();
-
-    footer();
 }
 
 void method_018( void ) {
@@ -278,7 +288,7 @@ void method_020( void ) {
     - calcular o preço médio desse produto;
     - informar pelo menos dois supermercados com preços inferiores à média.
     */
-   
+
     int n = 0;
     ref_Supermercado supermercados = freadSupermercado("SUPERMERCADOS.TXT", &n);
 
