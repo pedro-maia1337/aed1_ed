@@ -145,12 +145,59 @@ void method_015( void ) {
 
 void method_016( void ) {
 
+    ref_int_Matrix original = freadintMatrix("DADOS3.txt");
+
+    printf("Matriz original:\n");
+    printIntMatrix(original);
+
+    int x;
+    printf("\nDigite o novo tamanho x da matriz quadrada: ");
+    scanf("%d", &x); getchar();
+
+    ref_int_Matrix nova = gerarNovaMatriz(original, x);
+
+    printf("\nMatriz quadrada formada (antes da tridiagonal):\n");
+    printIntMatrix(nova);
+
+    tridiagonalCrescente(nova);
+
+    printf("\nMatriz tridiagonal crescente:\n");
+    printIntMatrix(nova);
+
+    fprintIntMatrix("MATRIZ2.TXT", nova);
+
+    free_int_Matrix(original);
+    free_int_Matrix(nova);
 
     footer();
 }
 
 void method_017( void ) {
-    
+    ref_int_Matrix original = freadintMatrix("DADOS3.txt");
+
+    printf("Matriz original:\n");
+    printIntMatrix(original);
+
+    int x;
+    printf("\nDigite o novo tamanho x da matriz quadrada: ");
+    scanf("%d", &x); getchar();
+
+    ref_int_Matrix nova = gerarNovaMatriz(original, x);
+
+    printf("\nMatriz quadrada formada (antes da tridiagonal):\n");
+    printIntMatrix(nova);
+
+    tridiagonalSecundariaDecrescente(nova);
+
+    printf("\nMatriz tridiagonal Secundaria drecrescente:\n");
+    printIntMatrix(nova);
+
+    fprintIntMatrix("MATRIZ3.TXT", nova);
+
+    free_int_Matrix(original);
+    free_int_Matrix(nova);
+
+    footer();
 
     footer();
 }

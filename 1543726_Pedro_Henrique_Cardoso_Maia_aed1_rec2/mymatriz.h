@@ -206,3 +206,81 @@ ref_int_Matrix matrixTranspose(ref_int_Matrix matriz) {
 
     return transposta;
 }
+
+void tridiagonalCrescente(ref_int_Matrix matriz) {
+    int valor = 1;
+    for (int i = 0; i < matriz->rows; i++) {
+        for (int j = 0; j < matriz->columns; j++) {
+            if (j == i || j == i - 1 || j == i + 1) {
+                matriz->data[i][j] = valor++;
+            } else {
+                matriz->data[i][j] = 0;
+            }
+        }
+    }
+}
+
+// Função para gerar a nova matriz quadrada com x linhas e colunas, preenchendo com dados antigos e zero
+ref_int_Matrix gerarNovaMatriz(ref_int_Matrix original, int x) {
+    ref_int_Matrix nova = new_int_Matrix(x, x);
+    int contador = 0;
+
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < x; j++) {
+            if (contador < (original->rows * original->columns)) {
+                int linha = contador / original->columns;
+                int coluna = contador % original->columns;
+                nova->data[i][j] = original->data[linha][coluna];
+                contador++;
+            } else {
+                nova->data[i][j] = 0;
+            }
+        }
+    }
+
+    return nova;
+}
+
+void tridiagonalSecundariaDecrescente(ref_int_Matrix matriz) {
+    int n = matriz->rows;
+    int valor = 1;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if ((i + j == n - 1) || (i + j == n - 2) || (i + j == n)) {
+                matriz->data[i][j] = valor++;
+            } else {
+                matriz->data[i][j] = 0;
+            }
+        }
+    }
+}
+
+bool verificarPotencias(ref_int_Matrix matriz) {
+    for (int j = 0; j < matriz->columns; j++) {
+        int base = matriz->data[1][j];  // Segunda linha define a base (pois primeira linha é sempre 1)
+
+        for (int i = 0; i < matriz->rows; i++) {
+            int esperado = (int) pow(base, i);
+            if (matriz->data[i][j] != esperado) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool verificarPotenciasDecrescentes(ref_int_Matrix matriz) {
+    for (int j = 0; j < matriz->columns; j++) {
+        int base = matriz->data[matriz->rows - 2][j];  // penúltima linha indica a base (última linha é sempre 1)
+
+        for (int i = 0; i < matriz->rows; i++) {
+            int expoente = matriz->rows - 1 - i;
+            int esperado = (int) pow(base, expoente);
+            if (matriz->data[i][j] != esperado) {
+                return false;
+            }
+        }
+    }
+    return true;
+}

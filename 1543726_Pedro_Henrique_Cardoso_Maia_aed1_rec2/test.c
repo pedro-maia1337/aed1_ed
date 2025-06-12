@@ -481,3 +481,65 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
+//
+
+// Função para gerar a matriz tridiagonal crescente
+void gerarTridiagonal(int N, int matriz[100][100]) {
+    int valor = N * N;
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if ( (j == i) || (j == i-1) || (j == i+1) ) {
+                matriz[i][j] = valor;
+                valor--;
+            } else {
+                matriz[i][j] = 0;
+            }
+        }
+    }
+}
+
+void gerarTridiagonalSecundaria(int N, int matriz[100][100]) {
+    int valor = N * N;
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if ( (j == (N-1)-i) || (j == (N-1)-i - 1) || (j == (N-1)-i + 1) ) {
+                matriz[i][j] = valor;
+                valor--;
+            } else {
+                matriz[i][j] = 0;
+            }
+        }
+    }
+}
+
+bool verificarPotencias(int linhas, int colunas, int matriz[100][100]) {
+    for (int j = 0; j < colunas; j++) {
+        int base = matriz[1][j];  // Segunda linha define a base (pois primeira linha é sempre 1)
+
+        for (int i = 0; i < linhas; i++) {
+            int esperado = (int) pow(base, i);
+            if (matriz[i][j] != esperado) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool verificarPotenciasDecrescentes(int linhas, int colunas, int matriz[100][100]) {
+    for (int j = 0; j < colunas; j++) {
+        int base = matriz[linhas-2][j];  // penúltima linha indica a base (pois última linha é sempre 1)
+
+        for (int i = 0; i < linhas; i++) {
+            int expoente = linhas - 1 - i;
+            int esperado = (int) pow(base, expoente);
+            if (matriz[i][j] != esperado) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
