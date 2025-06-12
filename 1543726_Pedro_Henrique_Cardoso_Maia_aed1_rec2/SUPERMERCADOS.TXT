@@ -1,0 +1,6 @@
+5
+MercadoA 101 9.99
+MercadoB 102 7.50
+MercadoC 103 12.30
+MercadoD 104 8.75
+MercadoE 105 11.00

@@ -8,6 +8,7 @@
 #include "myarray.h"
 #include "mymatriz.h"
 #include "supermercado.h"
+#include "myCharArray.h"
 
 #define MAX 100
 
@@ -134,21 +135,26 @@ void method_015( void ) {
     convertê-los para decimal mediante o uso de uma função.
     */
 
-    ref_int_Array arranjo = freadIntArray("BINARIO.txt");
+    ref_string_Array binarios = freadStringArray("BINARIOS1.TXT");
 
-    int decimal = convert_binary_to_decimal(arranjo);
+    printf("Conversão de binário para decimal:\n");
+    for (int i = 0; i < binarios->length; i++) {
+        if (isBinaryString(binarios->data[i])) {
+            int decimal = binaryToDecimal(binarios->data[i]);
+            printf("%s -> %d\n", binarios->data[i], decimal);
+        } else {
+            printf("%s -> inválido (não é binário)\n", binarios->data[i]);
+        }
+    }
 
-    printf("%d ", decimal);
+    free_string_Array(binarios);
 
 
     footer();
 }
 
 void method_016( void ) {
-    int n = 0;
-    ref_int_Matrix matriz = freadintMatrix("MATRIZ1.txt");
 
-<<<<<<< HEAD
     ref_int_Matrix original = freadintMatrix("DADOS3.txt");
 
     printf("Matriz original:\n");
@@ -172,14 +178,6 @@ void method_016( void ) {
 
     free_int_Matrix(original);
     free_int_Matrix(nova);
-=======
-    print("Insira n: ");
-    scanf("%d", &n); getchar();
-
-    gerarTridiagonal(n, matriz);
-
-    printIntMatrix(matriz);
->>>>>>> 3ee2213f4ea685d867f49141da305d0d71141152
 
     footer();
 }
@@ -227,10 +225,18 @@ void method_019( void ){
 }
 
 void method_020( void ) {
+    int n = 0;
+    ref_Supermercado supermercados = freadSupermercado("SUPERMERCADOS.TXT", &n);
 
-    ref_Supermercado sup = freadSupermercado("DADOS3.txt");
+    printf("Lista de supermercados:\n");
+    printSup(supermercados, n);
 
-    printSup(sup);
+    float media = calcularMedia(supermercados, n);
+    printf("\nPreco medio: %.2f\n", media);
+
+    abaixoDaMedia(supermercados, n, media);
+
+    free_sup(supermercados, n);
     
 
     footer();

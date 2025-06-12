@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define MAX 100
 #define STR_MAX 100
@@ -54,50 +55,26 @@ void free_string_Array(ref_string_Array tmpArray) {
     }
 }
 
-// Função para imprimir array de strings
-void printStringArray(ref_string_Array array) {
-    if (array->data) {
-        for (array->ix = 0; array->ix < array->length; array->ix++) {
-            printf("%2d: %s\n", array->ix, array->data[array->ix]);
+// Função para verificar se a string contém apenas 0 e 1
+bool isBinaryString(chars s) {
+    for (int i = 0; i < strlen(s); i++) {
+        if (s[i] != '0' && s[i] != '1') {
+            return false;
         }
     }
+    return true;
 }
 
-// Função para salvar array de strings em arquivo
-void fprintStringArray(chars fileName, ref_string_Array array) {
-    FILE* arquivo = fopen(fileName, "wt");
-
-    fprintf(arquivo, "%d\n", array->length);
-
-    if (array->data) {
-        for (array->ix = 0; array->ix < array->length; array->ix++) {
-            fprintf(arquivo, "%s\n", array->data[array->ix]);
-        }
+// Função para converter binário (em string) para decimal
+int binaryToDecimal(chars s) {
+    int decimal = 0;
+    for (int i = 0; i < strlen(s); i++) {
+        decimal = decimal * 2 + (s[i] - '0');
     }
-
-    fclose(arquivo);
+    return decimal;
 }
 
-// Função para ler o tamanho do array de strings a partir do arquivo
-int freadArraySize(chars fileName) {
-    int n = 0;
-    FILE* arquivo = fopen(fileName, "rt");
-
-    if (arquivo) {
-        fscanf(arquivo, "%d", &n);
-
-        if (n <= 0) {
-            printf("\nERRO: Valor invalido.\n");
-            n = 0;
-        }
-
-        fclose(arquivo);
-    }
-
-    return n;
-}
-
-// Função para ler o array de strings do arquivo
+// Função para ler strings do arquivo
 ref_string_Array freadStringArray(chars fileName) {
     int n = 0;
     FILE* arquivo = fopen(fileName, "rt");
@@ -125,3 +102,4 @@ ref_string_Array freadStringArray(chars fileName) {
 
     return array;
 }
+

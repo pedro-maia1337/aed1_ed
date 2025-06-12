@@ -207,30 +207,18 @@ ref_int_Matrix matrixTranspose(ref_int_Matrix matriz) {
     return transposta;
 }
 
-<<<<<<< HEAD
 void tridiagonalCrescente(ref_int_Matrix matriz) {
     int valor = 1;
     for (int i = 0; i < matriz->rows; i++) {
         for (int j = 0; j < matriz->columns; j++) {
             if (j == i || j == i - 1 || j == i + 1) {
                 matriz->data[i][j] = valor++;
-=======
-void gerarTridiagonal(int n, ref_int_Matrix matriz){
-    int valor = n * n;
-
-    for(int i = 0; i < n; i=i+1){
-        for(int j = 0; j < n;j=j+1){
-            if(j == i || j == i + 1) {
-                matriz->data[i][j] = valor;
-                valor = valor - 1;
->>>>>>> 3ee2213f4ea685d867f49141da305d0d71141152
             } else {
                 matriz->data[i][j] = 0;
             }
         }
     }
 }
-<<<<<<< HEAD
 
 // Função para gerar a nova matriz quadrada com x linhas e colunas, preenchendo com dados antigos e zero
 ref_int_Matrix gerarNovaMatriz(ref_int_Matrix original, int x) {
@@ -296,5 +284,3 @@ bool verificarPotenciasDecrescentes(ref_int_Matrix matriz) {
     }
     return true;
 }
-=======
->>>>>>> 3ee2213f4ea685d867f49141da305d0d71141152
