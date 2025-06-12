@@ -220,7 +220,7 @@ void tridiagonalCrescente(ref_int_Matrix matriz) {
     }
 }
 
-// Função para gerar a nova matriz quadrada com x linhas e colunas, preenchendo com dados antigos e zero
+
 ref_int_Matrix gerarNovaMatriz(ref_int_Matrix original, int x) {
     ref_int_Matrix nova = new_int_Matrix(x, x);
     int contador = 0;
@@ -256,9 +256,9 @@ void tridiagonalSecundariaDecrescente(ref_int_Matrix matriz) {
     }
 }
 
-bool verificarPotencias(ref_int_Matrix matriz) {
+bool verificaPotenciasMatriz(ref_int_Matrix matriz) {
     for (int j = 0; j < matriz->columns; j++) {
-        int base = matriz->data[1][j];  // Segunda linha define a base (pois primeira linha é sempre 1)
+        int base = matriz->data[1][j];  
 
         for (int i = 0; i < matriz->rows; i++) {
             int esperado = (int) pow(base, i);
@@ -272,7 +272,7 @@ bool verificarPotencias(ref_int_Matrix matriz) {
 
 bool verificarPotenciasDecrescentes(ref_int_Matrix matriz) {
     for (int j = 0; j < matriz->columns; j++) {
-        int base = matriz->data[matriz->rows - 2][j];  // penúltima linha indica a base (última linha é sempre 1)
+        int base = matriz->data[matriz->rows - 2][j];  
 
         for (int i = 0; i < matriz->rows; i++) {
             int expoente = matriz->rows - 1 - i;

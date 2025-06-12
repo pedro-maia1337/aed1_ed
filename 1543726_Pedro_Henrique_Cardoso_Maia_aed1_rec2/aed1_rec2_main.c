@@ -47,11 +47,13 @@ void method_011( void ) {
         print("O arranjo foi ordernado em ordem decrescente");
     }
 
+    free_int_Array(arranjo);
+
     footer();
 }
 
 
-void method_012( void ) {   // voltar
+void method_012( void ) {   
     
     /*
     FAZER um programa para: 
@@ -74,30 +76,14 @@ void method_012( void ) {   // voltar
 
     fprintIntArray("INVERTIDOS.txt", arranjo);
 
+    free_int_Array(arranjo);
+
     footer();
 }
 
 void method_013( void ) { // voltar
 
-    bool OK = false; 
-
-    double mediana = 0.0;
-
-    ref_int_Array arranjo = freadIntArray("DADOS2.txt");
-
-    printIntArray(arranjo);
-
-    OK = isArrayDecrescent(arranjo);
-
-    if(!OK) arranjo = sortDown(arranjo);
-
-    printf("\n");
-
-    printIntArray(arranjo);
-
-    mediana = arrayMediana(arranjo);
-
-    printf("%0.2lf", mediana);
+    
         
     footer();
 }
@@ -123,6 +109,9 @@ void method_014( void ) {
 
     fprintIntArray("FILTRADOS.txt", arranjo_filtrado);
 
+    free_int_Array(arranjo1);
+    free_int_Array(arranjo2);
+
     footer();
 }
 
@@ -135,15 +124,14 @@ void method_015( void ) {
     convertê-los para decimal mediante o uso de uma função.
     */
 
-    ref_string_Array binarios = freadStringArray("BINARIOS1.TXT");
+    ref_string_Array binarios = freadStringArray("BINARIO.TXT");
 
-    printf("Conversão de binário para decimal:\n");
     for (int i = 0; i < binarios->length; i++) {
         if (isBinaryString(binarios->data[i])) {
             int decimal = binaryToDecimal(binarios->data[i]);
-            printf("%s -> %d\n", binarios->data[i], decimal);
+            printf("%s = %d\n", binarios->data[i], decimal);
         } else {
-            printf("%s -> inválido (não é binário)\n", binarios->data[i]);
+            printf("%s -> inválido (nao e binário)\n", binarios->data[i]);
         }
     }
 
@@ -155,56 +143,71 @@ void method_015( void ) {
 
 void method_016( void ) {
 
-    ref_int_Matrix original = freadintMatrix("DADOS3.txt");
+    /*
+    - ler dados para matrizes do arquivo MATRIZ1.TXT;
+    - ler um número inteiro ( N ), por vez, para indicar
+    a quantidade de linhas e colunas de uma matriz quadrada;
+    - montar, mostrar e gravar no arquivo MATRIZ2.TXT 
+    uma matriz com a característica abaixo (tridiagonal crescente).
+    */
 
-    printf("Matriz original:\n");
-    printIntMatrix(original);
+    ref_int_Matrix matriz = freadintMatrix("DADOS3.txt");
+
+    printIntMatrix(matriz);
 
     int x;
-    printf("\nDigite o novo tamanho x da matriz quadrada: ");
+    print("\nDigite o tamanho x da matriz quadrada: ");
     scanf("%d", &x); getchar();
 
-    ref_int_Matrix nova = gerarNovaMatriz(original, x);
+    ref_int_Matrix nova = gerarNovaMatriz(matriz, x);
 
-    printf("\nMatriz quadrada formada (antes da tridiagonal):\n");
+    print("\nMatriz quadrada formada:\n");
     printIntMatrix(nova);
 
     tridiagonalCrescente(nova);
 
-    printf("\nMatriz tridiagonal crescente:\n");
+    print("\nMatriz tridiagonal crescente:\n");
     printIntMatrix(nova);
 
     fprintIntMatrix("MATRIZ2.TXT", nova);
 
-    free_int_Matrix(original);
+    free_int_Matrix(matriz);
     free_int_Matrix(nova);
 
     footer();
 }
 
 void method_017( void ) {
-    ref_int_Matrix original = freadintMatrix("DADOS3.txt");
+    /*
+    - ler dados para matrizes do arquivo MATRIZ1.TXT;
+    - ler um número inteiro ( N ), por vez, para indicar
+    a quantidade de linhas e colunas de uma matriz quadrada;
+    - montar, mostrar e gravar no arquivo MATRIZ2.TXT 
+    uma matriz com a característica abaixo
+    (tridiagonal secundária decrescente).
+    */
 
-    printf("Matriz original:\n");
-    printIntMatrix(original);
+    ref_int_Matrix matriz = freadintMatrix("DADOS3.txt");
+
+    printIntMatrix(matriz);
 
     int x;
-    printf("\nDigite o novo tamanho x da matriz quadrada: ");
+    print("\nDigite o tamanho x da matriz quadrada: ");
     scanf("%d", &x); getchar();
 
-    ref_int_Matrix nova = gerarNovaMatriz(original, x);
+    ref_int_Matrix nova = gerarNovaMatriz(matriz, x);
 
-    printf("\nMatriz quadrada formada (antes da tridiagonal):\n");
+    print("\nMatriz quadrada:\n");
     printIntMatrix(nova);
 
     tridiagonalSecundariaDecrescente(nova);
 
-    printf("\nMatriz tridiagonal Secundaria drecrescente:\n");
+    print("\nMatriz tridiagonal Secundaria drecrescente:\n");
     printIntMatrix(nova);
 
     fprintIntMatrix("MATRIZ3.TXT", nova);
 
-    free_int_Matrix(original);
+    free_int_Matrix(matriz);
     free_int_Matrix(nova);
 
     footer();
@@ -213,31 +216,80 @@ void method_017( void ) {
 }
 
 void method_018( void ) {
-    
+    /*
+    - ler matriz do arquivo MATRIZ4.TXT;
+    - definir uma função lógica para verificar e
+    testar se a matriz lida apresenta a característica abaixo (potências decrescentes por colunas).
+    */
 
+    bool OK = false;
+
+    ref_int_Matrix matriz = freadintMatrix("MATRIZ4.txt");
+
+    printIntMatrix(matriz);
+
+    OK = verificarPotenciasDecrescentes(matriz);
+
+    if(OK) {
+        print("A matriz possui a caracteristica potencias por colunas");
+    } else {
+        print("A matriz NAO possui a caracteristica potencias  por colunas");
+    }
+
+    free_int_Matrix(matriz);
+    
     footer();
 }
 
-void method_019( void ){
-    
+void method_019( void ) {
 
+    /*
+    - ler matriz do arquivo MATRIZ4.TXT;
+    - definir uma função lógica para verificar e
+    testar se a matriz lida apresenta a característica abaixo (potências decrescentes por colunas).  
+    */
+
+    bool OK = false;
+
+    ref_int_Matrix matriz = freadintMatrix("MATRIZ5.txt");
+
+    printIntMatrix(matriz);
+
+    OK = verificaPotenciasMatriz(matriz);
+
+    if(OK) {
+        print("A matriz possui a caracteristica potencias decrescentes por colunas");
+    } else {
+        print("A matriz NAO possui a caracteristica potencias decrescentes por colunas");
+    }
+
+    free_int_Matrix(matriz);
+    
     footer();
 }
 
 void method_020( void ) {
+    /*
+    - ler do arquivo DADOS3.TXT:
+    - um número inteiro ( N ) para indicar
+    a quantidade de supermercados cujos preços de produtos serão avaliados;
+    - o nome e o código (int) de cada supermercado;
+    - ler o preço de um produto de cada supermercado;
+    - calcular o preço médio desse produto;
+    - informar pelo menos dois supermercados com preços inferiores à média.
+    */
+   
     int n = 0;
     ref_Supermercado supermercados = freadSupermercado("SUPERMERCADOS.TXT", &n);
 
-    printf("Lista de supermercados:\n");
     printSup(supermercados, n);
 
-    float media = calcularMedia(supermercados, n);
+    float media = calc_media(supermercados, n);
     printf("\nPreco medio: %.2f\n", media);
 
-    abaixoDaMedia(supermercados, n, media);
+    abaixo_media(supermercados, n, media);
 
     free_sup(supermercados, n);
-    
 
     footer();
 }

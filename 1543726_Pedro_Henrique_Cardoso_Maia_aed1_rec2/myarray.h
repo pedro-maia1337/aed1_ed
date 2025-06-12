@@ -183,7 +183,7 @@ ref_int_Array sortDown(ref_int_Array arranjo) {
     int aux = 0;
     for(int i = 0; i < arranjo->length; i++){
         for(int x = 0; x < arranjo->length - 1; x=x+1){
-             if(arranjo->data[x] > arranjo->data[x + 1]){
+             if(arranjo->data[x] < arranjo->data[x + 1]){
                 aux = arranjo->data[x];
                 arranjo->data[x] = arranjo->data [x + 1];
                 arranjo->data[x + 1] = aux;
@@ -254,43 +254,3 @@ ref_int_Array array_filter(ref_int_Array arranjo1, ref_int_Array arranjo2) {
 
     return array;
 }
-
-/*int convert_binary_to_decimal(char *bin) {
-    int decimal = 0;
-    int len = strlen(bin);
-
-    for(int i = 0; i < len; i++){
-        decimal = decimal + pow(2, len) * (bin[i] - 48);
-        len = len - 1;
-    }
-
-    return decimal;
-}*/
-
-int convert_binary_to_decimal(ref_int_Array arranjo) {
-    //1 0 1 1 0 
-
-    // 1 * (2^4) = 16
-    // 0 * (2^3) = 0 
-    // 1 * (2^2_ = 4
-    // 1 * (2^1) = 2
-    // 0 * (2^0) = 0 
-
-    // 16 + 0 + 4 + 2 + 0 = 22
-
-    int decimal = 0;
-    double valor = 0.0;
-    double soma = 0.0;
-    int y = arranjo->length - 1;
-
-    for(int i = 0; i < arranjo->length; i++){
-        valor = arranjo->data[i] * pow(2, y);
-        soma = soma + valor;
-        y = y - 1;
-    }
-
-    decimal = soma;
-
-    return (int) decimal;
-}
-

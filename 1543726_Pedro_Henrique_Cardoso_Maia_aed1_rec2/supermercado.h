@@ -14,7 +14,6 @@ typedef struct s_Supermercado {
 
 typedef Supermercado* ref_Supermercado;
 
-// Função para alocar memória
 ref_Supermercado new_sup(int n) {
     ref_Supermercado sup = (ref_Supermercado) malloc(n * sizeof(Supermercado));
 
@@ -32,18 +31,17 @@ ref_Supermercado new_sup(int n) {
     return sup;
 }
 
-// Função para ler do arquivo
 ref_Supermercado freadSupermercado(chars fileName, int* n) {
     FILE* arquivo = fopen(fileName, "r");
 
     if (arquivo == NULL) {
-        printf("\nERRO: Não foi possível abrir o arquivo.\n");
+        printf("\nERRO: Nao foi possivel abrir o arquivo.\n");
         return NULL;
     }
 
     fscanf(arquivo, "%d", n);
     if (*n <= 0) {
-        printf("\nERRO: Valor inválido.\n");
+        printf("\nERRO: Valor invalido.\n");
         fclose(arquivo);
         return NULL;
     }
@@ -62,15 +60,13 @@ ref_Supermercado freadSupermercado(chars fileName, int* n) {
     return sup;
 }
 
-// Função para imprimir os dados
 void printSup(ref_Supermercado sup, int n) {
     for (int i = 0; i < n; i++) {
         printf("%s (Codigo: %d) - Preco: %.2f\n", sup[i].nome, sup[i].codigo, sup[i].preco);
     }
 }
 
-// Função para calcular a média
-float calcularMedia(ref_Supermercado sup, int n) {
+float calc_media(ref_Supermercado sup, int n) {
     float soma = 0.0;
     for (int i = 0; i < n; i++) {
         soma += sup[i].preco;
@@ -78,10 +74,9 @@ float calcularMedia(ref_Supermercado sup, int n) {
     return soma / n;
 }
 
-// Função para mostrar supermercados com preço inferior à média
-void abaixoDaMedia(ref_Supermercado sup, int n, float media) {
+void abaixo_media(ref_Supermercado sup, int n, float media) {
     int contador = 0;
-    printf("\nSupermercados com preço abaixo da média:\n");
+    printf("\nSupermercados com preco abaixo da media:\n");
     for (int i = 0; i < n; i++) {
         if (sup[i].preco < media) {
             printf("%s (Codigo: %d) - Preco: %.2f\n", sup[i].nome, sup[i].codigo, sup[i].preco);
@@ -90,11 +85,11 @@ void abaixoDaMedia(ref_Supermercado sup, int n, float media) {
     }
     
     if (contador < 2) {
-        printf("\nATENÇÃO: Menos de dois supermercados estão abaixo da média.\n");
+        printf("\nMenos de dois supermercados estao abaixo da media.\n");
     }
 }
 
-// Função para liberar memória
+
 void free_sup(ref_Supermercado sup, int n) {
     if (sup != NULL) {
         for (int i = 0; i < n; i++) {

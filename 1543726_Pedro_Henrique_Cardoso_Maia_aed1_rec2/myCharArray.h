@@ -17,7 +17,6 @@ typedef struct s_string_Array {
 
 typedef string_Array* ref_string_Array;
 
-// Função para alocar array de strings
 ref_string_Array new_string_Array(int n) {
     ref_string_Array tmpArray = (ref_string_Array) malloc(sizeof(string_Array));
 
@@ -42,7 +41,6 @@ ref_string_Array new_string_Array(int n) {
     return tmpArray;
 }
 
-// Função para liberar memória
 void free_string_Array(ref_string_Array tmpArray) {
     if (tmpArray != NULL) {
         if (tmpArray->data != NULL) {
@@ -55,26 +53,6 @@ void free_string_Array(ref_string_Array tmpArray) {
     }
 }
 
-// Função para verificar se a string contém apenas 0 e 1
-bool isBinaryString(chars s) {
-    for (int i = 0; i < strlen(s); i++) {
-        if (s[i] != '0' && s[i] != '1') {
-            return false;
-        }
-    }
-    return true;
-}
-
-// Função para converter binário (em string) para decimal
-int binaryToDecimal(chars s) {
-    int decimal = 0;
-    for (int i = 0; i < strlen(s); i++) {
-        decimal = decimal * 2 + (s[i] - '0');
-    }
-    return decimal;
-}
-
-// Função para ler strings do arquivo
 ref_string_Array freadStringArray(chars fileName) {
     int n = 0;
     FILE* arquivo = fopen(fileName, "rt");
@@ -102,4 +80,24 @@ ref_string_Array freadStringArray(chars fileName) {
 
     return array;
 }
+
+
+bool isBinaryString(chars s) {
+    for (int i = 0; i < strlen(s); i++) {
+        if (s[i] != '0' && s[i] != '1') {
+            return false;
+        }
+    }
+    return true;
+}
+
+int binaryToDecimal(chars s) {
+    int decimal = 0;
+    for (int i = 0; i < strlen(s); i++) {
+        decimal = decimal * 2 + (s[i] - '0');
+    }
+    return decimal;
+}
+
+
 

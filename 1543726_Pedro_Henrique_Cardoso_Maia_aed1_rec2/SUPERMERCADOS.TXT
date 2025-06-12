@@ -1,6 +1,6 @@
 5
-MercadoA 101 9.99
-MercadoB 102 7.50
-MercadoC 103 12.30
-MercadoD 104 8.75
-MercadoE 105 11.00
+BH 01 10.00
+Supernosso 02 9.50
+Epa 03 12.30
+Carrefour 04 7.55
+PaoDeAcucar 05 12.00
