@@ -2,8 +2,6 @@
 #include <limits> // std::numeric_limits
 #include <string>
 
-#include "myarray.hpp"
-#include "mymatriz.hpp"
 #include "mycat.hpp"
 
 using namespace std;
@@ -20,33 +18,83 @@ void pause ( std::string text )
 
 
 void method_1501 () {
-
+    //Adicionar no final
     string str;
+    char cad[256];
 
-    cout << "Insira a cadeia de caracteres";
+    cout << "Insira a cadeia de caracteres: ";
     cin.ignore();
-    getline( cin,  str);
+    getline( cin, str);
 
-    //Cat.str_push_back(*str, 'c');
-    
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+    cout << cat.str_push_back(cad, 'c');
 
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1502 () {
-    
-    
+    //Remove do final 
+    string str;
+    char cad[256];
+
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+    cout << cat.str_pop_back(cad);
+
     pause ( "Apertar ENTER para continuar" );
+    
 }
 
 void method_1503 () {
+    //Adiciona no inicio 
+    string str;
+    char cad[256];
+
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
     
-      
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+    cout << cat.str_push_front(cad, 'c');
+
     pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1504 () {
+    //Remove o inicio
+    string str;
+    char cad[256];
+
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
+    
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+    cout << cat.str_pop_front(cad);
 
     
 
@@ -55,42 +103,132 @@ void method_1504 () {
 }
 
 void method_1505 () {
-    
-    
+    //Adiciona no meio
+    string str;
+    char cad[256];
+
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+
+    cout << cat.str_push_mid(cad, 'c');
+
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1506 () {
-    
-    
+    //Remove do meio
+    string str;
+    char cad[256];
 
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+    cout << cat.str_pop_mid(cad);
+    
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1507 () {
-    
+    //Insire o indice 
+    string str;
+    char cad[256];
 
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+
+    cout << cat.str_insert(cad, 'c', 3);
+    
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1508 () {
-    
+    //Remove no indice
+    string str;
+    char cad[256];
 
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+
+    cout << cat.str_remove(cad, 3);
+    
     pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1509 () {
-    
-    
+    //Procura elemento 
+    string str;
+    char cad[256];
+    char *test;
 
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
+    ;
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+
+    test = cat.str_chr(cad, 'c');
+
+    if(test != nullptr) {
+        cout << "Encontrado" << endl;
+    } else {
+        cout << "Nao Encontrado" << endl;
+    }
+    
     pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1510 () {
-    
+    //Split
+    string str;
+    char cad[256];
 
+    cout << "Insira a cadeia de caracteres: ";
+    cin.ignore();
+    getline( cin, str);
+
+    str.copy(cad, str.length());
+
+    Cat <char> cat;
+
+    cout << "Cadeia Atualizada: ";
+
+    cout << cat.str_tok(cad, ',');
+    
     pause ( "Apertar ENTER para continuar" );
 }
 
