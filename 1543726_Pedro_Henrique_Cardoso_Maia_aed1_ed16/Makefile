@@ -7,8 +7,8 @@ CFLAGS = -Wall -g
 # Arquivos de origem
 SRC = aed1_ed16_main.cpp
 
-# Arquivos de cabeçalho
-HEADERS = array.h
+# Arquivos de cabeçalho 
+HEADERS = array.hpp
 
 # Arquivos objeto gerados
 OBJ = aed1_ed16_main.o 
@@ -21,7 +21,7 @@ all: $(TARGET)
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJ)
 
-%.o: %.c array.h
+%.o: %.cpp array.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

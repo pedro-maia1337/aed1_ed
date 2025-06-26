@@ -1,10 +1,25 @@
+#ifndef _ARRAY_HPP_
+#define _ARRAY_HPP_
+
+using std::cin ; // para entrada
+using std::cout; // para saida
+using std::endl; // para mudar de linha
+#include <iomanip>
+using std::setw; // para definir espacamento
+#include <string>
+using std::string; // para cadeia de caracteres
+#include <fstream>
+using std::ofstream; // para gravar arquivo
+using std::ifstream ; // para ler arquivo
+#include <ctime>
+#include <random>
+#include <string.h>
+
+
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <string.h>
-#include "io.h"
-#include <stdbool.h>
-#include <time.h>
 
 #define MAX 100
 
@@ -53,7 +68,7 @@ void free_int_Array ( ref_int_Array tmpArray ) {
 
 void printIntArray ( ref_int_Array array ) {
     if ( array->data ) {
-        for ( array->ix=1; array->ix<array->length; array->ix=array->ix+1 ) {
+        for ( array->ix=0; array->ix<array->length; array->ix=array->ix+1 ) {
             printf ( "%2d: %d\n", array->ix, array->data [ array->ix ] );
         } 
     } 
@@ -119,17 +134,6 @@ int_Array freadIntArray(chars fileName) {
     return *array; 
 }
 
-int RandomIntGenerate ( int inferior, int superior ) { 
-
-    srand(time(NULL));
-
-    int random = 0;
-
-    random = inferior + (rand() % (superior - inferior + 1));
-
-    return random;
-}
-
 bool arraySearch(int valor, int_Array arranjo) {
     for (int i = 0; i < arranjo.length; i++) {
         if (arranjo.data[i] == valor) {
@@ -168,14 +172,12 @@ ref_int_Array arrayAdd(int_Array arranjo1, int constante, int_Array arranjo2 ) {
     return result;
 }
 
-ref_int_Array arrayFill(int n) {
-    ref_int_Array arranjo = new_int_Array(n);
-
-    for (int i = 0; i < n; i=i+1) {
-        arranjo->data[i] = i;
+ref_int_Array arrayFill(ref_int_Array array) {
+    for (int i = 0; i < array->length; i=i+1) {
+        array->data[i] = i + 1;
     }
 
-    return arranjo;
+    return array;
 }
 
 bool isArrayDecrescent(int_Array arranjo) {
@@ -187,3 +189,11 @@ bool isArrayDecrescent(int_Array arranjo) {
 
     return true;
 }
+
+ref_int_Array array_push_back ( ref_int_Array array, int value ) {
+    array->data[array->length + 1] = value;
+
+    return array;
+}
+
+#endif

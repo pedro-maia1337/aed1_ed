@@ -1,7 +1,7 @@
 #include <iostream>
 #include <limits> // std::numeric_limits
 #include <string>
-#include "array.h"
+#include "array.hpp"
 
 #define MAX_SIZE 256
 
@@ -21,7 +21,19 @@ void pause ( std::string text )
 void method_1501 () {
 
     //Adaptar de acordo com cada enunciado, modificando o array.h (por ref ou não)
-    
+
+    ref_int_Array arranjo = new_int_Array(5);
+
+    arranjo = arrayFill(arranjo);
+
+    printIntArray(arranjo);
+
+    arranjo = array_push_back(arranjo, 6);
+
+    cout << "\n";
+
+    printIntArray(arranjo);
+
 
     pause ( "Apertar ENTER para continuar" );
 }
