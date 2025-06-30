@@ -485,6 +485,40 @@ ref_int_Array intArray_sub(ref_int_Array a, int start, int size) {
 
     return tmpArray;
 }
+
+ref_int_Array intArray_merge(ref_int_Array p, ref_int_Array q) {
+
+    int tmp_len = p->length + q->length;
+    ref_int_Array tmp_array = new_int_Array(tmp_len);
+
+    if(p == nullptr || q == nullptr) {
+        cout << "Nao foi possivel acessar o array";
+        return nullptr;
+    } else {
+        int min_length = 0;
+        p->length < q->length ? min_length = p->length : min_length = q->length;
+
+        int ip = 0;
+        int iq = 0;
+
+        for(int i = 0; i < tmp_len; i = i + 1) {
+            if(ip <= p->length) {
+                tmp_array->data[i] = p->data[ip];
+                ip = ip + 1;
+            }
+
+            i = i + 1;
+
+            if(iq <= q->length) {
+                tmp_array->data[i] = p->data[iq];
+                iq = iq + 1;
+            }
+        }
+    }
+
+    
+    return tmp_array;
+}
  
 
 #endif

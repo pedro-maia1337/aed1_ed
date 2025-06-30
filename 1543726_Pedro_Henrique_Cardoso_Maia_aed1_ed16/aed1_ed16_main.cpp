@@ -222,6 +222,28 @@ void method_1510 () {
     pause ( "Apertar ENTER para continuar" );
 }
 
+void method_15E1 () {
+    ref_int_Array arranjo1 = new_int_Array(3);
+    ref_int_Array arranjo2 = new_int_Array(5);
+
+    arranjo1 = arrayFill(arranjo1);
+    arranjo2 = arrayFill(arranjo2);
+
+    ref_int_Array arranjo3 = intArray_merge(arranjo1, arranjo2);
+
+    printIntArray(arranjo1);
+    cout << "\n";
+    printIntArray(arranjo2);
+    cout << "\n";
+    printIntArray(arranjo3);
+    cout << "\n";
+
+    free_int_Array(arranjo1);
+    free_int_Array(arranjo2);
+    free_int_Array(arranjo3);
+    
+    pause ( "Apertar ENTER para continuar" );
+}
 
 int main(int argc, char** argv) {
     int x = 0;
@@ -242,6 +264,7 @@ int main(int argc, char** argv) {
         cout << "8   -  Procedimento 1208" << endl;
         cout << "9   -  Procedimento 1209" << endl;
         cout << "10  -  Procedimento 1210" << endl;
+        cout << "11  -  Procedimento 15E1" << endl;
 
         // ler do teclado
         cout << endl << "Entrar com uma opcao: ";
@@ -259,6 +282,7 @@ int main(int argc, char** argv) {
             case 8:     method_1508 ( ); break;
             case 9:     method_1509 ( ); break;
             case 10:    method_1510 ( ); break;
+            case 11:    method_15E1 ( ); break;
             case 0:     
             cout << "Pressione Enter para Sair" << endl; break;
             default:
