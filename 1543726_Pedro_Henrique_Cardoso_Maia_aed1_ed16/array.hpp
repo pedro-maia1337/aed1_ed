@@ -15,7 +15,6 @@ using std::ifstream ; // para ler arquivo
 #include <random>
 #include <string.h>
 
-
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,6 +29,7 @@ typedef struct s_int_Array {
     int length;
     ints data;
     int ix ;
+    int capacity;
 }int_Array;
 
 typedef int_Array* ref_int_Array; //ref
@@ -45,11 +45,13 @@ ref_int_Array new_int_Array ( int n ) {
         tmpArray->length = 0;
         tmpArray->data = NULL;
         tmpArray->ix = -1;
+        tmpArray->capacity = n > 0 ? n : 1;
 
         if( n > 0 ) {  
             tmpArray->length = n;
-            tmpArray->data = (ints) malloc (n * sizeof(int));
+            tmpArray->data = (int*) malloc(tmpArray->capacity * sizeof(int));
             tmpArray->ix = 0;
+            tmpArray->capacity = n;
         } 
     } 
 
@@ -191,9 +193,298 @@ bool isArrayDecrescent(int_Array arranjo) {
 }
 
 ref_int_Array array_push_back ( ref_int_Array array, int value ) {
-    array->data[array->length + 1] = value;
+    //validar capacidade
+    //definir nova capacidade
+    //redefinir dados com realloc 
+    //adicionar valor
+    //redefinir capacidade
+    //redefinir o apontador 
+
+    if(array == nullptr) {
+        cout << "Nao foi possivel acessar o arranjo";
+        return nullptr;
+    }
+
+    if(array->length >= array->capacity) {
+
+        int new_capacity = array->capacity + 1;
+        int *temp = (int *)realloc(array->data, new_capacity * sizeof(int));
+
+        if(temp == nullptr) {
+            cout << "Nao foi possivel realocar memoria";
+            return nullptr;
+        }
+
+        array->data = temp;
+        array->capacity = new_capacity;
+    } else {
+        cout << "Erro....";
+        return nullptr;
+    }
+
+    array->data[array->length] = value;
+    array->length = array->length + 1;
 
     return array;
 }
+
+ref_int_Array array_pop_back ( ref_int_Array array) {
+    if(array == nullptr) {
+        cout << "Nao foi possivel acessar o arranjo";
+        return nullptr;
+    }
+
+    if(array->length > 0) {
+
+        int new_capacity = array->capacity - 1;
+        int *temp = (int *)realloc(array->data, new_capacity * sizeof(int));
+
+        if(temp == nullptr) {
+            cout << "Nao foi possivel realocar memoria";
+            return nullptr;
+        }
+
+        array->data = temp;
+        array->capacity = new_capacity;
+    } else {
+        cout << "Erro....";
+        return nullptr;
+    }
+
+    array->data[array->length - 1] = 0;
+    array->length = array->length - 1;
+
+    return array;
+}
+
+ref_int_Array array_push_front ( ref_int_Array array, int value ) {
+    //validar capacidade
+    //definir nova capacidade
+    //redefinir dados com realloc 
+    //deslocar os valores para DIREITA
+    //adicionar valor
+    //redefinir capacidade
+    //redefinir o apontador 
+
+    // voltar provavelmente tem que mover e aumentar o tamanho primeiro 
+
+    if(array == nullptr) {
+        cout << "Nao foi possivel acessar o arranjo";
+        return nullptr;
+    }
+
+    if(array->length >= array->capacity) {
+        array->length = array->length + 1;
+
+        int new_capacity = array->capacity + 1;
+        int *temp = (int *)realloc(array->data, new_capacity * sizeof(int));
+
+        if(temp == nullptr) {
+            cout << "Nao foi possivel realocar memoria";
+            return nullptr;
+        }
+
+        array->data = temp;
+        array->capacity = new_capacity;
+
+    } else {
+        cout << "Erro...."; //mudar mensagem de erro 
+        return nullptr;
+    }
+
+    for ( array->ix = array->length - 1; array->ix >= 0; array->ix = array->ix-  1 ) { 
+        array->data[ array->ix + 1] = array->data[ array->ix ];
+    } 
+    array->data[0] = value;
+
+    return array;
+}
+
+ref_int_Array array_pop_front ( ref_int_Array array) {
+    if(array == nullptr) {
+        cout << "Nao foi possivel acessar o arranjo";
+        return nullptr;
+    }
+
+    if(array->length > 0) {
+
+        //Mover primeiro depois realocar
+
+        for ( array->ix = 0 ; array->ix <= array->length; array->ix = array->ix+1 ) { 
+            array->data[ array->ix - 1] = array->data[ array->ix ];
+        } 
+ 
+        array->length = array->length - 1;
+
+        int new_capacity = array->capacity - 1;
+        int *temp = (int *)realloc(array->data, new_capacity * sizeof(int));
+
+        if(temp != nullptr) {  //manter os dados
+            array->data = temp;
+            array->capacity = new_capacity;
+        }
+
+    } else {
+        cout << "Erro....";
+        return nullptr;
+    }
+
+    return array;
+}
+
+ref_int_Array array_push_mid ( ref_int_Array array, int value) {
+    int apt = array->length / 2;
+
+
+    if(array == nullptr) {
+        cout << "Nao foi possivel acessar o arranjo";
+        return nullptr;
+    }
+
+    if(array->length >= array->capacity) {
+        int new_capacity = array->capacity + 1;
+        int *temp = (int *)realloc(array->data, new_capacity * sizeof(int));
+
+        if(temp != nullptr) {  //manter os dados
+            array->data = temp;
+            array->capacity = new_capacity;
+        }
+
+        for ( array->ix = array->length - 1; array->ix >= apt ; array->ix = array->ix - 1 ) { 
+            array->data[ array->ix + 1] = array->data[ array->ix ];
+        } 
+
+        array->data[apt] = value;
+
+        array->length = array->length + 1;
+
+    } else {
+        cout << "Erro....";
+        return nullptr;
+    }
+
+    return array;
+}
+
+ref_int_Array array_pop_mid ( ref_int_Array array ) {
+    if(array == nullptr) {
+        cout << "Nao foi possivel acessar o arranjo";
+        return nullptr;
+    }
+
+    if(array->length > 0) {
+
+        int apt = array->length / 2;
+
+        //Mover primeiro depois realocar
+
+        for ( array->ix = apt ; array->ix <= array->length ; array->ix = array->ix + 1 ) { 
+            array->data[ array->ix] = array->data[ array->ix + 1];
+        } 
+ 
+        array->length = array->length - 1;
+
+        int new_capacity = array->capacity - 1;
+        int *temp = (int *)realloc(array->data, new_capacity * sizeof(int));
+
+        if(temp != nullptr) {  //manter os dados
+            array->data = temp;
+            array->capacity = new_capacity;
+        }
+
+    } else {
+        cout << "Erro....";
+        return nullptr;
+    }
+
+    return array;
+}
+
+int intArray_cmp( ref_int_Array p, ref_int_Array q) {
+    int flag = 0;
+    int min = 0;
+
+    if(p == nullptr || q == nullptr) {
+        cout << "Nao foi possivel acessar o array";
+        return 0;
+    } else {
+        p->length < q->length ? min = p->length : min = q->length;
+
+        for(int i = 0; i > min; i++){
+            flag = p->data[i] - q->data[i];
+            if(flag != 0) return flag;
+        }
+    }
+
+    return p->length - q->length;
+}
+
+ref_int_Array intArray_cat ( ref_int_Array p, ref_int_Array q ) {
+    if(p == nullptr || q == nullptr) {
+        cout << "Nao foi possivel acessar o array";
+        return nullptr;
+    } 
+
+    int tmp_len = p->length + q->length;
+    ref_int_Array tmpArray = new_int_Array(tmp_len);
+    int count = 0;
+    
+    if(tmpArray == nullptr) {
+        cout << "Nao foi possivel alocar o novo array";
+        return nullptr;
+    }
+
+    for(int i = 0; i < p->length; i = i + 1){
+        tmpArray->data[i] = p->data[i];
+    }
+
+    for(int i = p->length; i < tmp_len; i = i + 1){
+        tmpArray->data[i] = q->data[count];
+        count = count + 1;
+    }
+        
+    return tmpArray;
+}
+
+ref_int_Array intArray_seek ( ref_int_Array array, int x ) {
+    if(array == nullptr || array->data == nullptr) {
+        cout << "Array nao possui dados";
+        return nullptr;
+    }
+
+    for(array->ix = 0 ; array->ix < array->length ; array->ix = array->ix + 1) {
+        if(array->data[ array->ix ] == x) {
+            return array;
+        }
+    }
+
+    return nullptr;
+}
+ 
+
+ref_int_Array intArray_sub(ref_int_Array a, int start, int size) {
+    if (a == nullptr || a->data == nullptr) {
+        printf("Erro: arranjo nulo ou dados nao inicializados.\n");
+        return nullptr;
+    }
+
+    if (start < 0 || size < 0 || (start + size) > a->length) {
+        cout << "Intervalo invalido";
+        return nullptr;
+    }
+
+    ref_int_Array tmpArray = new_int_Array(size);
+    if (tmpArray == nullptr) {
+        cout << "Nao foi possivel alocar o novo array";
+        return nullptr;
+    }
+
+    for (int i = 0; i < size; i++) {
+        tmpArray->data[i] = a->data[start + i];
+    }
+
+    return tmpArray;
+}
+ 
 
 #endif

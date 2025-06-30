@@ -3,6 +3,8 @@
 #include <string>
 #include "array.hpp"
 
+//Implementando a linguagem c+
+
 #define MAX_SIZE 256
 
 using namespace std;
@@ -19,78 +21,203 @@ void pause ( std::string text )
 
 
 void method_1501 () {
-
-    //Adaptar de acordo com cada enunciado, modificando o array.h (por ref ou não)
-
     ref_int_Array arranjo = new_int_Array(5);
 
     arranjo = arrayFill(arranjo);
 
     printIntArray(arranjo);
 
-    arranjo = array_push_back(arranjo, 6);
+    array_push_back(arranjo, 6);
+    array_push_back(arranjo, 7);
+    array_push_back(arranjo, 8);
 
     cout << "\n";
 
     printIntArray(arranjo);
 
+    free_int_Array(arranjo);
 
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1502 () {
-    
+    ref_int_Array arranjo = new_int_Array(5);
 
-    pause ( "Apertar ENTER para continuar" );
+    arranjo = arrayFill(arranjo);
+
+    printIntArray(arranjo);
+
+    array_pop_back(arranjo);
+
+    cout << "\n";
+    printIntArray(arranjo);
     
+    free_int_Array(arranjo);
+
+    pause ( "Apertar ENTER para continuar" ); 
 }
 
 void method_1503 () {
-    
+    ref_int_Array arranjo = new_int_Array(5);
+
+    arranjo = arrayFill(arranjo);
+
+    printIntArray(arranjo);
+
+    array_push_front(arranjo, 30);
+    array_push_front(arranjo, 40);
+    array_push_front(arranjo, 50);
+
+    cout << "\n";
+    printIntArray(arranjo);
+
+    free_int_Array(arranjo);
 
     pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1504 () { 
+    ref_int_Array arranjo = new_int_Array(5);
+
+    arranjo = arrayFill(arranjo);
+
+    printIntArray(arranjo);
+
+    array_pop_front(arranjo);
+    array_pop_front(arranjo);
+    array_pop_front(arranjo);
+
+    cout << "\n";
+    printIntArray(arranjo);
+    
+    free_int_Array(arranjo);
 
     pause ( "Apertar ENTER para continuar" );
-
 }
 
 void method_1505 () {
-    
+    ref_int_Array arranjo = new_int_Array(5);
+
+    arranjo = arrayFill(arranjo);
+
+    printIntArray(arranjo);
+
+    array_push_mid(arranjo, 30);
+    array_push_mid(arranjo, 40);
+    array_push_mid(arranjo, 50);
+
+    cout << "\n";
+    printIntArray(arranjo);
+
+    free_int_Array(arranjo);
 
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1506 () {
+    ref_int_Array arranjo = new_int_Array(5);
+
+    arranjo = arrayFill(arranjo);
+
+    printIntArray(arranjo);
+
+    array_pop_mid(arranjo);
+
+    cout << "\n";
+    printIntArray(arranjo);
     
+    free_int_Array(arranjo);
     
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1507 () {
-    
+    ref_int_Array arranjo1 = new_int_Array(5);
+    ref_int_Array arranjo2 = new_int_Array(5);
+    int result = 0;
+
+    arranjo1 = arrayFill(arranjo1);
+    arranjo2 = arrayFill(arranjo2);
+
+    array_push_back(arranjo2, 10);
+
+    printIntArray(arranjo1);
+    cout << "\n";
+    printIntArray(arranjo2);
+    cout << "\n";
+
+    result = intArray_cmp(arranjo1, arranjo2);
+
+    if(result == 0) cout << "Arranjos iguais";
+    if(result < 0)  cout << "Primeiro arranjo menor que o segundo";
+    if(result > 0 ) cout << "Primeiro arranjo maior que o segundo";
+
+    free_int_Array(arranjo1);
+    free_int_Array(arranjo2);
+
     pause ( "Apertar ENTER para continuar" );
 }
 
 void method_1508 () {
-    
+    ref_int_Array arranjo1 = new_int_Array(5);
+    ref_int_Array arranjo2 = new_int_Array(5);
+
+    arranjo1 = arrayFill(arranjo1);
+    arranjo2 = arrayFill(arranjo2);
+
+    ref_int_Array arranjo3 = intArray_cat(arranjo1, arranjo2);
+
+    printIntArray(arranjo1);
+    cout << "\n";
+    printIntArray(arranjo2);
+    cout << "\n";
+    printIntArray(arranjo3);
+    cout << "\n";
+
+    free_int_Array(arranjo1);
+    free_int_Array(arranjo2);
+    free_int_Array(arranjo3);
     
     pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1509 () {
+    ref_int_Array arranjo = new_int_Array(5);
+
+    arranjo = arrayFill(arranjo);
     
+    ref_int_Array inst = intArray_seek(arranjo, 2);
+
+    printIntArray(arranjo);
+    cout << "\n";
+
+    if(inst != nullptr) {
+        cout << "Valor encontrado no arranjo";
+    } else {
+        cout << "Valor NAO encontrado no arranjo";
+    }
+
+    free_int_Array(arranjo);
     
     pause ( "Apertar ENTER para continuar" );
 }
 
 
 void method_1510 () {
+    ref_int_Array arranjo = new_int_Array(5);
+
+    arranjo = arrayFill(arranjo);
     
+    ref_int_Array s = intArray_sub(arranjo, 1, 2);
+
+    printIntArray(arranjo);
+    cout << "\n";
+    printIntArray(s);
+    cout << "\n";
+
+    free_int_Array(arranjo);
     
     pause ( "Apertar ENTER para continuar" );
 }
